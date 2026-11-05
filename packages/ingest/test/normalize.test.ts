@@ -72,3 +72,21 @@ describe("identifiers survive normalisation", () => {
     expect(l.isOriginalPackager).toBe(false);
   });
 });
+
+// Patterns found in the full openFDA labels on 2026-11-05 that the excerpts hid.
+describe("parseForm: real-label traps", () => {
+  it("does not read the manufacturer 'Dr. Reddy's' as delayed-release", () => {
+    expect(parseForm("Amiodarone Hydrochloride Tablets, USP 200 mg Dr. Reddy’s Laboratories Inc.", ["ORAL"]).release).toBe("IR");
+  });
+  it("ignores negated routes: 'not for inhalation, injection or ophthalmic use'", () => {
+    const f = parseForm("TIROSINT-SOL oral solution 13 mcg/mL. For oral use only – not for inhalation, injection or ophthalmic use.", ["ORAL"]);
+    expect(f).toEqual({ dosageForm: "oral_solution", release: "n/a", confidence: "high" });
+  });
+  it("does not take injection words from text when the route is known to be oral", () => {
+    expect(parseForm("tablets. Dispense in a vial or bottle.", ["ORAL"]).dosageForm).toBe("tablet");
+  });
+  it("ignores the SPL shape code after an imprint: 'LOPRESSOR;458;458 CAPSULE'", () => {
+    const f = parseForm("Lopressor tablets 50 mg pink LOPRESSOR;458;458 CAPSULE metoprolol tartrate", ["ORAL"]);
+    expect(f).toEqual({ dosageForm: "tablet", release: "IR", confidence: "high" });
+  });
+});

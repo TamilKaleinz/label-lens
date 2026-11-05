@@ -32,6 +32,7 @@ Label Lens answers questions about an FDA drug label, adjusted to the role of th
 - [Product Requirements Document](docs/PRD.md): intended use, roles, feature specs with requirement-to-test traceability, metrics, release plan and decision log
 - [Solution architecture](docs/architecture.md): how the requirements led to the design, plus the high-level design, low-level design and deployment
 - [Data check, 2026-11-05](docs/data-check-2026-11-05.md): what the openFDA data actually looks like, and the scoping decisions it forced
+- [What the real labels taught the parser](docs/ingestion-findings-2026-11-05.md): six bugs the excerpts hid, and how golden files now catch them
 - [Demo drug set](docs/demo-drug-set.md): 19 labels chosen for their edge cases, each pinned by NDC, SPL ID and date, with 48 eval cases
 
 ### Code
@@ -41,12 +42,14 @@ Label Lens answers questions about an FDA drug label, adjusted to the role of th
 | `packages/ingest` | Normalises openFDA label records: format, dosage form, release type, Recent Major Changes, sections and subsections |
 | `packages/core` | The label resolver (exact NDC first, then equivalence groups, then ask) and the PV provisional rule |
 | `evals/` | The demo set, eval cases, and the resolver eval runner with its reports |
-| `fixtures/` | Label excerpts for the demo set, used by tests and evals |
+| `fixtures/` | Label excerpts for the resolver evals, and the full openFDA records for the golden-file tests (`fixtures/full/`) |
 
 ```bash
 npm ci
-npm test               # unit tests
+npm test               # unit and golden-file tests (70)
 npm run eval:resolver  # resolver eval; fails on any wrong label or provisional flag
+npm run ingest:fetch   # re-download the pinned labels from openFDA; exits 2 on label drift
+npm run golden:update  # regenerate golden snapshots after a reviewed label change
 ```
 
 Latest resolver eval: [30 of 30 cases pass](evals/reports/resolver-2026-11-05.md).

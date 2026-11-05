@@ -39,10 +39,19 @@ export function classifyFormat(r: OpenFdaRecord): LabelFormat {
  * "capsule-shaped" describes tablets and is ignored.
  */
 export function parseForm(text: string, routes: string[] = []): { dosageForm: DosageForm; release: Release; confidence: "high" | "low" } {
-  const t = text.toLowerCase().replace(/capsule[- ]shaped/g, " ");
+  const t = text
+    .toLowerCase()
+    .replace(/capsule[- ]shaped/g, " ")
+    // SPL product data lists the tablet's shape after its imprint code: "LOPRESSOR;458;458 CAPSULE".
+    .replace(/\S+;\S*\s+capsule\b/g, " ")
+    // "Dr. Reddy's" is a manufacturer, not a delayed-release marker.
+    .replace(/\bdr\.\s/g, " ")
+    // Negated mentions: "not for inhalation, injection or ophthalmic use".
+    .replace(/\bnot for [^.]*?\buse\b/g, " ");
   const parenteral = routes.some((r) => /subcutaneous|intravenous|intramuscular/i.test(r));
+  const routeKnownNonParenteral = routes.length > 0 && !parenteral;
   const found = new Set<DosageForm>();
-  if (parenteral || /\binjection\b|\bsyringe\b|\bpen\b|\bvial\b/.test(t)) found.add("injection");
+  if (parenteral || (!routeKnownNonParenteral && /\binjection\b|\bsyringe\b|\bpen\b|\bvial\b/.test(t))) found.add("injection");
   if (/\boral solution\b/.test(t)) found.add("oral_solution");
   if (/\bcapsules?\b/.test(t)) found.add("capsule");
   if (/\btablets?\b/.test(t)) found.add("tablet");

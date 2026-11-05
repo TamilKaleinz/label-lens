@@ -1,0 +1,25 @@
+name: Nightly label drift
+
+# Re-downloads every pinned demo label from openFDA, then runs the golden-file tests.
+# Fails when a label has a new version (fetch exits 2) or no longer normalises to its snapshot.
+on:
+  schedule:
+    - cron: "17 2 * * *"
+  workflow_dispatch:
+
+jobs:
+  drift:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Fetch pinned labels from openFDA
+        run: npx tsx packages/ingest/src/fetch.ts
+        env:
+          OPENFDA_API_KEY: ${{ secrets.OPENFDA_API_KEY }}
+      - run: npm test
+      - run: npm run eval:resolver

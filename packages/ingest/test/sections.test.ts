@@ -43,3 +43,29 @@ describe("sectionsOf", () => {
     expect(s.map((x) => x.code)).toEqual(["BW", "4", "5", "5.1", "5.2", "5.3", "5.4"]);
   });
 });
+
+// Patterns found in the full openFDA labels on 2026-11-05 that the excerpts hid.
+describe("subsection splitting: real-label traps", () => {
+  const codes = (t: string, n: string) => splitSubsections(t, n).map((s) => s.code);
+  it("accepts a space after the dot: '5. 2 Cardiac Adverse Reactions' (Synthroid, metformin)", () => {
+    expect(codes("5.1 Lactic Acidosis Text here. 5. 2 Cardiac Adverse Reactions Text here.", "5")).toEqual(["5.1", "5.2"]);
+  });
+  it("accepts a lowercase heading: '7.7 mTOR Inhibitors' (lisinopril)", () => {
+    expect(codes("7.3 NSAIDs Text. 7.6 Gold Nitritoid reactions occurred. 7.7 mTOR Inhibitors Patients taking them. 7.8 Neprilysin Inhibitor Patients taking them.", "7")).toEqual(["7.3", "7.6", "7.7", "7.8"]);
+  });
+  it("never treats a dose as a heading: 'initial dose is 2.5 mg' (lisinopril section 2)", () => {
+    const t = "2.1 Hypertension The initial dose is 10 mg. 2.2 Heart Failure Start at 2.5 mg once daily. 2.3 Acute MI Give 5 mg. 2.4 Renal Impairment Use 2.5 mg.";
+    expect(codes(t, "2")).toEqual(["2.1", "2.2", "2.3", "2.4"]);
+  });
+  it("never treats a range as a heading: 'doses ranging from 12.5 to 200 mg'", () => {
+    expect(codes("12.1 Mechanism of Action Text. 12.3 Pharmacokinetics Doses ranging from 12.5 to 200 mg once daily. 12.5 Pharmacogenomics CYP2D6 is absent.", "12")).toEqual(["12.1", "12.3", "12.5"]);
+  });
+  it("drops openFDA's repeated subsection entries (Ozempic)", () => {
+    const parts = ["5 WARNINGS 5.1 Risk of Tumors Text one. 5.2 Pancreatitis Text two.", "5.1 Risk of Tumors Text one.", "5.2 Pancreatitis Text two."];
+    expect(sectionsOf({ warnings_and_cautions: parts }).map((s) => s.code)).toEqual(["5", "5.1", "5.2"]);
+  });
+  it("reads a title up to where the body starts", () => {
+    const s = splitSubsections("5.1 Risk of Thyroid C-Cell Tumors In mice and rats, semaglutide caused tumors. 5.2 Pancreatitis In trials it occurred.", "5");
+    expect(s.map((x) => x.title)).toEqual(["Risk of Thyroid C-Cell Tumors", "Pancreatitis"]);
+  });
+});

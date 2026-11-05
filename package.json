@@ -2,11 +2,15 @@
   "name": "label-lens",
   "private": true,
   "type": "module",
-  "workspaces": ["packages/*"],
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
     "test": "vitest run",
     "eval:resolver": "tsx evals/run-resolver.ts",
-    "typecheck": "tsc -p tsconfig.json --noEmit"
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "ingest:fetch": "NODE_USE_ENV_PROXY=1 tsx packages/ingest/src/fetch.ts",
+    "golden:update": "tsx scripts/golden-update.ts"
   },
   "devDependencies": {
     "@types/node": "^22.10.0",
