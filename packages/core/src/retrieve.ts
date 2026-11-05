@@ -141,7 +141,9 @@ const INTENTS: { intent: Intent; cue: RegExp; sections: RegExp }[] = [
   { intent: "storage", cue: /\b(stor|temperature|supplied|refrigerat|shelf)/i, sections: /^16(\.|$)/ },
 ];
 
-const PRIOR = 1.6;
+export interface RetrievalSettings { maxChunkChars: number; maxPerSection: number; sectionPrior: number }
+/** Defaults match config/retrieval.json; the pipeline passes the loaded config. */
+export const DEFAULT_RETRIEVAL: RetrievalSettings = { maxChunkChars: 1200, maxPerSection: 2, sectionPrior: 1.6 };
 
 export function intentsOf(question: string): Intent[] {
   return INTENTS.filter((i) => i.cue.test(question)).map((i) => i.intent);
@@ -157,8 +159,11 @@ export class LabelIndex {
   private readonly df = new Map<string, number>();
   private readonly avgLen: number;
 
-  constructor(sections: Section[]) {
-    this.chunks = chunkLabel(sections);
+  private readonly opts: RetrievalSettings;
+
+  constructor(sections: Section[], opts: Partial<RetrievalSettings> = {}) {
+    this.opts = { ...DEFAULT_RETRIEVAL, ...opts };
+    this.chunks = chunkLabel(sections, this.opts.maxChunkChars);
     this.boxedWarning = this.chunks.find((c) => c.sectionCode === "BW");
     // The chunk text already starts with its heading ("5.3 Hepatic Injury …"). Counting titles twice
     // was tried and changed no eval result, so it was removed.
@@ -189,10 +194,10 @@ export class LabelIndex {
         const idf = Math.log(1 + (N - n + 0.5) / (n + 0.5));
         s += idf * ((f * (k1 + 1)) / (f + k1 * (1 - b + (b * (this.len[i] as number)) / this.avgLen)));
       }
-      if (s > 0 && priors.some((p) => p.test(c.sectionCode))) s *= PRIOR;
+      if (s > 0 && priors.some((p) => p.test(c.sectionCode))) s *= this.opts.sectionPrior;
       return { ...c, score: s };
     });
-    // At most two chunks per section, so one long section can't crowd out the others.
+    // At most maxPerSection chunks per section (default two), so one long section can't crowd out the others.
     const perSection = new Map<string, number>();
     const chunks = scored
       .filter((c) => c.score > 0)
@@ -200,7 +205,7 @@ export class LabelIndex {
       .filter((c) => {
         const n = perSection.get(c.sectionCode) ?? 0;
         perSection.set(c.sectionCode, n + 1);
-        return n < 2;
+        return n < this.opts.maxPerSection;
       })
       .slice(0, k);
     return { chunks, boxedWarning: this.boxedWarning, intents };

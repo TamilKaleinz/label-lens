@@ -5,3 +5,8 @@ export * from "./resolve.js";
 export * from "./provisional.js";
 export * from "./retrieve.js";
 export * from "./verify.js";
+export * from "./config.js";
+export * from "./model.js";
+export * from "./generate.js";
+export * from "./support.js";
+export * from "./answer.js";

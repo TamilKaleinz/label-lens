@@ -15,7 +15,7 @@ Label Lens answers questions about an FDA drug label, adjusted to the role of th
 | Milestone | Target | Status |
 |---|---|---|
 | M1 Discovery complete | 2026-11-19 | Done: [data check](docs/data-check-2026-11-05.md), [demo set](docs/demo-drug-set.md), [architecture](docs/architecture.md) |
-| M2 Core answering | 2026-12-10 | In progress: resolver, retriever and quote check built and passing their evals; generator and support check next |
+| M2 Core answering | 2026-12-10 | In progress: full pipeline built and passing on a mock model; first live run waits for an OpenAI key |
 | M3 Roles and refusals | 2026-12-31 | Not started |
 | M4 First full eval run | 2027-01-10 | Not started |
 | M5 v1 public launch | 2027-01-15 | Not started |
@@ -40,22 +40,24 @@ Label Lens answers questions about an FDA drug label, adjusted to the role of th
 | Path | What it does |
 |---|---|
 | `packages/ingest` | Normalises openFDA label records: format, dosage form, release type, Recent Major Changes, sections and subsections |
-| `packages/core` | The label resolver (exact NDC first, then equivalence groups, then ask), the label-scoped retriever, the claim checker, and the PV provisional rule |
+| `packages/core` | The answer pipeline: label resolver (exact NDC first, then equivalence groups, then ask), label-scoped retriever, generator, claim checker (quote check, then support check), and the PV provisional rule. Models sit behind one interface: OpenAI in production, deterministic mocks in tests |
+| `config/` | Model choices, prompts, role styles and retrieval settings, hashed into one `config_hash` that every response and eval report carries |
 | `evals/` | The demo set, eval cases, and the resolver eval runner with its reports |
 | `fixtures/` | Label excerpts for the resolver evals, and the full openFDA records for the golden-file tests (`fixtures/full/`) |
 
 ```bash
 npm ci
-npm test               # unit and golden-file tests (83)
+npm test               # unit, golden-file and pipeline tests (96)
 npm run eval           # all evals; any failure fails the run
 npm run eval:resolver  #   label resolution and the provisional rule (GM-07, GM-08)
 npm run eval:retrieval #   the right sections rank in the top 5, on full labels
 npm run eval:claims    #   the quote check keeps faithful claims and drops the rest (GM-01)
+npm run eval:pipeline  #   end to end on a mock model, with injected bad claims that must be dropped
 npm run ingest:fetch   # re-download the pinned labels from openFDA; exits 2 on label drift
 npm run golden:update  # regenerate golden snapshots after a reviewed label change
 ```
 
-Latest evals: [resolver 30 of 30](evals/reports/resolver-2026-11-05.md) · [retrieval 28 of 28](evals/reports/retrieval-2026-11-05.md) · [claim checker 15 of 15](evals/reports/claims-2026-11-05.md).
+Latest evals: [resolver 30 of 30](evals/reports/resolver-2026-11-05.md) · [retrieval 28 of 28](evals/reports/retrieval-2026-11-05.md) · [claim checker 15 of 15](evals/reports/claims-2026-11-05.md) · [pipeline 112 of 112, 84 of 84 injected bad claims dropped](evals/reports/pipeline-2026-11-05.md).
 
 Every part of the retriever and claim checker was removed once on purpose to confirm an eval fails without it. One part (counting section titles twice) changed no result, so it was taken out.
 

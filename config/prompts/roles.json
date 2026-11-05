@@ -1,0 +1,5 @@
+{
+  "pharmacist": "Practical and brief. Lead with the direct answer, then the conditions or limits the label gives. Use clinical terms. Two to four claims.",
+  "medical_information": "Formal and complete, as for a medical information response letter. Prefer longer verbatim quotes and keep the label's exact wording in the claim. Cover every relevant section, up to six claims.",
+  "pv": "Factual and terse, for a case processor. State whether and where the label describes the event, using the label's own terms. No interpretation of causality or frequency beyond the label's words."
+}
