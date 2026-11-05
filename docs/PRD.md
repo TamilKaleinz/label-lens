@@ -11,7 +11,7 @@ Label Lens answers questions about a drug's official label with cited answers, a
 | Field | Value |
 | --- | --- |
 | Document ID | LL-PRD-001 |
-| Version | 0.3 Draft |
+| Version | 0.4 Draft |
 | Status | Draft |
 | Classification | Public (open-source project) |
 | Author | Tamil Selvan, Product Manager |
@@ -21,6 +21,7 @@ Label Lens answers questions about a drug's official label with cited answers, a
 
 | Version | Date | Change |
 | --- | --- | --- |
+| 0.4 | 2026-11-05 | How users identify the label (F-01): supported inputs, label always from the FDA source, image input confirmed before use; barcode scan logged as a v1.1 candidate (D-19, D-20) |
 | 0.3 | 2026-11-05 | Context-aware label resolution with equivalence groups (F-01 rewritten), provisional PV verdicts, guardrails GM-07 and GM-08, demo drug set and eval cases v0.1, scope freeze (D-15 to D-18) |
 | 0.2 | 2026-11-05 | Restructured into the full PRD format: intended use, feature specifications with requirement IDs, edge cases, test traceability, release readiness and a decision log |
 | 0.1 | 2026-11-05 | First discovery draft: problem, roles, refusal patterns, data, scope, evals |
@@ -83,6 +84,7 @@ In LSHC (Life Sciences & Healthcare), the drug label is the most authoritative s
 | F-06 | Label version diff | v1.2 |
 | F-07 | Integration surfaces: API, embeddable panel, MCP server | v1 (API) · v1.2 (panel, MCP) |
 | F-08 | Label history (label in force on a given date) | v1.2 |
+| F-09 | Barcode scan to NDC, confirmed before use (D-20) | v1.1 candidate |
 
 **Scope freeze (D-18):** until the M4 eval run passes every guardrail, work stays on three foundations: reliable label identification (F-01), grounded answers (F-03) and appropriate refusals (F-04). No new features start before then, and v1.1 and v1.2 begin only after that gate.
 
@@ -194,6 +196,26 @@ Each feature traces from functional requirement (FR) to edge case (EC) to test c
    - **One group:** Pharmacist may get a **representative label** (newest original-packager label), clearly badged with its manufacturer and date and switchable. Medical Information and PV must always confirm the exact label.
 3. **Grouping uncertain** (dosage form can't be read reliably from the label): treat as separate groups and ask.
 4. **Text differs within a group** on the section being cited (e.g. a repackager label carries older text): say so beside the answer.
+
+**How users identify the label (D-19, D-20)**
+
+A question has two parts: which product, and what the user wants to know. The question is always typed. The product can be named in several ways, and the more exact the input, the fewer questions Label Lens has to ask back.
+
+| Input | Typical role | Precision | Release |
+| --- | --- | --- | --- |
+| Type a name ("metformin ER") | Every role | Fuzzy; often several groups, so Label Lens asks | v1 |
+| Type or paste an NDC from the carton, bottle or a system | Pharmacist, PV, Medical Information | Exact product, repackagers included | v1 |
+| Paste a DailyMed link or label ID | Medical Information, regulatory | Exact label and version | v1 |
+| Start from a case (product, NDC, receipt date, events) | PV processor | Exact, plus the dates the provisional rule needs | v1 |
+| Passed in by the host app | Enterprise users of the panel or MCP server | Exact, nothing typed | v1.2 (F-07) |
+| Scan the package barcode | Pharmacist at the counter | Exact: the barcode encodes the NDC | v1.1 candidate |
+| Photo of the carton (text read from the image) | Patient, pharmacist | Risky: one misread digit is another product | Fallback only, always confirmed |
+| Upload a label PDF | Not supported | Version can't be verified | Never |
+
+Two rules apply to every input:
+
+1. **The label always comes from the FDA source, never from the user (D-19).** Uploaded labels are refused, because Label Lens can't prove an uploaded file is the current official version, and that proof is what guardrail GM-07 protects.
+2. **Anything read from an image is a suggestion until the user confirms it (D-20).** A scan or photo only pre-fills an NDC, shows the matched product ("Metformin ER 500 mg, Granules. Is this it?") and waits for a yes. The resolver itself only ever receives an exact NDC, label ID or name.
 
 **Functional requirements**
 
@@ -534,6 +556,8 @@ Two weeks after launch, write a short retro in the repo: what the metrics showed
 | D-16 | 2026-11-05 | Auto-selection only within one equivalence group (same ingredients, dosage form, release, route); across groups, or when grouping is uncertain, always ask | Resolves the conflict between automatic pharmacist selection and confirming ambiguous labels. "Metformin HCl" covers IR tablets, ER tablets and an oral solution; "Ozempic" covers an injection and tablets |
 | D-17 | 2026-11-05 | PV verdicts are Provisional (current label) when historical applicability can't be established; never finalized without human confirmation | Until label history ships (F-08), the current label may differ from the one in force on the case receipt date |
 | D-18 | 2026-11-05 | Scope freeze: no new features until label identification, grounded answers and refusals pass the M4 evals | Foundations first; everything else depends on picking the right label and staying grounded |
+| D-19 | 2026-11-05 | Users identify a label by name, NDC, label link or ID, or a PV case; the label text always comes from the FDA source, and uploaded label files are not accepted | Label Lens can't verify that an uploaded file is the current official version; every citation must trace to a known set ID and version (GM-07) |
+| D-20 | 2026-11-05 | Image input (barcode scan, carton photo) only pre-fills an NDC, which the user confirms before resolution; barcode scanning is a v1.1 candidate, held by the scope freeze (D-18) | A barcode carries the NDC exactly, but text read from a photo can misread one digit and point at another product; the confirmation step keeps the resolver deterministic |
 
 ## 9. Appendix
 
