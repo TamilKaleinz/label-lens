@@ -14,7 +14,8 @@
     "eval:retrieval": "tsx evals/run-retrieval.ts",
     "eval:claims": "tsx evals/run-claims.ts",
     "eval": "npm run eval:resolver && npm run eval:retrieval && npm run eval:claims && npm run eval:pipeline",
-    "eval:pipeline": "tsx evals/run-pipeline.ts"
+    "eval:pipeline": "tsx evals/run-pipeline.ts",
+    "check:openai": "NODE_USE_ENV_PROXY=1 tsx scripts/check-openai.ts"
   },
   "devDependencies": {
     "@types/node": "^22.10.0",

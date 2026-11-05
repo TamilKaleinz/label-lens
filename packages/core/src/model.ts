@@ -2,6 +2,8 @@
  * Model access (architecture doc AD-04). The engine talks to one small interface, so tests and evals
  * run on deterministic mock models and the OpenAI API is swapped in without touching the pipeline.
  */
+import { loadEnv } from "./env.js";
+
 export interface ModelRequest {
   purpose: "generate" | "support";
   model: string | null;
@@ -21,12 +23,13 @@ export interface ModelClient {
 export class ModelError extends Error {}
 
 /**
- * OpenAI Chat Completions with strict structured output. Needs OPENAI_API_KEY and a model ID set in
- * config/models.json; with either missing it refuses to call, rather than falling back silently.
+ * OpenAI Chat Completions with strict structured output. Reads OPENAI_API_KEY from the environment,
+ * or from the repo's .env file locally. Needs a model ID set in config/models.json; with the key or
+ * the model missing it refuses to call, rather than falling back silently.
  */
 export class OpenAIClient implements ModelClient {
   constructor(
-    private readonly apiKey = process.env["OPENAI_API_KEY"],
+    private readonly apiKey = (loadEnv(), process.env["OPENAI_API_KEY"]),
     private readonly baseUrl = "https://api.openai.com/v1",
     private readonly timeoutMs = 30_000,
   ) {}
