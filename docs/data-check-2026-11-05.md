@@ -1,7 +1,5 @@
 # Data check: openFDA drug labels and FAERS
 
-**Date:** 2026-11-05 · **Milestone:** M1 Discovery · **Settles:** assumption A-01, open question Q-02
-
 The openFDA label API is usable for Label Lens, but only with three scoping decisions. Real labels are messier than the PRD assumed: there are hundreds of near-duplicate labels per drug, two different label formats, and only the current version of each label.
 
 ## What we checked
