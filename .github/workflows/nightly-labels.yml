@@ -22,4 +22,4 @@ jobs:
         env:
           OPENFDA_API_KEY: ${{ secrets.OPENFDA_API_KEY }}
       - run: npm test
-      - run: npm run eval:resolver
+      - run: npm run eval

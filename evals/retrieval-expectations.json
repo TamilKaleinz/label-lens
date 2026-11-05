@@ -1,0 +1,246 @@
+{
+ "about": "Retrieval eval (stage 2). Each case names the label and question from cases-v0.1.csv and the sections its expected evidence cites. A code ending in * matches the section or any subsection ('2*' = 2, 2.1, 2.4...). A case passes when every expected section ranks among the top k chunks. The Boxed Warning, always attached beside the results, only counts if it also ranked.",
+ "k": 5,
+ "cases": [
+  {
+   "case": "LS-02",
+   "label": "DS-02",
+   "q": "what risk factors for lactic acidosis does the Boxed Warning list?",
+   "expect": [
+    "BW"
+   ]
+  },
+  {
+   "case": "LS-03",
+   "label": "DS-01",
+   "q": "what risk factors for lactic acidosis does the Boxed Warning list?",
+   "expect": [
+    "BW"
+   ]
+  },
+  {
+   "case": "LS-07",
+   "label": "DS-06",
+   "q": "does the Boxed Warning list mitochondrial disease as a risk factor?",
+   "expect": [
+    "BW"
+   ]
+  },
+  {
+   "case": "LS-08",
+   "label": "DS-07",
+   "q": "does the Boxed Warning list mitochondrial disease as a risk factor?",
+   "expect": [
+    "BW"
+   ]
+  },
+  {
+   "case": "LS-11",
+   "label": "DS-17",
+   "q": "is there a warning about pulmonary aspiration?",
+   "expect": [
+    "5.9"
+   ]
+  },
+  {
+   "case": "LS-18",
+   "label": "DS-11",
+   "q": "what does the label say about soybean flour?",
+   "expect": [
+    "2.1",
+    "7.9"
+   ]
+  },
+  {
+   "case": "GA-01",
+   "label": "DS-01",
+   "q": "is it contraindicated below eGFR 30?",
+   "expect": [
+    "4",
+    "2*",
+    "8.6"
+   ]
+  },
+  {
+   "case": "GA-02",
+   "label": "DS-01",
+   "q": "what about iodinated contrast imaging?",
+   "expect": [
+    "5.1",
+    "2*"
+   ]
+  },
+  {
+   "case": "GA-03",
+   "label": "DS-11",
+   "q": "does the label mention grapefruit juice?",
+   "expect": [
+    "7.9"
+   ]
+  },
+  {
+   "case": "GA-04",
+   "label": "DS-08",
+   "q": "what does the label say about grapefruit?",
+   "expect": [
+    "7.5"
+   ]
+  },
+  {
+   "case": "GA-05",
+   "label": "DS-14",
+   "q": "interaction with omeprazole?",
+   "expect": [
+    "5.1",
+    "7.2"
+   ]
+  },
+  {
+   "case": "GA-06",
+   "label": "DS-13",
+   "q": "what does the Boxed Warning cover?",
+   "expect": [
+    "BW"
+   ]
+  },
+  {
+   "case": "GA-07",
+   "label": "DS-15",
+   "q": "can the tablets be crushed?",
+   "expect": [
+    "2.4"
+   ]
+  },
+  {
+   "case": "GA-08",
+   "label": "DS-09",
+   "q": "what does the label say about pregnancy?",
+   "expect": [
+    "BW",
+    "5.1",
+    "8.1"
+   ]
+  },
+  {
+   "case": "UC-05",
+   "label": "DS-13",
+   "q": "does amiodarone cause hepatotoxicity?",
+   "expect": [
+    "BW",
+    "5.3"
+   ]
+  },
+  {
+   "case": "RF-01",
+   "label": "DS-01",
+   "q": "my patient has eGFR 38 on 2 g daily; should I cut to 1 g?",
+   "expect": [
+    "2*",
+    "8.6"
+   ]
+  },
+  {
+   "case": "RF-03",
+   "label": "DS-01",
+   "q": "is metformin used for PCOS?",
+   "expect": [
+    "1*"
+   ]
+  },
+  {
+   "case": "RF-06",
+   "label": "DS-09",
+   "q": "can I keep taking it now that I'm pregnant?",
+   "expect": [
+    "BW",
+    "5.1"
+   ]
+  },
+  {
+   "case": "PV-01",
+   "label": "DS-01",
+   "q": "lactic acidosis",
+   "expect": [
+    "BW",
+    "5.1"
+   ]
+  },
+  {
+   "case": "PV-03",
+   "label": "DS-13",
+   "q": "hepatotoxicity",
+   "expect": [
+    "BW",
+    "5.3"
+   ]
+  },
+  {
+   "case": "PV-04",
+   "label": "DS-09",
+   "q": "angioedema",
+   "expect": [
+    "5.2",
+    "4"
+   ]
+  },
+  {
+   "case": "PV-05",
+   "label": "DS-09",
+   "q": "hepatotoxicity",
+   "expect": [
+    "5.6"
+   ]
+  },
+  {
+   "case": "PV-06a",
+   "label": "DS-06",
+   "q": "bullous pemphigoid",
+   "expect": [
+    "5.9"
+   ]
+  },
+  {
+   "case": "PV-06b",
+   "label": "DS-06",
+   "q": "lactic acidosis",
+   "expect": [
+    "BW",
+    "5.1"
+   ]
+  },
+  {
+   "case": "PV-07",
+   "label": "DS-07",
+   "q": "bullous pemphigoid",
+   "expect": [
+    "5.9"
+   ]
+  },
+  {
+   "case": "PV-09",
+   "label": "DS-09",
+   "q": "cough",
+   "expect": [
+    "6*"
+   ]
+  },
+  {
+   "case": "RT-01",
+   "label": "DS-13",
+   "q": "how should the tablets be stored?",
+   "expect": [
+    "16*"
+   ],
+   "note": "Added after a unit test showed 'stored' didn't reach section 16"
+  },
+  {
+   "case": "RT-02",
+   "label": "DS-01",
+   "q": "how should it be taken?",
+   "expect": [
+    "2.1"
+   ],
+   "note": "Added after the claim eval showed this question retrieved nothing from section 2"
+  }
+ ]
+}

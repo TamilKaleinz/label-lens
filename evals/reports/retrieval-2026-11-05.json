@@ -1,0 +1,443 @@
+{
+ "date": "2026-11-05",
+ "k": 5,
+ "passed": 28,
+ "total": 28,
+ "sectionRecall": 1,
+ "results": [
+  {
+   "case": "LS-02",
+   "label": "DS-02",
+   "q": "what risk factors for lactic acidosis does the Boxed Warning list?",
+   "pass": true,
+   "top": [
+    "BW",
+    "BW",
+    "5.1",
+    "5.1",
+    "7"
+   ],
+   "intents": [
+    "safety"
+   ],
+   "missing": []
+  },
+  {
+   "case": "LS-03",
+   "label": "DS-01",
+   "q": "what risk factors for lactic acidosis does the Boxed Warning list?",
+   "pass": true,
+   "top": [
+    "BW",
+    "BW",
+    "5.1",
+    "5.1",
+    "7"
+   ],
+   "intents": [
+    "safety"
+   ],
+   "missing": []
+  },
+  {
+   "case": "LS-07",
+   "label": "DS-06",
+   "q": "does the Boxed Warning list mitochondrial disease as a risk factor?",
+   "pass": true,
+   "top": [
+    "BW",
+    "5.1",
+    "BW",
+    "5.1",
+    "5.3"
+   ],
+   "intents": [
+    "safety"
+   ],
+   "missing": []
+  },
+  {
+   "case": "LS-08",
+   "label": "DS-07",
+   "q": "does the Boxed Warning list mitochondrial disease as a risk factor?",
+   "pass": true,
+   "top": [
+    "BW",
+    "BW",
+    "5.1",
+    "5.1",
+    "5.3"
+   ],
+   "intents": [
+    "safety"
+   ],
+   "missing": []
+  },
+  {
+   "case": "LS-11",
+   "label": "DS-17",
+   "q": "is there a warning about pulmonary aspiration?",
+   "pass": true,
+   "top": [
+    "5.9",
+    "6.2",
+    "BW",
+    "17",
+    "BW"
+   ],
+   "intents": [
+    "safety"
+   ],
+   "missing": []
+  },
+  {
+   "case": "LS-18",
+   "label": "DS-11",
+   "q": "what does the label say about soybean flour?",
+   "pass": true,
+   "top": [
+    "7.9",
+    "2.1",
+    "12.3"
+   ],
+   "intents": [],
+   "missing": []
+  },
+  {
+   "case": "GA-01",
+   "label": "DS-01",
+   "q": "is it contraindicated below eGFR 30?",
+   "pass": true,
+   "top": [
+    "2.3",
+    "4",
+    "8.6",
+    "5.1",
+    "2.4"
+   ],
+   "intents": [
+    "dosing",
+    "contraindication"
+   ],
+   "missing": []
+  },
+  {
+   "case": "GA-02",
+   "label": "DS-01",
+   "q": "what about iodinated contrast imaging?",
+   "pass": true,
+   "top": [
+    "2.4",
+    "5.1",
+    "BW",
+    "BW"
+   ],
+   "intents": [],
+   "missing": []
+  },
+  {
+   "case": "GA-03",
+   "label": "DS-11",
+   "q": "does the label mention grapefruit juice?",
+   "pass": true,
+   "top": [
+    "7.9"
+   ],
+   "intents": [
+    "interaction"
+   ],
+   "missing": []
+  },
+  {
+   "case": "GA-04",
+   "label": "DS-08",
+   "q": "what does the label say about grapefruit?",
+   "pass": true,
+   "top": [
+    "7.5"
+   ],
+   "intents": [
+    "interaction"
+   ],
+   "missing": []
+  },
+  {
+   "case": "GA-05",
+   "label": "DS-14",
+   "q": "interaction with omeprazole?",
+   "pass": true,
+   "top": [
+    "7.2",
+    "5.1",
+    "12.3",
+    "17",
+    "5.2"
+   ],
+   "intents": [
+    "interaction"
+   ],
+   "missing": []
+  },
+  {
+   "case": "GA-06",
+   "label": "DS-13",
+   "q": "what does the Boxed Warning cover?",
+   "pass": true,
+   "top": [
+    "BW",
+    "BW"
+   ],
+   "intents": [
+    "safety"
+   ],
+   "missing": []
+  },
+  {
+   "case": "GA-07",
+   "label": "DS-15",
+   "q": "can the tablets be crushed?",
+   "pass": true,
+   "top": [
+    "2.4",
+    "3",
+    "2.3",
+    "2.1",
+    "8.6"
+   ],
+   "intents": [
+    "dosing"
+   ],
+   "missing": []
+  },
+  {
+   "case": "GA-08",
+   "label": "DS-09",
+   "q": "what does the label say about pregnancy?",
+   "pass": true,
+   "top": [
+    "8.1",
+    "8.1",
+    "5.1",
+    "BW",
+    "17"
+   ],
+   "intents": [
+    "population"
+   ],
+   "missing": []
+  },
+  {
+   "case": "UC-05",
+   "label": "DS-13",
+   "q": "does amiodarone cause hepatotoxicity?",
+   "pass": true,
+   "top": [
+    "5.3",
+    "BW",
+    "BW",
+    "6.1",
+    "5.9"
+   ],
+   "intents": [
+    "safety"
+   ],
+   "missing": []
+  },
+  {
+   "case": "RF-01",
+   "label": "DS-01",
+   "q": "my patient has eGFR 38 on 2 g daily; should I cut to 1 g?",
+   "pass": true,
+   "top": [
+    "2.3",
+    "8.6",
+    "2.4",
+    "12.3",
+    "5.1"
+   ],
+   "intents": [
+    "dosing"
+   ],
+   "missing": []
+  },
+  {
+   "case": "RF-03",
+   "label": "DS-01",
+   "q": "is metformin used for PCOS?",
+   "pass": true,
+   "top": [
+    "1",
+    "5.1",
+    "12.3",
+    "11",
+    "10"
+   ],
+   "intents": [
+    "indication"
+   ],
+   "missing": []
+  },
+  {
+   "case": "RF-06",
+   "label": "DS-09",
+   "q": "can I keep taking it now that I'm pregnant?",
+   "pass": true,
+   "top": [
+    "8.1",
+    "8.1",
+    "5.1",
+    "17",
+    "BW"
+   ],
+   "intents": [
+    "population"
+   ],
+   "missing": []
+  },
+  {
+   "case": "PV-01",
+   "label": "DS-01",
+   "q": "lactic acidosis",
+   "pass": true,
+   "top": [
+    "5.1",
+    "5.1",
+    "BW",
+    "BW",
+    "8.7"
+   ],
+   "intents": [],
+   "missing": []
+  },
+  {
+   "case": "PV-03",
+   "label": "DS-13",
+   "q": "hepatotoxicity",
+   "pass": true,
+   "top": [
+    "5.3",
+    "BW",
+    "6.1",
+    "BW",
+    "12.3"
+   ],
+   "intents": [],
+   "missing": []
+  },
+  {
+   "case": "PV-04",
+   "label": "DS-09",
+   "q": "angioedema",
+   "pass": true,
+   "top": [
+    "5.2",
+    "4",
+    "5.2",
+    "7.8",
+    "7.7"
+   ],
+   "intents": [],
+   "missing": []
+  },
+  {
+   "case": "PV-05",
+   "label": "DS-09",
+   "q": "hepatotoxicity",
+   "pass": true,
+   "top": [
+    "5.6",
+    "BW",
+    "8.1",
+    "7.4"
+   ],
+   "intents": [],
+   "missing": []
+  },
+  {
+   "case": "PV-06a",
+   "label": "DS-06",
+   "q": "bullous pemphigoid",
+   "pass": true,
+   "top": [
+    "5.9",
+    "17",
+    "6.2"
+   ],
+   "intents": [],
+   "missing": []
+  },
+  {
+   "case": "PV-06b",
+   "label": "DS-06",
+   "q": "lactic acidosis",
+   "pass": true,
+   "top": [
+    "5.1",
+    "5.1",
+    "BW",
+    "BW",
+    "8.7"
+   ],
+   "intents": [],
+   "missing": []
+  },
+  {
+   "case": "PV-07",
+   "label": "DS-07",
+   "q": "bullous pemphigoid",
+   "pass": true,
+   "top": [
+    "5.9",
+    "17",
+    "6.2"
+   ],
+   "intents": [],
+   "missing": []
+  },
+  {
+   "case": "PV-09",
+   "label": "DS-09",
+   "q": "cough",
+   "pass": true,
+   "top": [
+    "6.1"
+   ],
+   "intents": [],
+   "missing": []
+  },
+  {
+   "case": "RT-01",
+   "label": "DS-13",
+   "q": "how should the tablets be stored?",
+   "pass": true,
+   "top": [
+    "16",
+    "5.6",
+    "12.2",
+    "3",
+    "BW"
+   ],
+   "intents": [
+    "storage"
+   ],
+   "missing": []
+  },
+  {
+   "case": "RT-02",
+   "label": "DS-01",
+   "q": "how should it be taken?",
+   "pass": true,
+   "top": [
+    "2.1",
+    "2.2",
+    "8.6",
+    "12.3",
+    "8.4"
+   ],
+   "intents": [
+    "dosing"
+   ],
+   "missing": []
+  }
+ ]
+}

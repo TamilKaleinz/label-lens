@@ -10,7 +10,10 @@
     "eval:resolver": "tsx evals/run-resolver.ts",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "ingest:fetch": "NODE_USE_ENV_PROXY=1 tsx packages/ingest/src/fetch.ts",
-    "golden:update": "tsx scripts/golden-update.ts"
+    "golden:update": "tsx scripts/golden-update.ts",
+    "eval:retrieval": "tsx evals/run-retrieval.ts",
+    "eval:claims": "tsx evals/run-claims.ts",
+    "eval": "npm run eval:resolver && npm run eval:retrieval && npm run eval:claims"
   },
   "devDependencies": {
     "@types/node": "^22.10.0",

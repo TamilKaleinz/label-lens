@@ -17,8 +17,8 @@ jobs:
       - run: npm ci
       - run: npm run typecheck
       - run: npm test
-      - name: Resolver eval (guardrails GM-07, GM-08)
-        run: npm run eval:resolver
+      - name: Evals (resolver GM-07/GM-08, retrieval, claim checker GM-01)
+        run: npm run eval
       - uses: actions/upload-artifact@v4
         if: always()
         with:
