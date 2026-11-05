@@ -1,0 +1,1078 @@
+{
+ "as_of": "2026-11-05",
+ "source": "api.fda.gov/drug/label.json (excerpts)",
+ "results": [
+  {
+   "_demo_id": "DS-01",
+   "id": "61f56acf-2add-4ee0-ad61-9dc5334cfc6a",
+   "set_id": "4ac6d01a-af26-44e7-ae2e-3618de0080aa",
+   "version": "17",
+   "effective_time": "20260715",
+   "openfda": {
+    "brand_name": [
+     "Metformin Hydrochloride"
+    ],
+    "generic_name": [
+     "METFORMIN HYDROCHLORIDE"
+    ],
+    "substance_name": [
+     "METFORMIN HYDROCHLORIDE"
+    ],
+    "manufacturer_name": [
+     "Aurobindo Pharma Limited"
+    ],
+    "product_ndc": [
+     "65862-008",
+     "65862-009",
+     "65862-010"
+    ],
+    "package_ndc": [
+     "65862-008-50",
+     "65862-008-01"
+    ],
+    "route": [
+     "ORAL"
+    ],
+    "product_type": [
+     "HUMAN PRESCRIPTION DRUG"
+    ],
+    "is_original_packager": [
+     true
+    ]
+   },
+   "description": [
+    "11 DESCRIPTION Metformin hydrochloride tablets, USP contain the antihyperglycemic agent metformin"
+   ],
+   "how_supplied": [
+    "16 HOW SUPPLIED/STORAGE AND HANDLING 16.1 How Supplied Metformin Hydrochloride Tablets USP, 500 mg: White, biconvex, circular shaped film coated tablets"
+   ],
+   "package_label_principal_display_panel": [
+    "PACKAGE LABEL-PRINCIPAL DISPLAY PANEL - 500 mg (100 Tablets Bottle) NDC 65862-008-01"
+   ],
+   "recent_major_changes": [
+    "Boxed Warning 04/2026"
+   ],
+   "boxed_warning": [
+    "(present)"
+   ],
+   "warnings_and_cautions": [
+    "(present)"
+   ]
+  },
+  {
+   "_demo_id": "DS-02",
+   "id": "017fc887-de17-4f26-a715-b28bc6271e09",
+   "set_id": "b6d7edc9-93d6-4480-906d-55c18d053600",
+   "version": "1",
+   "effective_time": "20260902",
+   "openfda": {
+    "brand_name": [
+     "METFORMIN HYDROCHLORIDE"
+    ],
+    "generic_name": [
+     "METFORMIN HYDROCHLORIDE"
+    ],
+    "substance_name": [
+     "METFORMIN HYDROCHLORIDE"
+    ],
+    "manufacturer_name": [
+     "A-S Medication Solutions"
+    ],
+    "product_ndc": [
+     "50090-8043"
+    ],
+    "package_ndc": [
+     "50090-8043-0"
+    ],
+    "route": [
+     "ORAL"
+    ],
+    "product_type": [
+     "HUMAN PRESCRIPTION DRUG"
+    ]
+   },
+   "description": [
+    "11 DESCRIPTION Metformin hydrochloride tablets, USP contain the antihyperglycemic agent metformin"
+   ],
+   "how_supplied": [
+    "16 HOW SUPPLIED/STORAGE AND HANDLING Product: 50090-8043 NDC: 50090-8043-0 90 TABLET, FILM COATED in a BOTTLE"
+   ],
+   "package_label_principal_display_panel": [
+    "METFORMIN HYDROCHLORIDE Label Image"
+   ],
+   "boxed_warning": [
+    "(present)"
+   ],
+   "warnings_and_cautions": [
+    "(present)"
+   ]
+  },
+  {
+   "_demo_id": "DS-03",
+   "id": "5a918a65-96d8-917d-e063-6294a90acc1d",
+   "set_id": "73197cb5-3e23-4ac0-b189-f9bc848bce66",
+   "version": "7",
+   "effective_time": "20260903",
+   "openfda": {
+    "brand_name": [
+     "METFORMIN HYDROCHLORIDE"
+    ],
+    "generic_name": [
+     "METFORMIN HYDROCHLORIDE"
+    ],
+    "substance_name": [
+     "METFORMIN HYDROCHLORIDE"
+    ],
+    "manufacturer_name": [
+     "Granules India Ltd"
+    ],
+    "product_ndc": [
+     "62207-496",
+     "62207-497"
+    ],
+    "package_ndc": [
+     "62207-496-54",
+     "62207-496-47"
+    ],
+    "route": [
+     "ORAL"
+    ],
+    "product_type": [
+     "HUMAN PRESCRIPTION DRUG"
+    ],
+    "is_original_packager": [
+     true
+    ]
+   },
+   "description": [
+    "11 DESCRIPTION Metformin hydrochloride extended-release tablet, USP contains the biguanide antihyperglycemic agent"
+   ],
+   "how_supplied": [
+    "16 HOW SUPPLIED/STORAGE AND HANDLING Metformin hydrochloride extended-release tablets USP is supplied as: 500 mg Bottles of 30 NDC 62207-496-54"
+   ],
+   "package_label_principal_display_panel": [
+    "PACKAGE LABEL.PRINCIPAL DISPLAY PANEL 500-mg-30s-label 1000-mg-30s-label.jpg"
+   ],
+   "recent_major_changes": [
+    "Boxed Warning 08/2026 Warnings and Precautions, Lactic Acidosis ( 5.1 ) 08/2026"
+   ],
+   "boxed_warning": [
+    "(present)"
+   ],
+   "warnings_and_cautions": [
+    "(present)"
+   ]
+  },
+  {
+   "_demo_id": "DS-04",
+   "id": "4d845f5a-3ab1-b5ac-e063-6394a90a75d6",
+   "set_id": "1d8b8970-c2a1-4780-be87-ab8ccfd401fa",
+   "version": "10",
+   "effective_time": "20250630",
+   "openfda": {
+    "brand_name": [
+     "METFORMIN HYDROCHLORIDE EXTENDED RELEASE"
+    ],
+    "generic_name": [
+     "METFORMIN HYDROCHLORIDE"
+    ],
+    "substance_name": [
+     "METFORMIN HYDROCHLORIDE"
+    ],
+    "manufacturer_name": [
+     "TIME CAP LABORATORIES, INC"
+    ],
+    "product_ndc": [
+     "49483-623",
+     "49483-624"
+    ],
+    "package_ndc": [
+     "49483-623-09",
+     "49483-623-01"
+    ],
+    "route": [
+     "ORAL"
+    ],
+    "product_type": [
+     "HUMAN PRESCRIPTION DRUG"
+    ],
+    "is_original_packager": [
+     true
+    ]
+   },
+   "description": [
+    "11 DESCRIPTION Metformin Hydrochloride Extended-Release Tablets, USP contain the antihyperglycemic agent"
+   ],
+   "how_supplied": [
+    "16 HOW SUPPLIED/STORAGE AND HANDLING Metformin Hydrochloride Extended-Release Tablets, USP 500 mg Bottles of 90 NDC 49483-623-09"
+   ],
+   "package_label_principal_display_panel": [
+    "PACKAGE LABEL.PRINCIPAL DISPLAY PANEL NDC: 49483-623-09 Metformin Hydrochloride Extended-Release Tablets 500 m"
+   ],
+   "boxed_warning": [
+    "(present)"
+   ],
+   "warnings_and_cautions": [
+    "(present)"
+   ]
+  },
+  {
+   "_demo_id": "DS-05",
+   "id": "5af39aa6-2d68-870a-e063-6394a90a1560",
+   "set_id": "7cc02a26-5c22-445b-ad8f-3e7570c143d3",
+   "version": "2",
+   "effective_time": "20260908",
+   "openfda": {
+    "brand_name": [
+     "Metformin Hydrochloride"
+    ],
+    "generic_name": [
+     "METFORMIN HYDROCHLORIDE"
+    ],
+    "substance_name": [
+     "METFORMIN HYDROCHLORIDE"
+    ],
+    "manufacturer_name": [
+     "Camber Pharmaceuticals, Inc."
+    ],
+    "product_ndc": [
+     "31722-042"
+    ],
+    "package_ndc": [
+     "31722-042-47"
+    ],
+    "route": [
+     "ORAL"
+    ],
+    "product_type": [
+     "HUMAN PRESCRIPTION DRUG"
+    ],
+    "is_original_packager": [
+     true
+    ]
+   },
+   "description": [
+    "11 DESCRIPTION Metformin hydrochloride oral solution contains the biguanidine antihyperglycemic agent"
+   ],
+   "how_supplied": [
+    "16 HOW SUPPLIED/STORAGE AND HANDLING How Supplied Metformin hydrochloride oral solution 500 mg per 5 mL (100 mg/mL) oral solution is supplied in bottles"
+   ],
+   "package_label_principal_display_panel": [
+    "PACKAGE LABEL.PRINCIPAL DISPLAY PANEL Metformin Hydrochloride Oral Solution 500 mg/5 mL-Container Label"
+   ],
+   "recent_major_changes": [
+    "Boxed Warning 6/2026 Warnings and Precautions, Lactic Acidosis (5.1) 6/2026"
+   ],
+   "boxed_warning": [
+    "(present)"
+   ],
+   "warnings_and_cautions": [
+    "(present)"
+   ]
+  },
+  {
+   "_demo_id": "DS-06",
+   "id": "61bde692-38c6-42dc-aaac-503cc7e1d8f8",
+   "set_id": "d19c7ed0-ad5c-426e-b2df-722508f97d67",
+   "version": "61",
+   "effective_time": "20260811",
+   "openfda": {
+    "brand_name": [
+     "JANUMET"
+    ],
+    "generic_name": [
+     "SITAGLIPTIN AND METFORMIN HYDROCHLORIDE"
+    ],
+    "substance_name": [
+     "SITAGLIPTIN PHOSPHATE",
+     "METFORMIN HYDROCHLORIDE"
+    ],
+    "manufacturer_name": [
+     "Merck Sharp & Dohme LLC"
+    ],
+    "product_ndc": [
+     "0006-0575",
+     "0006-0577"
+    ],
+    "package_ndc": [
+     "0006-0575-82",
+     "0006-0575-61"
+    ],
+    "route": [
+     "ORAL"
+    ],
+    "product_type": [
+     "HUMAN PRESCRIPTION DRUG"
+    ],
+    "is_original_packager": [
+     true
+    ]
+   },
+   "description": [
+    "11 DESCRIPTION JANUMET (sitagliptin and metformin HCl) tablets for oral use contain two antihyperglycemic"
+   ],
+   "how_supplied": [
+    "16 HOW SUPPLIED/STORAGE AND HANDLING Tablets supplied as follows: Contents Description How Supplied NDC 50 mg sitagliptin and 500 mg metformin HCl light pink"
+   ],
+   "package_label_principal_display_panel": [
+    "PRINCIPAL DISPLAY PANEL - 50 mg/500 mg Tablet Bottle Label NDC 0006-0575-61"
+   ],
+   "recent_major_changes": [
+    "Boxed Warning 8/2026 Warnings and Precautions, Lactic Acidosis ( 5.1 ) 8/2026"
+   ],
+   "boxed_warning": [
+    "(present)"
+   ],
+   "warnings_and_cautions": [
+    "(present)"
+   ]
+  },
+  {
+   "_demo_id": "DS-07",
+   "id": "baa669a4-264f-43fa-8a72-bf48fe998729",
+   "set_id": "b55ee3d9-7f0b-4dd9-9213-fbc69f09f567",
+   "version": "13",
+   "effective_time": "20260709",
+   "openfda": {
+    "brand_name": [
+     "JANUMET"
+    ],
+    "generic_name": [
+     "SITAGLIPTIN AND METFORMIN HYDROCHLORIDE"
+    ],
+    "substance_name": [
+     "SITAGLIPTIN PHOSPHATE",
+     "METFORMIN HYDROCHLORIDE"
+    ],
+    "manufacturer_name": [
+     "A-S Medication Solutions"
+    ],
+    "product_ndc": [
+     "50090-5616"
+    ],
+    "package_ndc": [
+     "50090-5616-0",
+     "50090-5616-1"
+    ],
+    "route": [
+     "ORAL"
+    ],
+    "product_type": [
+     "HUMAN PRESCRIPTION DRUG"
+    ]
+   },
+   "description": [
+    "11 DESCRIPTION JANUMET (sitagliptin and metformin HCl) tablets for oral use contain two antihyperglycemic"
+   ],
+   "how_supplied": [
+    "16 HOW SUPPLIED/STORAGE AND HANDLING Product: 50090-5616 NDC: 50090-5616-0 60 TABLET, FILM COATED in a BOTTLE"
+   ],
+   "package_label_principal_display_panel": [
+    "JANUMET (SITAGLIPTIN AND METFORMIN HYDROCHLORIDE) TABLET, FILM COATED Label Image"
+   ],
+   "boxed_warning": [
+    "(present)"
+   ],
+   "warnings_and_cautions": [
+    "(present)"
+   ]
+  },
+  {
+   "_demo_id": "DS-08",
+   "id": "b8c33971-54b3-4971-bf7f-1bec66999a29",
+   "set_id": "0cbce382-9c88-4f58-ae0f-532a841e8f95",
+   "version": "20",
+   "effective_time": "20250617",
+   "openfda": {
+    "brand_name": [
+     "Warfarin Sodium"
+    ],
+    "generic_name": [
+     "WARFARIN SODIUM"
+    ],
+    "substance_name": [
+     "WARFARIN SODIUM"
+    ],
+    "manufacturer_name": [
+     "Teva Pharmaceuticals USA, Inc."
+    ],
+    "product_ndc": [
+     "0093-1712",
+     "0093-1713",
+     "0093-1714",
+     "0093-1715"
+    ],
+    "package_ndc": [
+     "0093-1712-01",
+     "0093-1712-10"
+    ],
+    "route": [
+     "ORAL"
+    ],
+    "product_type": [
+     "HUMAN PRESCRIPTION DRUG"
+    ],
+    "is_original_packager": [
+     true
+    ]
+   },
+   "description": [
+    "Warfarin sodium tablets, USP contain warfarin sodium, an anticoagulant"
+   ],
+   "how_supplied": [
+    "16 HOW SUPPLIED/STORAGE AND HANDLING Warfarin sodium tablets USP, 1 mg are available as pink, capsule-shaped, biconvex scored tablets"
+   ],
+   "package_label_principal_display_panel": [
+    "Package/Label Display Panel NDC 0093-1712-01 Warfarin Sodium Tablets, USP 1 mg"
+   ],
+   "boxed_warning": [
+    "(present)"
+   ],
+   "warnings_and_cautions": [
+    "(present)"
+   ]
+  },
+  {
+   "_demo_id": "DS-09",
+   "id": "99502ee9-cea6-473a-91c1-e4b4ded719e2",
+   "set_id": "0e6364a4-6d66-4151-8197-d45e2a762895",
+   "version": "27",
+   "effective_time": "20260721",
+   "openfda": {
+    "brand_name": [
+     "Lisinopril"
+    ],
+    "generic_name": [
+     "LISINOPRIL"
+    ],
+    "substance_name": [
+     "LISINOPRIL"
+    ],
+    "manufacturer_name": [
+     "Aurobindo Pharma Limited"
+    ],
+    "product_ndc": [
+     "65862-037",
+     "65862-038",
+     "65862-039",
+     "65862-040"
+    ],
+    "package_ndc": [
+     "65862-037-30",
+     "65862-037-01"
+    ],
+    "route": [
+     "ORAL"
+    ],
+    "product_type": [
+     "HUMAN PRESCRIPTION DRUG"
+    ],
+    "is_original_packager": [
+     true
+    ]
+   },
+   "description": [
+    "Lisinopril is an oral long-acting angiotensin converting enzyme (ACE) inhibitor."
+   ],
+   "how_supplied": [
+    "16 HOW SUPPLIED/STORAGE AND HANDLING Lisinopril Tablets USP, 2.5 mg are White to off-white, round shaped, biconvex, uncoated tablets"
+   ],
+   "package_label_principal_display_panel": [
+    "PACKAGE LABEL-PRINCIPAL DISPLAY PANEL - 2.5 mg (100 Tablets Bottle) NDC 65862-037-01"
+   ],
+   "boxed_warning": [
+    "(present)"
+   ],
+   "warnings_and_cautions": [
+    "(present)"
+   ]
+  },
+  {
+   "_demo_id": "DS-10",
+   "id": "1adb1ec1-dcf6-4f50-8e0e-cdf58c2d84c2",
+   "set_id": "d7214539-6c3d-466a-a474-6fde096fa182",
+   "version": "21",
+   "effective_time": "20260721",
+   "openfda": {
+    "brand_name": [
+     "Lisinopril and Hydrochlorothiazide"
+    ],
+    "generic_name": [
+     "LISINOPRIL AND HYDROCHLOROTHIAZIDE"
+    ],
+    "substance_name": [
+     "LISINOPRIL",
+     "HYDROCHLOROTHIAZIDE"
+    ],
+    "manufacturer_name": [
+     "Aurobindo Pharma Limited"
+    ],
+    "product_ndc": [
+     "65862-043",
+     "65862-044",
+     "65862-045"
+    ],
+    "package_ndc": [
+     "65862-043-30",
+     "65862-043-01"
+    ],
+    "route": [
+     "ORAL"
+    ],
+    "product_type": [
+     "HUMAN PRESCRIPTION DRUG"
+    ],
+    "is_original_packager": [
+     true
+    ]
+   },
+   "description": [
+    "DESCRIPTION Lisinopril and Hydrochlorothiazide Tablets combines an angiotensin converting"
+   ],
+   "how_supplied": [
+    "HOW SUPPLIED Lisinopril and Hydrochlorothiazide Tablets USP,10 mg/12.5 mg are light pink colored, round shaped, biconvex, uncoated tablets"
+   ],
+   "package_label_principal_display_panel": [
+    "PACKAGE LABEL- PRINCIPAL DISPLAY PANEL - 10 mg/12.5 mg (30 Tablet Bottle) NDC 65862-043-30"
+   ],
+   "boxed_warning": [
+    "(present)"
+   ],
+   "warnings": [
+    "(present)"
+   ]
+  },
+  {
+   "_demo_id": "DS-11",
+   "id": "b85ab7fa-ba96-43cd-b736-44b3924e644c",
+   "set_id": "1e11ad30-1041-4520-10b0-8f9d30d30fcc",
+   "version": "1537",
+   "effective_time": "20240220",
+   "openfda": {
+    "brand_name": [
+     "Synthroid"
+    ],
+    "generic_name": [
+     "LEVOTHYROXINE SODIUM"
+    ],
+    "substance_name": [
+     "LEVOTHYROXINE SODIUM"
+    ],
+    "manufacturer_name": [
+     "AbbVie Inc."
+    ],
+    "product_ndc": [
+     "0074-3727",
+     "0074-4341",
+     "0074-4552",
+     "0074-5182"
+    ],
+    "package_ndc": [
+     "0074-4341-13",
+     "0074-4341-90"
+    ],
+    "route": [
+     "ORAL"
+    ],
+    "product_type": [
+     "HUMAN PRESCRIPTION DRUG"
+    ],
+    "is_original_packager": [
+     true
+    ]
+   },
+   "description": [
+    "SYNTHROID (levothyroxine sodium tablets, USP) is L-thyroxine (T4)"
+   ],
+   "how_supplied": [
+    "16 HOW SUPPLIED/STORAGE AND HANDLING How Supplied SYNTHROID (levothyroxine sodium, USP) tablets are supplied as follows"
+   ],
+   "package_label_principal_display_panel": [
+    "NDC 0074-4552-11 Synthroid Levothyroxine Sodium Tablets, USP 50 mcg (0.05 mg) 100 Tablets"
+   ],
+   "recent_major_changes": [
+    "Dosage and Administration, Important Considerations for Dosing ( 2.2 ) 2/2024 Dosage and Administration, Monitoring TSH and/or Thyroxine (T4) Levels ( 2.4 ) 2/2024"
+   ],
+   "boxed_warning": [
+    "(present)"
+   ],
+   "warnings_and_cautions": [
+    "(present)"
+   ]
+  },
+  {
+   "_demo_id": "DS-12",
+   "id": "4e04737b-8d88-7c75-e063-6394a90a34c0",
+   "set_id": "5d378add-f13d-40f2-99dc-0f2340ab44b7",
+   "version": "18",
+   "effective_time": "20260327",
+   "openfda": {
+    "brand_name": [
+     "Tirosint SOL"
+    ],
+    "generic_name": [
+     "LEVOTHYROXINE SODIUM"
+    ],
+    "substance_name": [
+     "LEVOTHYROXINE SODIUM"
+    ],
+    "manufacturer_name": [
+     "IBSA Pharma Inc."
+    ],
+    "product_ndc": [
+     "71858-0105",
+     "71858-0110",
+     "71858-0112",
+     "71858-0113"
+    ],
+    "package_ndc": [
+     "71858-0105-6",
+     "71858-0105-4"
+    ],
+    "route": [
+     "ORAL"
+    ],
+    "product_type": [
+     "HUMAN PRESCRIPTION DRUG"
+    ],
+    "is_original_packager": [
+     true
+    ]
+   },
+   "description": [
+    "TIROSINT-SOL (levothyroxine sodium) oral solution contains synthetic L-3,3',5,5'-tetraiodo"
+   ],
+   "how_supplied": [
+    "16 HOW SUPPLIED/STORAGE AND HANDLING How Supplied TIROSINT-SOL (levothyroxine sodium) oral solution is a clear, colorless to slightly yellow solution supplied in a 1 mL"
+   ],
+   "package_label_principal_display_panel": [
+    "PRINCIPAL DISPLAY PANEL - 13 microgram/mL Ampule Pouch Carton NDC 71858-0105-5"
+   ],
+   "recent_major_changes": [
+    "RECENT MAJOR CHANGES Indications and Usage ( 1 ) 11/2023 Dosage and Administration ( 2.1 ) 11/2023 Dosage and Administration ( 2.2 ) 11/2023 Dosage and Administration ( 2.3 ) 11/2023 Warnings and Precautions ( 5.1 ) 11/2023 Warnings and Precautions ( 5.4 ) 11/2023"
+   ],
+   "boxed_warning": [
+    "(present)"
+   ],
+   "warnings_and_cautions": [
+    "(present)"
+   ]
+  },
+  {
+   "_demo_id": "DS-13",
+   "id": "e0bc8f4a-dc9b-7804-4479-ebe732449569",
+   "set_id": "95cef33b-c0e6-b17c-7cbb-f5c066872705",
+   "version": "2",
+   "effective_time": "20260423",
+   "openfda": {
+    "brand_name": [
+     "Amiodarone Hydrochloride"
+    ],
+    "generic_name": [
+     "AMIODARONE HYDROCHLORIDE"
+    ],
+    "substance_name": [
+     "AMIODARONE HYDROCHLORIDE"
+    ],
+    "manufacturer_name": [
+     "Dr. Reddy's Labratories Inc."
+    ],
+    "product_ndc": [
+     "75907-005",
+     "75907-006",
+     "75907-007"
+    ],
+    "package_ndc": [
+     "75907-005-30",
+     "75907-006-60"
+    ],
+    "route": [
+     "ORAL"
+    ],
+    "product_type": [
+     "HUMAN PRESCRIPTION DRUG"
+    ],
+    "is_original_packager": [
+     true
+    ]
+   },
+   "description": [
+    "Amiodarone hydrochloride tablets, USP is an antiarrhythmic drug, available for oral administration"
+   ],
+   "how_supplied": [
+    "16 HOW SUPPLIED/STORAGE AND HANDLING Amiodarone hydrochloride tablets, USP are available as follows: 100 mg, white, round, flat-faced, beveled-edge tablet."
+   ],
+   "package_label_principal_display_panel": [
+    "PRINCIPAL DISPLAY PANEL - 100 mg Tablet Bottle Label NDC 75907-005-30 Amiodarone Hydrochloride Tablets, USP"
+   ],
+   "boxed_warning": [
+    "(present)"
+   ],
+   "warnings_and_cautions": [
+    "(present)"
+   ]
+  },
+  {
+   "_demo_id": "DS-14",
+   "id": "e988b70b-0906-4e72-b032-97033e37aa0e",
+   "set_id": "bb3b5e96-e629-4db5-8ad5-40c17c6dae18",
+   "version": "8",
+   "effective_time": "20260929",
+   "openfda": {
+    "brand_name": [
+     "Clopidogrel"
+    ],
+    "generic_name": [
+     "CLOPIDOGREL BISULFATE"
+    ],
+    "substance_name": [
+     "CLOPIDOGREL BISULFATE"
+    ],
+    "manufacturer_name": [
+     "Westminster Pharmaceuticals, LLC"
+    ],
+    "product_ndc": [
+     "69367-194",
+     "69367-200"
+    ],
+    "package_ndc": [
+     "69367-194-30",
+     "69367-194-05"
+    ],
+    "route": [
+     "ORAL"
+    ],
+    "product_type": [
+     "HUMAN PRESCRIPTION DRUG"
+    ],
+    "is_original_packager": [
+     true
+    ]
+   },
+   "description": [
+    "Clopidogrel bisulfate is a thienopyridine class inhibitor of P2Y 12 ADP platelet receptors"
+   ],
+   "how_supplied": [
+    "16 HOW SUPPLIED/STORAGE AND HANDLING Clopidogrel tablets, USP 75 mg are available as pink colored, round shaped, biconvex, film coated tablets"
+   ],
+   "package_label_principal_display_panel": [
+    "PRINCIPAL DISPLAY PANEL - 300 mg Tablet Bottle Label NDC 69367-194-30 Rx Only Clopidogrel Tablets, USP 300 mg"
+   ],
+   "boxed_warning": [
+    "(present)"
+   ],
+   "warnings_and_cautions": [
+    "(present)"
+   ]
+  },
+  {
+   "_demo_id": "DS-15",
+   "id": "5aa3c876-3d09-cea0-e063-6294a90a0e70",
+   "set_id": "c5431c8a-d92c-489e-b63b-4b9cc8f32a1a",
+   "version": "3",
+   "effective_time": "20260904",
+   "openfda": {
+    "brand_name": [
+     "Metoprolol Succinate"
+    ],
+    "generic_name": [
+     "METOPROLOL SUCCINATE"
+    ],
+    "substance_name": [
+     "METOPROLOL SUCCINATE"
+    ],
+    "manufacturer_name": [
+     "Granules India Ltd"
+    ],
+    "product_ndc": [
+     "62207-130",
+     "62207-133",
+     "62207-131",
+     "62207-132"
+    ],
+    "package_ndc": [
+     "62207-130-54",
+     "62207-130-49"
+    ],
+    "route": [
+     "ORAL"
+    ],
+    "product_type": [
+     "HUMAN PRESCRIPTION DRUG"
+    ],
+    "is_original_packager": [
+     true
+    ]
+   },
+   "description": [
+    "Metoprolol succinate, is a beta 1 -selective (cardioselective) adrenoceptor blocking agent"
+   ],
+   "how_supplied": [
+    "16 HOW SUPPLIED/STORAGE AND HANDLING Metoprolol succinate extended-release tablets containing metoprolol succinate equivalent to the indicated weight of metoprolol tartrate"
+   ],
+   "package_label_principal_display_panel": [
+    "PACKAGE LABEL.PRINCIPAL DISPLAY PANEL metoprolol-25mg-30s metoprolol-50mg-30s"
+   ],
+   "warnings_and_cautions": [
+    "(present)"
+   ]
+  },
+  {
+   "_demo_id": "DS-16",
+   "id": "28c4fc69-5609-49ec-8fe5-4d7bc8f88288",
+   "set_id": "0283bc9d-6998-493a-824a-d4c85f704111",
+   "version": "10",
+   "effective_time": "20230914",
+   "openfda": {
+    "brand_name": [
+     "Lopressor"
+    ],
+    "generic_name": [
+     "METOPROLOL TARTRATE"
+    ],
+    "substance_name": [
+     "METOPROLOL TARTRATE"
+    ],
+    "manufacturer_name": [
+     "Validus Pharmaceuticals LLC"
+    ],
+    "product_ndc": [
+     "30698-458",
+     "30698-459"
+    ],
+    "package_ndc": [
+     "30698-458-01",
+     "30698-459-01"
+    ],
+    "route": [
+     "ORAL"
+    ],
+    "product_type": [
+     "HUMAN PRESCRIPTION DRUG"
+    ],
+    "is_original_packager": [
+     true
+    ]
+   },
+   "description": [
+    "Lopressor tablets contain metoprolol tartrate, a selective beta 1 -adrenoreceptor blocking"
+   ],
+   "how_supplied": [
+    "16 HOW SUPPLIED/STORAGE AND HANDLING Lopressor ( metoprolol tartrate ) t ablets Tablets 50 mg - capsule-shaped, biconvex, pink, scored"
+   ],
+   "package_label_principal_display_panel": [
+    "PRINCIPAL DISPLAY PANEL NDC 30698-458-01 Lopressor (metoprolol tartrate USP) Tablets 50 mg 100 Tablets Rx Only"
+   ],
+   "warnings_and_cautions": [
+    "(present)"
+   ]
+  },
+  {
+   "_demo_id": "DS-17",
+   "id": "6834044a-22f1-4f35-b846-b3448ee84c16",
+   "set_id": "27f15fac-7d98-4114-a2ec-92494a91da98",
+   "version": "14",
+   "effective_time": "20260130",
+   "openfda": {
+    "brand_name": [
+     "OZEMPIC",
+     "RYBELSUS"
+    ],
+    "generic_name": [
+     "ORAL SEMAGLUTIDE"
+    ],
+    "substance_name": [
+     "SEMAGLUTIDE"
+    ],
+    "manufacturer_name": [
+     "Novo Nordisk Pharmaceutical Industries, LP"
+    ],
+    "product_ndc": [
+     "0169-1704",
+     "0169-1715",
+     "0169-1709",
+     "0169-4303",
+     "0169-4307",
+     "0169-4314",
+     "0169-4815",
+     "0169-4804",
+     "0169-4809"
+    ],
+    "package_ndc": [
+     "0169-1715-30",
+     "0169-1715-90"
+    ],
+    "route": [
+     "ORAL"
+    ],
+    "product_type": [
+     "HUMAN PRESCRIPTION DRUG"
+    ],
+    "is_original_packager": [
+     true
+    ]
+   },
+   "description": [
+    "RYBELSUS and OZEMPIC tablets, for oral use, contain semaglutide, a GLP-1 receptor agonist."
+   ],
+   "how_supplied": [
+    "16 HOW SUPPLIED/STORAGE AND HANDLING How Supplied RYBELSUS strengths are available as follows: Tablet Strength Description Package Configuration NDC Number"
+   ],
+   "package_label_principal_display_panel": [
+    "PACKAGE/LABEL PRINCIPAL DISPLAY PANEL - OZEMPIC 1.5 mg tablets NDC 0169-1715-30"
+   ],
+   "recent_major_changes": [
+    "Indications and Usage ( 1 ) 10/2025 Dosage and Administration ( 2 ) 12/2025 Warnings and Precautions Acute Pancreatitis ( 5.2 ) 10/2025 Acute Kidney Injury Due to Volume Depletion ( 5.5 ) 10/2025 Severe Gastrointestinal Adverse Reactions ( 5.6 ) 10/2025 Acute Gallbladder Disease ( 5.8 ) 10/2025"
+   ],
+   "boxed_warning": [
+    "(present)"
+   ],
+   "warnings_and_cautions": [
+    "(present)"
+   ]
+  },
+  {
+   "_demo_id": "DS-18",
+   "id": "52d28c75-c5a5-4389-abff-8a243ba26d99",
+   "set_id": "e6da837c-0da0-41d6-973c-5559bf764367",
+   "version": "6",
+   "effective_time": "20231117",
+   "openfda": {
+    "brand_name": [
+     "OZEMPIC"
+    ],
+    "generic_name": [
+     "SEMAGLUTIDE"
+    ],
+    "substance_name": [
+     "SEMAGLUTIDE"
+    ],
+    "manufacturer_name": [
+     "A-S Medication Solutions"
+    ],
+    "product_ndc": [
+     "50090-6051"
+    ],
+    "package_ndc": [
+     "50090-6051-0"
+    ],
+    "route": [
+     "SUBCUTANEOUS"
+    ],
+    "product_type": [
+     "HUMAN PRESCRIPTION DRUG"
+    ]
+   },
+   "description": [
+    "OZEMPIC (semaglutide) injection, for subcutaneous use, contains semaglutide, a human GLP-1"
+   ],
+   "how_supplied": [
+    "16 HOW SUPPLIED/STORAGE AND HANDLING Product: 50090-6051 NDC: 50090-6051-0 3 mL in a SYRINGE, PLASTIC / 1 in a CARTON"
+   ],
+   "package_label_principal_display_panel": [
+    "semaglutide injection, solution Label Image"
+   ],
+   "boxed_warning": [
+    "(present)"
+   ],
+   "warnings_and_cautions": [
+    "(present)"
+   ]
+  },
+  {
+   "_demo_id": "DS-19",
+   "id": "22d94fd9-9488-a812-e063-6394a90a7ffc",
+   "set_id": "015a6179-bacb-452d-b594-4de628ddc11d",
+   "version": "11",
+   "effective_time": "20241107",
+   "openfda": {
+    "brand_name": [
+     "TYLENOL Extra Strength"
+    ],
+    "generic_name": [
+     "ACETAMINOPHEN"
+    ],
+    "substance_name": [
+     "ACETAMINOPHEN"
+    ],
+    "manufacturer_name": [
+     "Kenvue Brands LLC"
+    ],
+    "product_ndc": [
+     "50580-590"
+    ],
+    "package_ndc": [
+     "50580-590-01",
+     "50580-590-02"
+    ],
+    "route": [
+     "ORAL"
+    ],
+    "product_type": [
+     "HUMAN OTC DRUG"
+    ],
+    "is_original_packager": [
+     true
+    ]
+   },
+   "package_label_principal_display_panel": [
+    "PRINCIPAL DISPLAY PANEL NDC 50580-590-02 Extra Strength TYLENOL FOR ADULTS Acetaminophen Pain Reliever Fever"
+   ],
+   "warnings": [
+    "(present)"
+   ]
+  },
+  {
+   "_demo_id": "CTX-01",
+   "id": "44f3c6c6-160a-4cc8-8961-b4f7200b5ce5",
+   "set_id": "64beb3d2-3aeb-4cd5-ba11-dacf6c9a5b50",
+   "version": "44",
+   "effective_time": "20260811",
+   "openfda": {
+    "brand_name": [
+     "JANUMET XR"
+    ],
+    "generic_name": [
+     "SITAGLIPTIN AND METFORMIN HYDROCHLORIDE"
+    ],
+    "substance_name": [
+     "SITAGLIPTIN PHOSPHATE",
+     "METFORMIN HYDROCHLORIDE"
+    ],
+    "manufacturer_name": [
+     "Merck Sharp & Dohme LLC"
+    ],
+    "product_ndc": [
+     "0006-0078",
+     "0006-0080",
+     "0006-0081"
+    ],
+    "package_ndc": [
+     "0006-0078-61",
+     "0006-0078-62"
+    ],
+    "route": [
+     "ORAL"
+    ],
+    "product_type": [
+     "HUMAN PRESCRIPTION DRUG"
+    ],
+    "is_original_packager": [
+     true
+    ]
+   },
+   "description": [
+    "11 DESCRIPTION JANUMET XR tablets for oral use contain two antihyperglycemic medications: sitagliptin and metformin extended-release."
+   ],
+   "recent_major_changes": [
+    "Boxed Warning 8/2026 Warnings and Precautions, Lactic Acidosis ( 5.1 ) 8/2026"
+   ],
+   "boxed_warning": [
+    "(present)"
+   ],
+   "warnings_and_cautions": [
+    "(present)"
+   ]
+  }
+ ]
+}

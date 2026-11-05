@@ -10,12 +10,12 @@ Label Lens answers questions about an FDA drug label, adjusted to the role of th
 
 ### Status
 
-`In discovery` · Milestone M1 · v1 target: mid-January 2027
+`Building` · Milestone M2 · v1 target: mid-January 2027
 
 | Milestone | Target | Status |
 |---|---|---|
-| M1 Discovery complete | 2026-11-19 | In progress: [data check](docs/data-check-2026-11-05.md) done |
-| M2 Core answering | 2026-12-10 | Not started |
+| M1 Discovery complete | 2026-11-19 | Done: [data check](docs/data-check-2026-11-05.md), [demo set](docs/demo-drug-set.md), [architecture](docs/architecture.md) |
+| M2 Core answering | 2026-12-10 | In progress: label resolver passes 30 of 30 eval cases |
 | M3 Roles and refusals | 2026-12-31 | Not started |
 | M4 First full eval run | 2027-01-10 | Not started |
 | M5 v1 public launch | 2027-01-15 | Not started |
@@ -30,7 +30,26 @@ Label Lens answers questions about an FDA drug label, adjusted to the role of th
 ### Documents
 
 - [Product Requirements Document](docs/PRD.md): intended use, roles, feature specs with requirement-to-test traceability, metrics, release plan and decision log
+- [Solution architecture](docs/architecture.md): how the requirements led to the design, plus the high-level design, low-level design and deployment
 - [Data check, 2026-11-05](docs/data-check-2026-11-05.md): what the openFDA data actually looks like, and the scoping decisions it forced
+- [Demo drug set](docs/demo-drug-set.md): 19 labels chosen for their edge cases, each pinned by NDC, SPL ID and date, with 48 eval cases
+
+### Code
+
+| Path | What it does |
+|---|---|
+| `packages/ingest` | Normalises openFDA label records: format, dosage form, release type, Recent Major Changes, sections and subsections |
+| `packages/core` | The label resolver (exact NDC first, then equivalence groups, then ask) and the PV provisional rule |
+| `evals/` | The demo set, eval cases, and the resolver eval runner with its reports |
+| `fixtures/` | Label excerpts for the demo set, used by tests and evals |
+
+```bash
+npm ci
+npm test               # unit tests
+npm run eval:resolver  # resolver eval; fails on any wrong label or provisional flag
+```
+
+Latest resolver eval: [30 of 30 cases pass](evals/reports/resolver-2026-11-05.md).
 
 ### Data
 

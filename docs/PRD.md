@@ -11,7 +11,7 @@ Label Lens answers questions about a drug's official label with cited answers, a
 | Field | Value |
 | --- | --- |
 | Document ID | LL-PRD-001 |
-| Version | 0.2 Draft |
+| Version | 0.3 Draft |
 | Status | Draft |
 | Classification | Public (open-source project) |
 | Author | Tamil Selvan, Product Manager |
@@ -21,6 +21,7 @@ Label Lens answers questions about a drug's official label with cited answers, a
 
 | Version | Date | Change |
 | --- | --- | --- |
+| 0.3 | 2026-11-05 | Context-aware label resolution with equivalence groups (F-01 rewritten), provisional PV verdicts, guardrails GM-07 and GM-08, demo drug set and eval cases v0.1, scope freeze (D-15 to D-18) |
 | 0.2 | 2026-11-05 | Restructured into the full PRD format: intended use, feature specifications with requirement IDs, edge cases, test traceability, release readiness and a decision log |
 | 0.1 | 2026-11-05 | First discovery draft: problem, roles, refusal patterns, data, scope, evals |
 
@@ -83,6 +84,8 @@ In LSHC (Life Sciences & Healthcare), the drug label is the most authoritative s
 | F-07 | Integration surfaces: API, embeddable panel, MCP server | v1 (API) · v1.2 (panel, MCP) |
 | F-08 | Label history (label in force on a given date) | v1.2 |
 
+**Scope freeze (D-18):** until the M4 eval run passes every guardrail, work stays on three foundations: reliable label identification (F-01), grounded answers (F-03) and appropriate refusals (F-04). No new features start before then, and v1.1 and v1.2 begin only after that gate.
+
 ### 2.8 Key user journeys
 
 Every journey starts with the role, because the role sets what "the right label" means and how the answer is shaped. All journeys run in one **split view**: question and answer on the left, the label itself on the right, with cited text highlighted in place.
@@ -90,10 +93,11 @@ Every journey starts with the role, because the role sets what "the right label"
 **J-01 Pharmacist checks a dose adjustment** (at the counter, under time pressure)
 
 1. Picks **Pharmacist** on entry (F-02).
-2. Types "metformin". Label Lens picks one representative original-packager label automatically and shows a small "switch label" control (F-01, D-07).
-3. Asks, "Dose adjustment for eGFR 40?"
-4. Gets a short answer citing subsection 2.2; the label pane on the right scrolls to the highlighted text (F-03).
-5. If the question becomes personal ("for my patient on 2 g a day?"), gets the personal-advice refusal with the label text and a prompt to confirm with the prescriber (F-04).
+2. Types "metformin". The matches span three product groups, so Label Lens asks which one: immediate-release tablets, extended-release tablets or oral solution (EC-F01-01).
+3. Picks immediate-release tablets. Within that group, gets a representative label, badged with its manufacturer and date and switchable (FR-F01-06). If dispensing a specific product, enters its NDC instead and gets that exact label, even a repackager's (FR-F01-02).
+4. Asks, "Dose adjustment for eGFR 40?"
+5. Gets a short answer citing Dosage and Administration and 8.6 Renal Impairment; the label pane scrolls to the highlighted text (F-03). If other labels in the group word that section differently, a note says so (FR-F01-09).
+6. If the question becomes personal ("for my patient on 2 g a day?"), gets the personal-advice refusal with the label text and a prompt to confirm with the prescriber (F-04).
 
 **J-02 Medical Information drafts a response letter** (at a desk, accuracy over speed)
 
@@ -107,11 +111,11 @@ Every journey starts with the role, because the role sets what "the right label"
 
 1. Picks **PV** on entry.
 2. Starts from the **case**, not a search: enters the suspect product, the reported event term(s) and the case receipt date (F-05).
-3. Confirms the exact product label. The label's effective date stays visible; if it is later than the case receipt date, a warning says the label may differ from the one in force (label history comes in v1.2, F-08).
+3. Confirms the exact label, by NDC from the case where available. If historical applicability can't be established (the label's effective date, or a Recent Major Change, is later than the case receipt date), every verdict is marked \*\*Provisional (current label)\*\* until label history arrives in v1.2 (D-17).
 4. For each event, Label Lens proposes a verdict with evidence from every place the term appears (Boxed Warning, Warnings and Precautions, Adverse Reactions):
-    - **Exact match:** proposed "Listed", shown with the quote.
-    - **Close match** ("hepatic failure" vs "hepatotoxicity"): proposed "Possible match". The processor must **approve or reject** it, with a reason, before it counts.
-    - **No match:** proposed "Not listed". The processor confirms it.
+   - **Exact match:** proposed "Listed", shown with the quote.
+   - **Close match** ("hepatic failure" vs "hepatotoxicity"): proposed "Possible match". The processor must **approve or reject** it, with a reason, before it counts.
+   - **No match:** proposed "Not listed". The processor confirms it.
 5. FAERS report counts appear beside each event as context, labeled "reports, not incidence" (GM-05).
 6. Exports a listedness summary: each event, the final verdict, who approved it and when, and the cited label text.
 
@@ -145,6 +149,8 @@ These must hold for every release. Any breach blocks release.
 | GM-04 | Different safety outcome for the same question across roles | 0 pairs | F-02, F-04 |
 | GM-05 | FAERS counts shown as risk rates or incidence | 0 cases | F-05 |
 | GM-06 | Listedness verdict finalized without human approval or confirmation | 0 cases | F-05 |
+| GM-07 | Answer given from the wrong label (wrong product, form, route, or an NDC substituted) | 0 cases in the label-selection set | F-01 |
+| GM-08 | PV verdict missing its Provisional flag when historical applicability can't be established | 0 cases | F-05 |
 
 ## 4. Assumptions, dependencies and constraints
 
@@ -178,33 +184,47 @@ Each feature traces from functional requirement (FR) to edge case (EC) to test c
 
 ### 5.1 F-01 Drug search and disambiguation
 
-**Overview:** the user finds the exact label they mean before asking anything. Every answer is tied to one label, never a blend.
+**Overview:** every answer is tied to exactly one label, never a blend. Label Lens resolves the label with one rule for every role, and when it isn't sure, it asks.
+
+**Label resolution rule (D-15, D-16)**
+
+1. **Exact product known** (NDC, or a label ID passed in): use the label for that exact product, **whether manufacturer or repackager**. If the NDC matches no label, say so; never substitute silently.
+2. **Only a name given:** group the matching labels into **equivalence groups**: same active ingredient(s), same dosage form and release type, same route.
+   - **More than one group** (immediate- vs extended-release, tablet vs oral solution, single vs combination product, oral vs injectable): **always ask**, in every role.
+   - **One group:** Pharmacist may get a **representative label** (newest original-packager label), clearly badged with its manufacturer and date and switchable. Medical Information and PV must always confirm the exact label.
+3. **Grouping uncertain** (dosage form can't be read reliably from the label): treat as separate groups and ask.
+4. **Text differs within a group** on the section being cited (e.g. a repackager label carries older text): say so beside the answer.
 
 **Functional requirements**
 
 | FR ID | Requirement |
 | --- | --- |
 | FR-F01-01 | Search by brand or generic name, tolerant of common misspellings |
-| FR-F01-02 | When a name matches several labels, apply the role's default: Pharmacist gets one representative original-packager label with a "switch label" control; Medical Information and PV must choose, with manufacturer, label date and dosage form shown |
-| FR-F01-03 | Show the selected label's name, manufacturer and effective date on every answer |
-| FR-F01-04 | Let the user switch label at any time without losing the conversation |
+| FR-F01-02 | When an NDC or label ID is provided, resolve to that exact label, including repackager labels |
+| FR-F01-03 | When the NDC or label ID matches no label, say so and offer search; never substitute another label |
+| FR-F01-04 | Group name matches into equivalence groups by active ingredient(s), dosage form, release type and route |
+| FR-F01-05 | When matches span more than one group, require the user to choose a group, in every role |
+| FR-F01-06 | Within one group, Pharmacist may receive a representative label (newest original packager), shown with a "Representative label" badge, manufacturer and date, and a switch control |
+| FR-F01-07 | Medical Information and PV must confirm the exact label; no representative label |
+| FR-F01-08 | When grouping is uncertain, treat candidates as separate groups and ask |
+| FR-F01-09 | When the cited section's text differs between labels in the same group, disclose it beside the answer |
+| FR-F01-10 | Show the selected label's name, manufacturer, NDC (if known) and effective date on every answer |
 
 **Refusals, error handling and edge cases**
 
 | EC ID | Scenario | Expected behaviour | User-facing message | Linked FR |
 | --- | --- | --- | --- | --- |
-| EC-F01-01 | Name matches several labels | Ask before answering | "I found 3 labels for this name. Which one do you mean?" | FR-F01-02 |
-| EC-F01-02 | Drug not in openFDA (e.g. an Indian brand) | Say it's not covered; suggest the generic name | "This name isn't in the US FDA label data. Try the generic name." | FR-F01-01 |
-| EC-F01-03 | openFDA unavailable | Serve from cache, or fail clearly | "Label data is unavailable right now. Please try again shortly." | FR-F01-01 |
+| EC-F01-01 | "Metformin" matches immediate-release tablets, extended-release tablets and an oral solution | Ask which product before answering | "Metformin comes in several forms. Which one: immediate-release tablets, extended-release tablets or oral solution?" | FR-F01-05 |
+| EC-F01-02 | Repackager NDC provided | Use the repackager's own label, even if the original's text is newer | Label header shows the repackager name and date | FR-F01-02 |
+| EC-F01-03 | NDC matches no label | Say so; don't substitute | "No label found for NDC 12345-678. Search by name instead?" | FR-F01-03 |
+| EC-F01-04 | Brand name covers different routes ("Ozempic": injectable and tablets) | Ask which product | "Ozempic is labeled as an injection and as tablets. Which one?" | FR-F01-05 |
+| EC-F01-05 | Drug not in openFDA (e.g. an Indian brand) | Say it's not covered; suggest the generic name | "This name isn't in the US FDA label data. Try the generic name." | FR-F01-01 |
+| EC-F01-06 | Label format not supported in v1 (older unnumbered Rx format, or OTC Drug Facts) | Identify the label, then decline to answer from it | "This label uses a format Label Lens doesn't support yet. Here is the official label link." | FR-F01-10 |
+| EC-F01-07 | openFDA unavailable | Serve from cache, or fail clearly | "Label data is unavailable right now. Please try again shortly." | FR-F01-01 |
 
-**AI behaviour:** none. Search is deterministic.
+**AI behaviour:** none. Label resolution is deterministic; the model never picks a label.
 
-**Test cases**
-
-| TC ID | Title | Covers | Expected result |
-| --- | --- | --- | --- |
-| TC-F01-01 | Ambiguous name forces a choice | FR-F01-02, EC-F01-01 | No answer until a label is picked |
-| TC-F01-02 | Unknown brand handled | EC-F01-02 | Not-covered message, no guessed label |
+**Test cases:** see the label-selection cases (LS) in the eval set, `evals/cases-v0.1.csv`.
 
 ### 5.2 F-02 Role lens
 
@@ -321,6 +341,7 @@ Each feature traces from functional requirement (FR) to edge case (EC) to test c
 | FR-F05-06 | Record each final verdict with who approved it, when, and the cited label text |
 | FR-F05-07 | Export a listedness summary for the case |
 | FR-F05-08 | Show the FAERS report count per event, labeled "reports, not incidence", with the query date |
+| FR-F05-09 | Mark every verdict Provisional (current label) when the label's effective date or any Recent Major Change is later than the case receipt date, or when no receipt date is given. A human can confirm a provisional verdict, but it stays marked provisional in the record and the export |
 
 **Refusals, error handling and edge cases**
 
@@ -328,7 +349,7 @@ Each feature traces from functional requirement (FR) to edge case (EC) to test c
 | --- | --- | --- | --- | --- |
 | EC-F05-01 | Event wording differs from the label ("hepatic failure" vs "hepatotoxicity") | Propose Possible match; block until a human decides | "Possible match. Review the quoted text and approve or reject." | FR-F05-04, FR-F05-05 |
 | EC-F05-02 | Processor tries to export with undecided Possible matches | Block export; list what's pending | "2 events still need your decision." | FR-F05-05, FR-F05-07 |
-| EC-F05-03 | Label effective date is after the case receipt date | Allow, with a persistent warning | "This label was updated after the case was received. The label in force may differ." | FR-F05-03 |
+| EC-F05-03 | Label effective date is after the case receipt date | Mark all verdicts Provisional (current label); human confirmation still required | "Provisional: this label changed after the case was received (Boxed Warning, 04/2026). The label in force may differ." | FR-F05-03, FR-F05-09 |
 | EC-F05-04 | User asks "how risky" based on FAERS | Decline to infer risk | "FAERS counts can't show how often this happens. Here's what the label says." | FR-F05-08 |
 
 **AI behaviour:** exact matches come from text matching against the label. The model only proposes Possible matches and explains why; it never makes a final verdict. Every final verdict is a human decision, recorded with an audit trail.
@@ -459,7 +480,7 @@ Anonymous counts only: answers served, evidence panel opens (SM-01), refusals by
 
 ### 7.4 Release readiness checklist
 
-- [ ] All guardrail metrics (GM-01 to GM-06) pass on the latest eval run
+- [ ] All guardrail metrics (GM-01 to GM-08) pass on the latest eval run
 - [ ] Eval results published in `evals-as-prds`
 - [ ] Disclaimer and intended use visible on every screen
 - [ ] README covers known limitations and how to run locally
@@ -501,7 +522,7 @@ Two weeks after launch, write a short retro in the repo: what the metrics showed
 | D-04 | 2026-11-05 | Safety classifier runs separately from generation and ignores the role | Keeps boundaries identical across roles and testable once |
 | D-05 | 2026-11-05 | PRD follows a full validated-system structure (v0.2) | Traceability from requirement to test is the evidence the project is meant to show |
 | D-06 | 2026-11-05 | v1 covers prescription labels in the modern numbered (PLR) format only | Data check: about 39% of Rx labels use the older unnumbered format, and OTC labels use Drug Facts. Only PLR labels support reliable section citations |
-| D-07 | 2026-11-05 | Search defaults to original packagers, groups identical label text, newest first | Data check: 234 metformin labels from 69 manufacturers, mostly repackagers; original packagers cut this to 49 |
+| D-07 | 2026-11-05 | (Superseded by D-15) Search defaults to original packagers, groups identical label text, newest first | Data check: 234 metformin labels from 69 manufacturers, mostly repackagers; original packagers cut this to 49 |
 | D-08 | 2026-11-05 | F-06 Label version diff uses DailyMed label history | Data check: openFDA keeps only the current version of each label |
 | D-09 | 2026-11-05 | Role first, on entry; PV starts from a case, not a search | The role decides what the right label is (D-07 defaults) and how answers are shaped; PV work always begins from a case |
 | D-10 | 2026-11-05 | Split view (answer left, label right) instead of a chat thread | Keeps the evidence on screen at all times; fits the calm, dense professional-tool direction |
@@ -509,6 +530,10 @@ Two weeks after launch, write a short retro in the repo: what the metrics showed
 | D-12 | 2026-11-05 | API-first core; the web app is the first client | Makes Label Lens embeddable across LSHC enterprise apps at almost no extra cost in v1 |
 | D-13 | 2026-11-05 | Integrations ship as a generic panel, an MCP server and a fictional demo host; no vendor-specific plugins | Vendor plugins need sandboxes, licenses and security reviews, and can't be demoed publicly |
 | D-14 | 2026-11-05 | Label history (F-08) ships in v1.2 with the integrations; v1 shows a label-date warning | Host apps can pass a case date, which makes history more valuable; keeps the mid-January v1 date |
+| D-15 | 2026-11-05 | Context-aware label selection: an exact product (NDC or label ID) always wins, manufacturer or repackager; a representative original-packager label is used only for generic research, badged and switchable | Dispensed and case products are often repackaged, and repackager labels can carry older text (eval data: the A-S Medication metformin IR and Janumet labels lack the 2026 Boxed Warning update) |
+| D-16 | 2026-11-05 | Auto-selection only within one equivalence group (same ingredients, dosage form, release, route); across groups, or when grouping is uncertain, always ask | Resolves the conflict between automatic pharmacist selection and confirming ambiguous labels. "Metformin HCl" covers IR tablets, ER tablets and an oral solution; "Ozempic" covers an injection and tablets |
+| D-17 | 2026-11-05 | PV verdicts are Provisional (current label) when historical applicability can't be established; never finalized without human confirmation | Until label history ships (F-08), the current label may differ from the one in force on the case receipt date |
+| D-18 | 2026-11-05 | Scope freeze: no new features until label identification, grounded answers and refusals pass the M4 evals | Foundations first; everything else depends on picking the right label and staying grounded |
 
 ## 9. Appendix
 

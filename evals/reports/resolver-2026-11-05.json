@@ -1,0 +1,247 @@
+{
+ "date": "2026-11-05",
+ "passed": 30,
+ "total": 30,
+ "results": [
+  {
+   "case": "LS-01",
+   "pass": true,
+   "status": "needs_choice",
+   "label": null,
+   "fails": [],
+   "note": null
+  },
+  {
+   "case": "LS-02",
+   "pass": true,
+   "status": "resolved",
+   "label": "DS-02",
+   "fails": [],
+   "note": null
+  },
+  {
+   "case": "LS-03",
+   "pass": true,
+   "status": "resolved",
+   "label": "DS-01",
+   "fails": [],
+   "note": null
+  },
+  {
+   "case": "LS-04",
+   "pass": true,
+   "status": "resolved",
+   "label": "DS-01",
+   "fails": [],
+   "note": null
+  },
+  {
+   "case": "LS-05",
+   "pass": true,
+   "status": "needs_choice",
+   "label": null,
+   "fails": [],
+   "note": null
+  },
+  {
+   "case": "LS-06",
+   "pass": true,
+   "status": "resolved",
+   "label": "DS-04",
+   "fails": [],
+   "note": null
+  },
+  {
+   "case": "LS-07",
+   "pass": true,
+   "status": "needs_choice",
+   "label": null,
+   "fails": [],
+   "note": null
+  },
+  {
+   "case": "LS-07b",
+   "pass": true,
+   "status": "resolved",
+   "label": "DS-06",
+   "fails": [],
+   "note": null
+  },
+  {
+   "case": "LS-08",
+   "pass": true,
+   "status": "resolved",
+   "label": "DS-07",
+   "fails": [],
+   "note": null
+  },
+  {
+   "case": "LS-09",
+   "pass": true,
+   "status": "needs_choice",
+   "label": null,
+   "fails": [],
+   "note": null
+  },
+  {
+   "case": "LS-10",
+   "pass": true,
+   "status": "needs_choice",
+   "label": null,
+   "fails": [],
+   "note": null
+  },
+  {
+   "case": "LS-11",
+   "pass": true,
+   "status": "resolved",
+   "label": "DS-17",
+   "fails": [],
+   "note": null
+  },
+  {
+   "case": "LS-12",
+   "pass": true,
+   "status": "resolved",
+   "label": "DS-18",
+   "fails": [],
+   "note": null
+  },
+  {
+   "case": "LS-13",
+   "pass": true,
+   "status": "needs_choice",
+   "label": null,
+   "fails": [],
+   "note": null
+  },
+  {
+   "case": "LS-14",
+   "pass": true,
+   "status": "needs_choice",
+   "label": null,
+   "fails": [],
+   "note": null
+  },
+  {
+   "case": "LS-15",
+   "pass": true,
+   "status": "not_found",
+   "label": null,
+   "fails": [],
+   "note": null
+  },
+  {
+   "case": "LS-16",
+   "pass": true,
+   "status": "unsupported_format",
+   "label": "DS-10",
+   "fails": [],
+   "note": null
+  },
+  {
+   "case": "LS-17",
+   "pass": true,
+   "status": "unsupported_format",
+   "label": "DS-19",
+   "fails": [],
+   "note": null
+  },
+  {
+   "case": "LS-18",
+   "pass": true,
+   "status": "resolved",
+   "label": "DS-11",
+   "fails": [],
+   "note": null
+  },
+  {
+   "case": "PV-01",
+   "pass": true,
+   "status": "resolved",
+   "label": "DS-01",
+   "fails": [],
+   "note": null
+  },
+  {
+   "case": "PV-02",
+   "pass": true,
+   "status": "resolved",
+   "label": "DS-01",
+   "fails": [],
+   "note": null
+  },
+  {
+   "case": "PV-03",
+   "pass": true,
+   "status": "resolved",
+   "label": "DS-13",
+   "fails": [],
+   "note": null
+  },
+  {
+   "case": "PV-04",
+   "pass": true,
+   "status": "resolved",
+   "label": "DS-09",
+   "fails": [],
+   "note": null
+  },
+  {
+   "case": "PV-05",
+   "pass": true,
+   "status": "resolved",
+   "label": "DS-09",
+   "fails": [],
+   "note": null
+  },
+  {
+   "case": "PV-06",
+   "pass": true,
+   "status": "resolved",
+   "label": "DS-06",
+   "fails": [],
+   "note": null
+  },
+  {
+   "case": "PV-07",
+   "pass": true,
+   "status": "resolved",
+   "label": "DS-07",
+   "fails": [],
+   "note": null
+  },
+  {
+   "case": "PV-08",
+   "pass": true,
+   "status": "resolved",
+   "label": "DS-18",
+   "fails": [],
+   "note": "Known limitation: a stale only-label is not flagged; F-08 fixes it."
+  },
+  {
+   "case": "PV-09",
+   "pass": true,
+   "status": "resolved",
+   "label": "DS-09",
+   "fails": [],
+   "note": null
+  },
+  {
+   "case": "PV-10",
+   "pass": true,
+   "status": "resolved",
+   "label": "DS-13",
+   "fails": [],
+   "note": null
+  },
+  {
+   "case": "PV-11",
+   "pass": true,
+   "status": "resolved",
+   "label": "DS-01",
+   "fails": [],
+   "note": null
+  }
+ ]
+}

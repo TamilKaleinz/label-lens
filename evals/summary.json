@@ -1,0 +1,23 @@
+{
+ "as_of": "2026-11-05",
+ "drugs": 19,
+ "cases": 48,
+ "by_category": {
+  "Ambiguous generic": 5,
+  "Repackager vs original": 4,
+  "Exact product": 2,
+  "Combination product": 2,
+  "Brand across routes": 3,
+  "NDC not found": 1,
+  "Unsupported format": 2,
+  "Grounded answer": 8,
+  "Unsupported claim": 5,
+  "Refusal": 6,
+  "Historical label": 4,
+  "Close match": 2,
+  "Exact match": 1,
+  "Known limitation": 1,
+  "Human approval": 1,
+  "FAERS context": 1
+ }
+}
