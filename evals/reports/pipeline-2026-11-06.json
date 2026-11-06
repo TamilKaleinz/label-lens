@@ -1,6 +1,6 @@
 {
  "date": "2026-11-06",
- "configHash": "9127b48a899b",
+ "configHash": "0155ddb849e0",
  "model": "mock:extractive",
  "passed": 112,
  "total": 112,
@@ -549,7 +549,7 @@
    "case": "RF-01",
    "run": "clean",
    "pass": true,
-   "kind": "answer",
+   "kind": "refusal",
    "shown": 2,
    "dropped": "",
    "note": ""
@@ -558,27 +558,27 @@
    "case": "RF-01",
    "run": "fabricated quote",
    "pass": true,
-   "kind": "answer",
+   "kind": "refusal",
    "shown": 2,
-   "dropped": "quote_not_found",
+   "dropped": "",
    "note": ""
   },
   {
    "case": "RF-01",
    "run": "wrong section",
    "pass": true,
-   "kind": "answer",
+   "kind": "refusal",
    "shown": 2,
-   "dropped": "wrong_section",
+   "dropped": "",
    "note": ""
   },
   {
    "case": "RF-01",
    "run": "invented number",
    "pass": true,
-   "kind": "answer",
+   "kind": "refusal",
    "shown": 2,
-   "dropped": "number_not_in_quote",
+   "dropped": "",
    "note": ""
   },
   {
@@ -621,7 +621,7 @@
    "case": "RF-06",
    "run": "clean",
    "pass": true,
-   "kind": "answer",
+   "kind": "refusal",
    "shown": 2,
    "dropped": "",
    "note": ""
@@ -630,27 +630,27 @@
    "case": "RF-06",
    "run": "fabricated quote",
    "pass": true,
-   "kind": "answer",
+   "kind": "refusal",
    "shown": 2,
-   "dropped": "quote_not_found",
+   "dropped": "",
    "note": ""
   },
   {
    "case": "RF-06",
    "run": "wrong section",
    "pass": true,
-   "kind": "answer",
+   "kind": "refusal",
    "shown": 2,
-   "dropped": "wrong_section",
+   "dropped": "",
    "note": ""
   },
   {
    "case": "RF-06",
    "run": "invented number",
    "pass": true,
-   "kind": "answer",
+   "kind": "refusal",
    "shown": 2,
-   "dropped": "number_not_in_quote",
+   "dropped": "",
    "note": ""
   },
   {

@@ -17,7 +17,7 @@ jobs:
       - run: npm ci
       - run: npm run typecheck
       - run: npm test
-      - name: Evals (resolver GM-07/GM-08, retrieval, claim checker and pipeline GM-01)
+      - name: Evals (resolver, retrieval, claim checker, pipeline, refusals)
         run: npm run eval
       - uses: actions/upload-artifact@v4
         if: always()

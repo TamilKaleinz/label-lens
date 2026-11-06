@@ -1,0 +1,8 @@
+{
+  "note": "User-facing copy for each response pattern (PRD EC-F04-01 to EC-F04-05). Product owns this file; every change changes config_hash.",
+  "emergency": { "message": "If this is an emergency, call your local emergency number or poison control now.", "askHuman": "Emergency services or poison control" },
+  "personal_advice": { "message": "I can't advise on a specific person's treatment. Here is what the label says, quoted. The prescriber can decide what's right for this person.", "askHuman": "The prescriber or a pharmacist" },
+  "out_of_scope": { "message": "I only answer from one drug's label at a time, and I don't compare treatments or diagnose. Here is what this label says it is indicated for.", "askHuman": "A pharmacist or the prescriber" },
+  "label_silent": { "message": "The label doesn't address this. Absence from the label is not evidence of safety.", "askHuman": "A pharmacist, or the manufacturer's medical information line" },
+  "low_confidence": { "message": "I'm not sure which part of the label answers this.", "askHuman": "A pharmacist" }
+}

@@ -22,8 +22,13 @@ jobs:
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           LIVE_RUNS: ${{ inputs.runs }}
+      - run: npx tsx evals/run-refusals.ts --live
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: live-eval-report
-          path: evals/reports/live-*
+          path: |
+            evals/reports/live-*
+            evals/reports/refusals-live-*

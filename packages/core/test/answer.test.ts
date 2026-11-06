@@ -10,6 +10,11 @@ const engine = (model: ModelClient = new ExtractiveModel(), supportCheck = true)
 const metformin = { setId: fullLabel("DS-01").setId };
 const amiodarone = { setId: fullLabel("DS-13").setId };
 
+const SAFE = JSON.stringify({ class: "answerable", confidence: 0.95, reason: "test" });
+/** A scripted model that is answerable at the safety step and replies `gen` to generation. */
+const genReply = (gen: () => string) => new ScriptedModel((req) => (req.purpose === "safety" ? SAFE : gen()));
+const genCalls = (m: { calls: ModelRequest[] }) => m.calls.filter((c) => c.purpose === "generate");
+
 /** Wraps the extractive mock, adding one extra claim to every generation. */
 const withExtra = (extra: { text: string; section_code: string; quote: string }) => {
   const base = new ExtractiveModel();
@@ -54,13 +59,13 @@ describe("answer pipeline (mock model)", () => {
 
   it("fails closed on a reply that isn't JSON, or doesn't match the schema", async () => {
     for (const reply of ["not json", JSON.stringify({ claims: [] }), JSON.stringify({ label_silent: false, claims: [{ text: 1 }] }), JSON.stringify({ label_silent: true, claims: [{ text: "x", section_code: "5.1", quote: "y" }] })]) {
-      const r = await engine(new ScriptedModel(() => reply)).answer({ role: "pharmacist", ref: metformin, question: "what about lactic acidosis?" });
+      const r = await engine(genReply(() => reply)).answer({ role: "pharmacist", ref: metformin, question: "what about lactic acidosis?" });
       expect(r).toMatchObject({ kind: "label_silent", claims: [], error: expect.any(String) });
     }
   });
 
   it("fails closed when the model throws", async () => {
-    const r = await engine(new ScriptedModel(() => { throw new Error("timeout"); })).answer({ role: "pharmacist", ref: metformin, question: "what about lactic acidosis?" });
+    const r = await engine(genReply(() => { throw new Error("timeout"); })).answer({ role: "pharmacist", ref: metformin, question: "what about lactic acidosis?" });
     expect(r).toMatchObject({ kind: "label_silent", error: "model error: timeout" });
   });
 
@@ -68,7 +73,7 @@ describe("answer pipeline (mock model)", () => {
     const m = new ExtractiveModel();
     const r = await engine(m).answer({ role: "pharmacist", ref: amiodarone, question: "cranberry" });
     expect(r).toMatchObject({ kind: "label_silent", boxedWarning: { present: true, cited: false } });
-    expect(m.calls).toHaveLength(0);
+    expect(genCalls(m)).toHaveLength(0);
   });
 
   it("shows the model excerpts from the resolved label only, Boxed Warning included", async () => {
@@ -89,7 +94,7 @@ describe("answer pipeline (mock model)", () => {
     for (const role of ["pharmacist", "medical_information", "pv"] as const) {
       const m = new ExtractiveModel();
       await engine(m).answer({ role, ref: metformin, question: "what about lactic acidosis?" });
-      prompts[role] = m.calls[0] as ModelRequest;
+      prompts[role] = genCalls(m)[0] as ModelRequest;
     }
     expect(prompts["pharmacist"]?.system).toContain(config.prompts.roles.pharmacist);
     expect(prompts["pv"]?.system).toContain(config.prompts.roles.pv);
@@ -100,21 +105,22 @@ describe("answer pipeline (mock model)", () => {
     const m = new ExtractiveModel();
     const r = await engine(m).answer({ role: "pharmacist", ref: { q: "metformin" }, question: "max dose?" });
     expect(r.kind).toBe("clarify");
-    expect(m.calls).toHaveLength(0);
+    expect(genCalls(m)).toHaveLength(0);
   });
 
   it("identifies an unsupported format and declines without calling the model", async () => {
     const m = new ExtractiveModel();
     const r = await engine(m).answer({ role: "pharmacist", ref: { setId: fullLabel("DS-10").setId }, question: "dose?" });
     expect(r.kind).toBe("unsupported_format");
-    expect(m.calls).toHaveLength(0);
+    expect(genCalls(m)).toHaveLength(0);
   });
 
   it("refuses live calls until a model is configured", async () => {
     const { OpenAIClient } = await import("../src/model.js");
-    const unset = { ...config, models: { ...config.models, generate: { model: null, temperature: null } } };
+    const unset = { ...config, models: { ...config.models, generate: { model: null, temperature: null }, gate: { model: null, temperature: null } } };
     const e = new Engine({ store: fullStore, sectionsFor, model: new OpenAIClient("test-key"), config: unset });
     const r = await e.answer({ role: "pharmacist", ref: metformin, question: "what about lactic acidosis?" });
-    expect(r).toMatchObject({ kind: "label_silent", error: expect.stringContaining("No generate model set") });
+    // The classifier can't run either, so the question fails closed to the low-confidence path.
+    expect(r).toMatchObject({ kind: "clarify_question", safety: { class: "low_confidence", by: "error" } });
   });
 });

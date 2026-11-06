@@ -20,14 +20,18 @@ function firstSentence(text: string): string {
 }
 
 /**
- * Extractive mock: for "generate", quotes the first sentence of the top two excerpts and uses the
- * quote as the claim. For "support", says supported only if every content word of the claim is in
+ * Extractive mock: for "safety", answers "answerable" (the rules have already run). For "generate",
+ * quotes the first sentence of the top two excerpts and uses the quote as the claim. For "support", says supported only if every content word of the claim is in
  * the quote: a crude but deterministic rule that also rejects UC-04 ("to prevent lactic acidosis").
  */
 export class ExtractiveModel implements ModelClient {
   readonly calls: ModelRequest[] = [];
   async complete(req: ModelRequest): Promise<string> {
     this.calls.push(req);
+    if (req.purpose === "safety") {
+      // Rules handle the clear cases before this is called; the mock calls everything else answerable.
+      return JSON.stringify({ class: "answerable", confidence: 0.95, reason: "mock" });
+    }
     if (req.purpose === "support") {
       const claim = /^Claim: (.*)$/m.exec(req.user)?.[1] ?? "";
       const quote = canonical(/^Quote: (.*)$/m.exec(req.user)?.[1] ?? "").text;

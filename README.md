@@ -16,7 +16,7 @@ Label Lens answers questions about an FDA drug label, adjusted to the role of th
 |---|---|---|
 | M1 Discovery complete | 2026-11-19 | Done: [data check](docs/data-check-2026-11-05.md), [demo set](docs/demo-drug-set.md), [architecture](docs/architecture.md) |
 | M2 Core answering | 2026-12-10 | Live on OpenAI: 99% of answerable questions answered with a cited expected section, 0 ungrounded claims shown ([first live run](docs/live-eval-2026-11-06.md)) |
-| M3 Roles and refusals | 2026-12-31 | Not started |
+| M3 Roles and refusals | 2026-12-31 | In progress: safety classifier and refusals live, all blocking guardrails pass ([write-up](docs/refusals-2026-11-06.md)); PV listedness next |
 | M4 First full eval run | 2027-01-10 | Not started |
 | M5 v1 public launch | 2027-01-15 | Not started |
 
@@ -32,6 +32,7 @@ Label Lens answers questions about an FDA drug label, adjusted to the role of th
 - [Product Requirements Document](docs/PRD.md): intended use, roles, feature specs with requirement-to-test traceability, metrics, release plan and decision log
 - [Solution architecture](docs/architecture.md): how the requirements led to the design, plus the high-level design, low-level design and deployment
 - [Data check, 2026-11-05](docs/data-check-2026-11-05.md): what the openFDA data actually looks like, and the scoping decisions it forced
+- [The safety classifier and refusals](docs/refusals-2026-11-06.md): a grounded answer can still be the wrong answer; 0 personal-advice answers across 40 questions in 3 roles
 - [First live run: what the real model did](docs/live-eval-2026-11-06.md): the guardrail held from the first call; three fixes took answers from 92% to 99%
 - [What the real labels taught the parser](docs/ingestion-findings-2026-11-05.md): six bugs the excerpts hid, and how golden files now catch them
 - [Demo drug set](docs/demo-drug-set.md): 19 labels chosen for their edge cases, each pinned by NDC, SPL ID and date, with 48 eval cases
@@ -48,12 +49,14 @@ Label Lens answers questions about an FDA drug label, adjusted to the role of th
 
 ```bash
 npm ci
-npm test               # unit, golden-file and pipeline tests (96)
+npm test               # unit, golden-file, pipeline and safety tests (134)
 npm run eval           # all evals; any failure fails the run
 npm run eval:resolver  #   label resolution and the provisional rule (GM-07, GM-08)
 npm run eval:retrieval #   the right sections rank in the top 5, on full labels
 npm run eval:claims    #   the quote check keeps faithful claims and drops the rest (GM-01)
 npm run eval:pipeline  #   end to end on a mock model, with injected bad claims that must be dropped
+npm run eval:refusals  #   emergencies, personal advice, out of scope, in every role (rules offline)
+npm run eval:refusals:live  # the same, with the real classifier (costs money)
 npm run eval:live      # against the real OpenAI models (needs OPENAI_API_KEY in .env; costs money)
 npm run check:openai   # confirm the key works and list available models
 npm run ingest:fetch   # re-download the pinned labels from openFDA; exits 2 on label drift

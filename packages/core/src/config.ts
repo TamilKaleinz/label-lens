@@ -14,8 +14,12 @@ export interface Config {
   hash: string;
   models: { provider: "openai"; generate: ModelSetting; gate: ModelSetting };
   retrieval: { k: number; maxChunkChars: number; maxPerSection: number; sectionPrior: number };
-  prompts: { generate: string; support: string; roles: Record<Role, string> };
+  prompts: { generate: string; support: string; safety: string; roles: Record<Role, string> };
+  safety: { lowConfidenceBelow: number; emergency: string[]; personal: string[]; outOfScope: string[] };
+  refusals: Record<RefusalCopyKey, { message: string; askHuman: string }>;
 }
+
+export type RefusalCopyKey = "emergency" | "personal_advice" | "out_of_scope" | "label_silent" | "low_confidence";
 
 export const configDir = join(import.meta.dirname, "../../../config");
 
@@ -39,6 +43,8 @@ export function loadConfig(dir = configDir): Config {
     hash: hashDir(dir),
     models: JSON.parse(read("models.json")),
     retrieval: JSON.parse(read("retrieval.json")),
-    prompts: { generate: read("prompts/generate.md"), support: read("prompts/support.md"), roles: JSON.parse(read("prompts/roles.json")) },
+    prompts: { generate: read("prompts/generate.md"), support: read("prompts/support.md"), safety: read("prompts/safety.md"), roles: JSON.parse(read("prompts/roles.json")) },
+    safety: JSON.parse(read("safety.json")),
+    refusals: JSON.parse(read("refusals.json")),
   };
 }

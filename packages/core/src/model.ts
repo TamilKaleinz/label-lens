@@ -5,7 +5,7 @@
 import { loadEnv } from "./env.js";
 
 export interface ModelRequest {
-  purpose: "generate" | "support";
+  purpose: "generate" | "support" | "safety";
   model: string | null;
   /** null = leave it to the model's default. */
   temperature: number | null;
@@ -35,6 +35,7 @@ export class OpenAIClient implements ModelClient {
   readonly usage: Record<ModelRequest["purpose"], Usage> = {
     generate: { calls: 0, inputTokens: 0, outputTokens: 0, ms: 0 },
     support: { calls: 0, inputTokens: 0, outputTokens: 0, ms: 0 },
+    safety: { calls: 0, inputTokens: 0, outputTokens: 0, ms: 0 },
   };
 
   constructor(
