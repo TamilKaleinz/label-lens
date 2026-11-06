@@ -1,0 +1,135 @@
+{
+ "date": "2026-11-06",
+ "passed": 16,
+ "total": 16,
+ "results": [
+  {
+   "id": "CC-01",
+   "expect": "keep",
+   "got": "keep",
+   "pass": true,
+   "pendingSupport": null,
+   "why": "Faithful quote; '1.73 m 2' in the label matches 'm2' in the quote"
+  },
+  {
+   "id": "CC-02",
+   "expect": "keep",
+   "got": "keep",
+   "pass": true,
+   "pendingSupport": null,
+   "why": "Same fact, cited from 8.6"
+  },
+  {
+   "id": "CC-03",
+   "expect": "wrong_section",
+   "got": "wrong_section",
+   "pass": true,
+   "pendingSupport": null,
+   "why": "Real quote, but it is in 2.3, not the cited 5.1"
+  },
+  {
+   "id": "CC-04",
+   "expect": "quote_not_found",
+   "got": "quote_not_found",
+   "pass": true,
+   "pendingSupport": null,
+   "why": "Quote altered: 30 changed to 45"
+  },
+  {
+   "id": "CC-05",
+   "expect": "number_not_in_quote",
+   "got": "number_not_in_quote",
+   "pass": true,
+   "pendingSupport": null,
+   "why": "The claim invents a dose (1000) the quote doesn't contain"
+  },
+  {
+   "id": "CC-06",
+   "expect": "keep",
+   "got": "keep",
+   "pass": true,
+   "pendingSupport": null,
+   "why": "Every number in the claim is in the quote"
+  },
+  {
+   "id": "CC-07",
+   "expect": "number_not_in_quote",
+   "got": "number_not_in_quote",
+   "pass": true,
+   "pendingSupport": null,
+   "why": "Adult maximum (2550) claimed from the pediatric subsection (2000)"
+  },
+  {
+   "id": "CC-08",
+   "expect": "keep",
+   "got": "keep",
+   "pass": true,
+   "pendingSupport": null,
+   "why": "Faithful"
+  },
+  {
+   "id": "CC-09",
+   "expect": "quote_too_short",
+   "got": "quote_too_short",
+   "pass": true,
+   "pendingSupport": null,
+   "why": "Two words carry no checkable meaning"
+  },
+  {
+   "id": "CC-10",
+   "expect": "quote_not_found",
+   "got": "quote_not_found",
+   "pass": true,
+   "pendingSupport": null,
+   "why": "Fabricated quote"
+  },
+  {
+   "id": "UC-04",
+   "expect": "keep",
+   "got": "keep",
+   "pass": true,
+   "pendingSupport": "unsupported",
+   "why": "The quote is real, but it says nothing about preventing lactic acidosis. Only the step-2 support check can catch this"
+  },
+  {
+   "id": "CC-11",
+   "expect": "keep",
+   "got": "keep",
+   "pass": true,
+   "pendingSupport": null,
+   "why": "Boxed Warning quotes are checked like any other section"
+  },
+  {
+   "id": "CC-12",
+   "expect": "keep",
+   "got": "keep",
+   "pass": true,
+   "pendingSupport": null,
+   "why": "Typographic hyphen in the quote matches the label's plain hyphen"
+  },
+  {
+   "id": "CC-13",
+   "expect": "keep",
+   "got": "keep",
+   "pass": true,
+   "pendingSupport": "unsupported",
+   "why": "Quote check passes. The first live eval's support check rejected it, correctly: the label says 'discontinue or reduce dose', and 'stop' drops the alternative. Expectation corrected 2026-11-06"
+  },
+  {
+   "id": "CC-14",
+   "expect": "number_not_in_quote",
+   "got": "number_not_in_quote",
+   "pass": true,
+   "pendingSupport": null,
+   "why": "Claim changes 'three' to 5"
+  },
+  {
+   "id": "CC-15",
+   "expect": "keep",
+   "got": "keep",
+   "pass": true,
+   "pendingSupport": null,
+   "why": "The faithful version of CC-13"
+  }
+ ]
+}

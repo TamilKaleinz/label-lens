@@ -9,7 +9,7 @@ interface Excerpt { code: string; text: string }
 
 /** Reads the excerpts back out of the generator prompt built by buildGeneratePrompt. */
 export function excerptsFromPrompt(user: string): Excerpt[] {
-  const re = /\[E\d+\] section (\S+)[^\n]*\n([\s\S]*?)(?=\n\n\[E\d+\] |$)/g;
+  const re = /\[E\d+\] section_code: (\S+)[^\n]*\n([\s\S]*?)(?=\n\n\[E\d+\] |$)/g;
   return [...user.matchAll(re)].map((m) => ({ code: m[1] as string, text: (m[2] as string).trim() }));
 }
 

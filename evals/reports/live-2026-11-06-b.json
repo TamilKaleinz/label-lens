@@ -1,0 +1,1775 @@
+{
+ "summary": {
+  "date": "2026-11-06",
+  "configHash": "846053a42bea",
+  "models": {
+   "provider": "openai",
+   "generate": {
+    "model": "gpt-5.5-2026-04-23",
+    "temperature": null,
+    "note": "Writes claims with quotes. A dated snapshot, so the model can't change under the evals. Accepts only its default temperature, so run-to-run variation is measured by the live eval (AD-04)."
+   },
+   "gate": {
+    "model": "gpt-5.4-mini-2026-03-17",
+    "temperature": 0,
+    "note": "Small, fast model for the support check and, in M3, the safety classifier. Dated snapshot."
+   }
+  },
+  "runs": 3,
+  "supportCheck": {
+   "passed": 8,
+   "total": 9
+  },
+  "answered": 73,
+  "answerableRuns": 75,
+  "citedExpected": 73,
+  "ungroundedShown": 0,
+  "claimsShown": 239,
+  "claimsDropped": 21,
+  "meanSectionAgreement": 0.8601190476190476,
+  "medianMs": 11158,
+  "usage": {
+   "generate": {
+    "calls": 84,
+    "inputTokens": 114792,
+    "outputTokens": 47435,
+    "ms": 684428
+   },
+   "support": {
+    "calls": 261,
+    "inputTokens": 68716,
+    "outputTokens": 12310,
+    "ms": 244118
+   }
+  }
+ },
+ "partA": [
+  {
+   "id": "CC-01",
+   "want": true,
+   "supported": true,
+   "pass": true,
+   "claim": "Yes. It is contraindicated when eGFR is below 30 mL/min/1.73 m2."
+  },
+  {
+   "id": "CC-02",
+   "want": true,
+   "supported": true,
+   "pass": true,
+   "claim": "It is contraindicated in severe renal impairment."
+  },
+  {
+   "id": "CC-06",
+   "want": true,
+   "supported": true,
+   "pass": true,
+   "claim": "The usual starting dose is 500 mg twice a day or 850 mg once a day, with meals."
+  },
+  {
+   "id": "CC-08",
+   "want": true,
+   "supported": true,
+   "pass": true,
+   "claim": "Fatal cases of lactic acidosis have been reported."
+  },
+  {
+   "id": "UC-04",
+   "want": false,
+   "supported": false,
+   "pass": true,
+   "claim": "Take it with food to prevent lactic acidosis."
+  },
+  {
+   "id": "CC-11",
+   "want": true,
+   "supported": true,
+   "pass": true,
+   "claim": "The Boxed Warning says fatal outcomes, hypothermia, hypotension and resistant bradyarrhythmias have occurred."
+  },
+  {
+   "id": "CC-12",
+   "want": true,
+   "supported": true,
+   "pass": true,
+   "claim": "It can cause life-threatening hepatic injury."
+  },
+  {
+   "id": "CC-13",
+   "want": false,
+   "supported": true,
+   "pass": false,
+   "claim": "Stop if transaminases exceed three times normal."
+  },
+  {
+   "id": "CC-15",
+   "want": true,
+   "supported": true,
+   "pass": true,
+   "claim": "Discontinue or reduce the dose if transaminases exceed three times normal."
+  }
+ ],
+ "partB": [
+  {
+   "case": "LS-02",
+   "run": 0,
+   "q": "what risk factors for lactic acidosis does the Boxed Warning list?",
+   "kind": "answer",
+   "ms": 5528,
+   "cited": [
+    "BW"
+   ],
+   "hitExpected": true,
+   "ungrounded": 0,
+   "dropped": [],
+   "error": null,
+   "claims": [
+    "[BW] The Boxed Warning lists risk factors for metformin-associated lactic acidosis as renal impairment, certain concomitant drugs, age 65 years old or greater, radiological study with contrast, surgery and other procedures, hypoxic states, excessive alcohol intake, and hepatic impairment."
+   ]
+  },
+  {
+   "case": "LS-02",
+   "run": 1,
+   "q": "what risk factors for lactic acidosis does the Boxed Warning list?",
+   "kind": "answer",
+   "ms": 11232,
+   "cited": [
+    "BW"
+   ],
+   "hitExpected": true,
+   "ungrounded": 0,
+   "dropped": [],
+   "error": null,
+   "claims": [
+    "[BW] The Boxed Warning lists renal impairment, concomitant use of certain drugs, age 65 years old or greater, having a radiological study with contrast, surgery and other procedures, hypoxic states, excessive alcohol intake, and hepatic impairment as risk factors for metformin-associated lactic acidosis."
+   ]
+  },
+  {
+   "case": "LS-02",
+   "run": 2,
+   "q": "what risk factors for lactic acidosis does the Boxed Warning list?",
+   "kind": "answer",
+   "ms": 14426,
+   "cited": [
+    "BW"
+   ],
+   "hitExpected": true,
+   "ungrounded": 0,
+   "dropped": [],
+   "error": null,
+   "claims": [
+    "[BW] The Boxed Warning lists renal impairment, concomitant use of certain drugs, age 65 years old or greater, and radiological study with contrast among the risk factors.",
+    "[BW] It also lists surgery and other procedures, hypoxic states, excessive alcohol intake, and hepatic impairment."
+   ]
+  },
+  {
+   "case": "LS-03",
+   "run": 0,
+   "q": "what risk factors for lactic acidosis does the Boxed Warning list?",
+   "kind": "answer",
+   "ms": 13269,
+   "cited": [
+    "BW"
+   ],
+   "hitExpected": true,
+   "ungrounded": 0,
+   "dropped": [],
+   "error": null,
+   "claims": [
+    "[BW] The Boxed Warning lists renal impairment, certain concomitant drugs, age 65 years old or greater, and radiological study with contrast as risk factors.",
+    "[BW] The Boxed Warning also lists surgery and other procedures, and hypoxic states.",
+    "[BW] The Boxed Warning also lists excessive alcohol intake, hepatic impairment, and mitochondrial diseases."
+   ]
+  },
+  {
+   "case": "LS-03",
+   "run": 1,
+   "q": "what risk factors for lactic acidosis does the Boxed Warning list?",
+   "kind": "answer",
+   "ms": 15197,
+   "cited": [
+    "BW"
+   ],
+   "hitExpected": true,
+   "ungrounded": 0,
+   "dropped": [],
+   "error": null,
+   "claims": [
+    "[BW] The Boxed Warning lists risk factors including renal impairment, concomitant use of certain drugs, age 65 years old or greater, radiological study with contrast, surgery and other procedures, hypoxic states, excessive alcohol intake, hepatic impairment, and mitochondrial diseases.",
+    "[BW] For concomitant drugs, the Boxed Warning specifically gives carbonic anhydrase inhibitors such as topiramate as an example.",
+    "[BW] For hypoxic states, the Boxed Warning specifically gives acute congestive heart failure as an example."
+   ]
+  },
+  {
+   "case": "LS-03",
+   "run": 2,
+   "q": "what risk factors for lactic acidosis does the Boxed Warning list?",
+   "kind": "answer",
+   "ms": 13669,
+   "cited": [
+    "BW"
+   ],
+   "hitExpected": true,
+   "ungrounded": 0,
+   "dropped": [],
+   "error": null,
+   "claims": [
+    "[BW] The Boxed Warning lists renal impairment, concomitant use of certain drugs, and age 65 years old or greater as risk factors.",
+    "[BW] It also lists contrast radiological study, surgery and other procedures, and hypoxic states.",
+    "[BW] It also lists excessive alcohol intake, hepatic impairment, and mitochondrial diseases."
+   ]
+  },
+  {
+   "case": "LS-07",
+   "run": 0,
+   "q": "does the Boxed Warning list mitochondrial disease as a risk factor?",
+   "kind": "answer",
+   "ms": 11847,
+   "cited": [
+    "BW",
+    "5.1"
+   ],
+   "hitExpected": true,
+   "ungrounded": 0,
+   "dropped": [],
+   "error": null,
+   "claims": [
+    "[BW] Yes—the Boxed Warning lists mitochondrial diseases as a risk factor for metformin-associated lactic acidosis.",
+    "[5.1] The Warnings and Precautions section also identifies increased lactic acidosis risk in patients with mitochondrial diseases such as MELAS syndrome and MIDD."
+   ]
+  },
+  {
+   "case": "LS-07",
+   "run": 1,
+   "q": "does the Boxed Warning list mitochondrial disease as a risk factor?",
+   "kind": "answer",
+   "ms": 4291,
+   "cited": [
+    "BW"
+   ],
+   "hitExpected": true,
+   "ungrounded": 0,
+   "dropped": [
+    "unsupported"
+   ],
+   "error": null,
+   "claims": [
+    "[BW] The Boxed Warning also states the risk-factor list includes mitochondrial diseases."
+   ]
+  },
+  {
+   "case": "LS-07",
+   "run": 2,
+   "q": "does the Boxed Warning list mitochondrial disease as a risk factor?",
+   "kind": "answer",
+   "ms": 10671,
+   "cited": [
+    "BW",
+    "5.1"
+   ],
+   "hitExpected": true,
+   "ungrounded": 0,
+   "dropped": [],
+   "error": null,
+   "claims": [
+    "[BW] Yes—the Boxed Warning lists mitochondrial diseases among risk factors for metformin-associated lactic acidosis.",
+    "[5.1] Warnings and Precautions also states metformin may increase lactic acidosis risk in patients with mitochondrial diseases such as MELAS syndrome and MIDD."
+   ]
+  },
+  {
+   "case": "LS-08",
+   "run": 0,
+   "q": "does the Boxed Warning list mitochondrial disease as a risk factor?",
+   "kind": "answer",
+   "ms": 7807,
+   "cited": [
+    "BW"
+   ],
+   "hitExpected": true,
+   "ungrounded": 0,
+   "dropped": [],
+   "error": null,
+   "claims": [
+    "[BW] No; the Boxed Warning excerpt does not list mitochondrial disease among the risk factors it provides for metformin-associated lactic acidosis."
+   ]
+  },
+  {
+   "case": "LS-08",
+   "run": 1,
+   "q": "does the Boxed Warning list mitochondrial disease as a risk factor?",
+   "kind": "label_silent",
+   "ms": 5836,
+   "cited": [],
+   "hitExpected": false,
+   "ungrounded": 0,
+   "dropped": [
+    "unsupported"
+   ],
+   "error": null,
+   "claims": []
+  },
+  {
+   "case": "LS-08",
+   "run": 2,
+   "q": "does the Boxed Warning list mitochondrial disease as a risk factor?",
+   "kind": "label_silent",
+   "ms": 6827,
+   "cited": [],
+   "hitExpected": false,
+   "ungrounded": 0,
+   "dropped": [
+    "unsupported"
+   ],
+   "error": null,
+   "claims": []
+  },
+  {
+   "case": "LS-11",
+   "run": 0,
+   "q": "is there a warning about pulmonary aspiration?",
+   "kind": "answer",
+   "ms": 12673,
+   "cited": [
+    "5.9"
+   ],
+   "hitExpected": true,
+   "ungrounded": 0,
+   "dropped": [
+    "unsupported"
+   ],
+   "error": null,
+   "claims": [
+    "[5.9] Rare postmarketing pulmonary aspiration reports are described in patients receiving GLP-1 receptor agonists during elective surgeries or procedures requiring general anesthesia or deep sedation, with residual gastric contents despite reported preoperative fasting adherence.",
+    "[5.9] The label says data are insufficient to inform recommendations to mitigate pulmonary aspiration risk in this setting, including fasting changes or temporary discontinuation.",
+    "[5.9] Patients are instructed to tell healthcare providers before planned surgeries or procedures if taking RYBELSUS or OZEMPIC tablets."
+   ]
+  },
+  {
+   "case": "LS-11",
+   "run": 1,
+   "q": "is there a warning about pulmonary aspiration?",
+   "kind": "answer",
+   "ms": 14930,
+   "cited": [
+    "5.9"
+   ],
+   "hitExpected": true,
+   "ungrounded": 0,
+   "dropped": [
+    "unsupported"
+   ],
+   "error": null,
+   "claims": [
+    "[5.9] The label describes rare postmarketing reports in patients receiving GLP-1 receptor agonists undergoing elective surgeries or procedures requiring general anesthesia or deep sedation.",
+    "[5.9] The label says available data do not establish recommendations to mitigate this risk, including fasting changes or temporary discontinuation.",
+    "[5.9] Patients are instructed to tell healthcare providers before planned surgeries or procedures if taking the tablets."
+   ]
+  },
+  {
+   "case": "LS-11",
+   "run": 2,
+   "q": "is there a warning about pulmonary aspiration?",
+   "kind": "answer",
+   "ms": 15822,
+   "cited": [
+    "5.9"
+   ],
+   "hitExpected": true,
+   "ungrounded": 0,
+   "dropped": [],
+   "error": null,
+   "claims": [
+    "[5.9] Yes—pulmonary aspiration is addressed for general anesthesia or deep sedation, and OZEMPIC tablets are stated to delay gastric emptying.",
+    "[5.9] Rare postmarketing reports involved patients receiving GLP-1 receptor agonists during elective surgeries or procedures requiring general anesthesia or deep sedation, with residual gastric contents despite reported fasting adherence.",
+    "[5.9] The label says available data are insufficient to inform mitigation recommendations, including fasting modifications or temporary discontinuation.",
+    "[5.9] Patients are instructed to inform healthcare providers before planned surgeries or procedures if taking RYBELSUS or OZEMPIC tablets."
+   ]
+  },
+  {
+   "case": "LS-18",
+   "run": 0,
+   "q": "what does the label say about soybean flour?",
+   "kind": "answer",
+   "ms": 7939,
+   "cited": [
+    "7.9",
+    "2.1"
+   ],
+   "hitExpected": true,
+   "ungrounded": 0,
+   "dropped": [],
+   "error": null,
+   "claims": [
+    "[7.9] Soybean flour may bind and decrease gastrointestinal absorption of SYNTHROID.",
+    "[7.9] Certain foods may affect SYNTHROID absorption and may require dosing adjustments.",
+    "[2.1] When SYNTHROID is regularly administered within one hour of certain foods that may affect absorption, evaluate the need for dosage adjustments.",
+    "[2.1] The label says not to administer SYNTHROID in foods that decrease absorption, such as soybean-based infant formula."
+   ]
+  },
+  {
+   "case": "LS-18",
+   "run": 1,
+   "q": "what does the label say about soybean flour?",
+   "kind": "answer",
+   "ms": 8376,
+   "cited": [
+    "7.9",
+    "2.1"
+   ],
+   "hitExpected": true,
+   "ungrounded": 0,
+   "dropped": [],
+   "error": null,
+   "claims": [
+    "[7.9] Soybean flour may bind and decrease gastrointestinal absorption of SYNTHROID.",
+    "[7.9] Certain foods can affect SYNTHROID absorption and may necessitate dosing adjustments.",
+    "[2.1] The label says to evaluate dosage adjustments when SYNTHROID is regularly administered within one hour of certain foods that may affect absorption.",
+    "[2.1] The label says not to administer SYNTHROID in foods that decrease absorption, such as soybean-based infant formula."
+   ]
+  },
+  {
+   "case": "LS-18",
+   "run": 2,
+   "q": "what does the label say about soybean flour?",
+   "kind": "answer",
+   "ms": 14436,
+   "cited": [
+    "7.9",
+    "2.1"
+   ],
+   "hitExpected": true,
+   "ungrounded": 0,
+   "dropped": [],
+   "error": null,
+   "claims": [
+    "[7.9] Soybean flour may bind and decrease SYNTHROID absorption from the gastrointestinal tract.",
+    "[7.9] Certain foods may affect SYNTHROID absorption and may require dosing adjustments.",
+    "[2.1] The label says to evaluate dosage adjustment need when SYNTHROID is regularly administered within one hour of certain foods that may affect absorption.",
+    "[2.1] Soybean-based infant formula is given as an example of a food that decreases absorption and should not be used for administration."
+   ]
+  },
+  {
+   "case": "GA-01",
+   "run": 0,
+   "q": "is it contraindicated below eGFR 30?",
+   "kind": "answer",
+   "ms": 14002,
+   "cited": [
+    "2.3",
+    "4",
+    "BW"
+   ],
+   "hitExpected": true,
+   "ungrounded": 0,
+   "dropped": [],
+   "error": null,
+   "claims": [
+    "[2.3] Yes—metformin hydrochloride tablets are contraindicated when eGFR is below 30 mL/minute/1.73 m 2.",
+    "[4] The contraindication is also stated as severe renal impairment with eGFR below 30 mL/min/1.73 m 2.",
+    "[2.3] If eGFR later falls below 30 mL/minute/1.73 m 2 during therapy, the label says to discontinue metformin hydrochloride tablets.",
+    "[BW] The boxed warning lists renal impairment among risk factors for metformin-associated lactic acidosis."
+   ]
+  },
+  {
+   "case": "GA-01",
+   "run": 1,
+   "q": "is it contraindicated below eGFR 30?",
+   "kind": "answer",
+   "ms": 14430,
+   "cited": [
+    "2.3",
+    "4",
+    "BW"
+   ],
+   "hitExpected": true,
+   "ungrounded": 0,
+   "dropped": [],
+   "error": null,
+   "claims": [
+    "[2.3] Yes—metformin hydrochloride tablets are contraindicated when eGFR is below 30 mL/minute/1.73 m 2.",
+    "[4] The Contraindications section lists severe renal impairment as eGFR below 30 mL/min/1.73 m 2.",
+    "[2.3] If eGFR later falls below 30 mL/minute/1.73 m 2 during therapy, the label says to discontinue metformin hydrochloride tablets.",
+    "[BW] The Boxed Warning identifies renal impairment as a risk factor for metformin-associated lactic acidosis."
+   ]
+  },
+  {
+   "case": "GA-01",
+   "run": 2,
+   "q": "is it contraindicated below eGFR 30?",
+   "kind": "answer",
+   "ms": 15627,
+   "cited": [
+    "2.3",
+    "4",
+    "BW"
+   ],
+   "hitExpected": true,
+   "ungrounded": 0,
+   "dropped": [],
+   "error": null,
+   "claims": [
+    "[2.3] Yes—metformin hydrochloride tablets are contraindicated when eGFR is below 30 mL/minute/1.73 m 2.",
+    "[4] The Contraindications section identifies this as severe renal impairment.",
+    "[2.3] If eGFR later falls below 30 mL/minute/1.73 m 2, the label says to discontinue metformin hydrochloride tablets.",
+    "[BW] The Boxed Warning lists renal impairment as a risk factor for metformin-associated lactic acidosis."
+   ]
+  },
+  {
+   "case": "GA-02",
+   "run": 0,
+   "q": "what about iodinated contrast imaging?",
+   "kind": "answer",
+   "ms": 16910,
+   "cited": [
+    "2.4",
+    "5.1",
+    "BW"
+   ],
+   "hitExpected": true,
+   "ungrounded": 0,
+   "dropped": [],
+   "error": null,
+   "claims": [
+    "[2.4] For iodinated contrast imaging, discontinue metformin hydrochloride tablets at the time of, or prior to, the procedure in the specified higher-risk groups.",
+    "[2.4] Re-evaluate eGFR 48 hours after imaging; restart if renal function is stable.",
+    "[5.1] In metformin-treated patients, intravascular iodinated contrast has led to acute decreased renal function and lactic acidosis.",
+    "[BW] The boxed warning lists having a radiologic study with contrast as a risk factor for metformin-associated lactic acidosis."
+   ]
+  },
+  {
+   "case": "GA-02",
+   "run": 1,
+   "q": "what about iodinated contrast imaging?",
+   "kind": "answer",
+   "ms": 13596,
+   "cited": [
+    "BW",
+    "2.4",
+    "5.1"
+   ],
+   "hitExpected": true,
+   "ungrounded": 0,
+   "dropped": [],
+   "error": null,
+   "claims": [
+    "[BW] Iodinated contrast imaging is a labeled risk factor for metformin-associated lactic acidosis.",
+    "[2.4] Stop metformin at the time of, or before, iodinated contrast imaging in the specified higher-risk groups.",
+    "[2.4] Check eGFR 48 hours after imaging and restart only if renal function is stable.",
+    "[5.1] The label links intravascular iodinated contrast in metformin-treated patients with acute renal-function decrease and lactic acidosis occurrence."
+   ]
+  },
+  {
+   "case": "GA-02",
+   "run": 2,
+   "q": "what about iodinated contrast imaging?",
+   "kind": "answer",
+   "ms": 9758,
+   "cited": [
+    "BW",
+    "5.1",
+    "2.4"
+   ],
+   "hitExpected": true,
+   "ungrounded": 0,
+   "dropped": [],
+   "error": null,
+   "claims": [
+    "[BW] Iodinated contrast imaging is addressed as a metformin-associated lactic acidosis risk factor.",
+    "[5.1] Intravascular iodinated contrast agents in metformin-treated patients have been associated with acute decreased renal function and lactic acidosis.",
+    "[2.4] Stop metformin at or before iodinated contrast imaging in the specified higher-risk groups.",
+    "[2.4] Check eGFR 48 hours after imaging, and restart metformin if renal function is stable."
+   ]
+  },
+  {
+   "case": "GA-03",
+   "run": 0,
+   "q": "does the label mention grapefruit juice?",
+   "kind": "answer",
+   "ms": 4457,
+   "cited": [
+    "7.9"
+   ],
+   "hitExpected": true,
+   "ungrounded": 0,
+   "dropped": [],
+   "error": null,
+   "claims": [
+    "[7.9] Yes—the label mentions grapefruit juice in drug-food interactions: it may delay levothyroxine absorption and reduce bioavailability."
+   ]
+  },
+  {
+   "case": "GA-03",
+   "run": 1,
+   "q": "does the label mention grapefruit juice?",
+   "kind": "answer",
+   "ms": 4857,
+   "cited": [
+    "7.9"
+   ],
+   "hitExpected": true,
+   "ungrounded": 0,
+   "dropped": [],
+   "error": null,
+   "claims": [
+    "[7.9] Yes; grapefruit juice may delay levothyroxine absorption and reduce bioavailability."
+   ]
+  },
+  {
+   "case": "GA-03",
+   "run": 2,
+   "q": "does the label mention grapefruit juice?",
+   "kind": "answer",
+   "ms": 5750,
+   "cited": [
+    "7.9"
+   ],
+   "hitExpected": true,
+   "ungrounded": 0,
+   "dropped": [],
+   "error": null,
+   "claims": [
+    "[7.9] Yes—grapefruit juice is mentioned; it may delay levothyroxine absorption and reduce bioavailability.",
+    "[7.9] The label frames this under food effects on SYNTHROID absorption that may require dosing adjustments."
+   ]
+  },
+  {
+   "case": "GA-04",
+   "run": 0,
+   "q": "what does the label say about grapefruit?",
+   "kind": "answer",
+   "ms": 7678,
+   "cited": [
+    "7.5",
+    "BW"
+   ],
+   "hitExpected": true,
+   "ungrounded": 0,
+   "dropped": [],
+   "error": null,
+   "claims": [
+    "[7.5] Grapefruit juice is listed as a food that can interact with warfarin sodium through CYP450 interactions.",
+    "[BW] The boxed warning states that dietary changes and other factors affect INR levels with warfarin sodium therapy."
+   ]
+  },
+  {
+   "case": "GA-04",
+   "run": 1,
+   "q": "what does the label say about grapefruit?",
+   "kind": "answer",
+   "ms": 9145,
+   "cited": [
+    "7.5",
+    "BW"
+   ],
+   "hitExpected": true,
+   "ungrounded": 0,
+   "dropped": [],
+   "error": null,
+   "claims": [
+    "[7.5] Grapefruit juice is listed as a food/botanical example that can interact with warfarin sodium through CYP450 interactions.",
+    "[BW] The boxed warning states that dietary changes and other factors affect INR levels with warfarin sodium therapy.",
+    "[BW] The boxed warning states that INR should be monitored regularly in all treated patients."
+   ]
+  },
+  {
+   "case": "GA-04",
+   "run": 2,
+   "q": "what does the label say about grapefruit?",
+   "kind": "answer",
+   "ms": 11681,
+   "cited": [
+    "7.5",
+    "BW"
+   ],
+   "hitExpected": true,
+   "ungrounded": 0,
+   "dropped": [],
+   "error": null,
+   "claims": [
+    "[7.5] Grapefruit juice is listed as an example of a food that can interact with warfarin sodium through CYP450 interactions.",
+    "[BW] The boxed warning states that dietary changes and other factors affect INR levels achieved with warfarin sodium therapy."
+   ]
+  },
+  {
+   "case": "GA-05",
+   "run": 0,
+   "q": "interaction with omeprazole?",
+   "kind": "answer",
+   "ms": 11928,
+   "cited": [
+    "7.2",
+    "BW"
+   ],
+   "hitExpected": true,
+   "ungrounded": 0,
+   "dropped": [
+    "number_not_in_quote"
+   ],
+   "error": null,
+   "claims": [
+    "[7.2] Avoid concomitant use of clopidogrel with omeprazole.",
+    "[7.2] Omeprazole significantly reduced clopidogrel antiplatelet activity when given concomitantly or 12 hours apart.",
+    "[BW] The boxed warning states clopidogrel effectiveness depends on CYP2C19-mediated conversion to an active metabolite."
+   ]
+  },
+  {
+   "case": "GA-05",
+   "run": 1,
+   "q": "interaction with omeprazole?",
+   "kind": "answer",
+   "ms": 14710,
+   "cited": [
+    "7.2",
+    "BW"
+   ],
+   "hitExpected": true,
+   "ungrounded": 0,
+   "dropped": [],
+   "error": null,
+   "claims": [
+    "[7.2] Avoid concomitant use of clopidogrel with omeprazole or esomeprazole.",
+    "[7.2] Omeprazole significantly reduced clopidogrel antiplatelet activity when given concomitantly or 12 hours apart.",
+    "[7.2] Dexlansoprazole, lansoprazole, and pantoprazole had less effect on clopidogrel antiplatelet activity than omeprazole or esomeprazole.",
+    "[BW] The boxed warning states clopidogrel effectiveness depends on CYP conversion to an active metabolite, principally CYP2C19."
+   ]
+  },
+  {
+   "case": "GA-05",
+   "run": 2,
+   "q": "interaction with omeprazole?",
+   "kind": "answer",
+   "ms": 11074,
+   "cited": [
+    "7.2",
+    "BW"
+   ],
+   "hitExpected": true,
+   "ungrounded": 0,
+   "dropped": [
+    "number_not_in_quote"
+   ],
+   "error": null,
+   "claims": [
+    "[7.2] Avoid concomitant use of clopidogrel with omeprazole or esomeprazole.",
+    "[7.2] Omeprazole significantly reduced clopidogrel antiplatelet activity when given concomitantly or 12 hours apart.",
+    "[BW] The boxed warning states clopidogrel effectiveness depends on CYP-mediated conversion, principally CYP2C19."
+   ]
+  },
+  {
+   "case": "GA-06",
+   "run": 0,
+   "q": "what does the Boxed Warning cover?",
+   "kind": "answer",
+   "ms": 15314,
+   "cited": [
+    "BW"
+   ],
+   "hitExpected": true,
+   "ungrounded": 0,
+   "dropped": [
+    "unsupported"
+   ],
+   "error": null,
+   "claims": [
+    "[BW] The Boxed Warning covers pulmonary, hepatic, and cardiac toxicity.",
+    "[BW] Use is limited to patients with the indicated life-threatening arrhythmias because of substantial toxicity.",
+    "[BW] The Boxed Warning also identifies hepatic and proarrhythmic life-threatening toxicities and states to initiate under hospital or specialist supervision."
+   ]
+  },
+  {
+   "case": "GA-06",
+   "run": 1,
+   "q": "what does the Boxed Warning cover?",
+   "kind": "answer",
+   "ms": 6866,
+   "cited": [
+    "BW"
+   ],
+   "hitExpected": true,
+   "ungrounded": 0,
+   "dropped": [
+    "unsupported"
+   ],
+   "error": null,
+   "claims": [
+    "[BW] The Boxed Warning covers pulmonary, hepatic, and cardiac toxicity.",
+    "[BW] Use is limited to patients with the indicated life-threatening arrhythmias because substantial toxicity can occur.",
+    "[BW] Hepatotoxicity is included, and it can be fatal."
+   ]
+  },
+  {
+   "case": "GA-06",
+   "run": 2,
+   "q": "what does the Boxed Warning cover?",
+   "kind": "answer",
+   "ms": 7039,
+   "cited": [
+    "BW"
+   ],
+   "hitExpected": true,
+   "ungrounded": 0,
+   "dropped": [
+    "unsupported"
+   ],
+   "error": null,
+   "claims": [
+    "[BW] The Boxed Warning covers pulmonary, hepatic, and cardiac toxicity.",
+    "[BW] Use is limited to patients with the indicated life-threatening arrhythmias due to substantial toxicity.",
+    "[BW] Hepatoxicity is also specifically described as potentially fatal."
+   ]
+  },
+  {
+   "case": "GA-07",
+   "run": 0,
+   "q": "can the tablets be crushed?",
+   "kind": "answer",
+   "ms": 2463,
+   "cited": [
+    "2.4"
+   ],
+   "hitExpected": true,
+   "ungrounded": 0,
+   "dropped": [],
+   "error": null,
+   "claims": [
+    "[2.4] Do not crush the tablets, whether whole or half."
+   ]
+  },
+  {
+   "case": "GA-07",
+   "run": 1,
+   "q": "can the tablets be crushed?",
+   "kind": "answer",
+   "ms": 3732,
+   "cited": [
+    "2.4"
+   ],
+   "hitExpected": true,
+   "ungrounded": 0,
+   "dropped": [],
+   "error": null,
+   "claims": [
+    "[2.4] No. The tablets may be divided, but the label says not to crush or chew either the whole tablet or half tablet."
+   ]
+  },
+  {
+   "case": "GA-07",
+   "run": 2,
+   "q": "can the tablets be crushed?",
+   "kind": "answer",
+   "ms": 3450,
+   "cited": [
+    "2.4"
+   ],
+   "hitExpected": true,
+   "ungrounded": 0,
+   "dropped": [],
+   "error": null,
+   "claims": [
+    "[2.4] No. The label says not to crush or chew the whole or half tablet.",
+    "[2.4] The tablets are scored and can be divided."
+   ]
+  },
+  {
+   "case": "GA-08",
+   "run": 0,
+   "q": "what does the label say about pregnancy?",
+   "kind": "answer",
+   "ms": 8684,
+   "cited": [
+    "BW",
+    "8.1"
+   ],
+   "hitExpected": true,
+   "ungrounded": 0,
+   "dropped": [],
+   "error": null,
+   "claims": [
+    "[BW] Boxed warning: when pregnancy is detected, lisinopril should be discontinued as soon as possible.",
+    "[8.1] Lisinopril can cause fetal harm when administered to a pregnant woman.",
+    "[8.1] Second- and third-trimester use of renin-angiotensin system drugs reduces fetal renal function and increases fetal and neonatal morbidity and death.",
+    "[8.1] Infants with in utero exposure to lisinopril should be closely observed for hypotension, oliguria, and hyperkalemia."
+   ]
+  },
+  {
+   "case": "GA-08",
+   "run": 1,
+   "q": "what does the label say about pregnancy?",
+   "kind": "answer",
+   "ms": 12768,
+   "cited": [
+    "BW",
+    "8.1"
+   ],
+   "hitExpected": true,
+   "ungrounded": 0,
+   "dropped": [],
+   "error": null,
+   "claims": [
+    "[BW] When pregnancy is detected, discontinue lisinopril as soon as possible.",
+    "[8.1] Lisinopril can cause fetal harm when administered to a pregnant woman.",
+    "[8.1] Use in the second and third trimesters can reduce fetal renal function and increase fetal and neonatal morbidity and death.",
+    "[8.1] Closely observe infants with in utero exposure to lisinopril for hypotension, oliguria, and hyperkalemia."
+   ]
+  },
+  {
+   "case": "GA-08",
+   "run": 2,
+   "q": "what does the label say about pregnancy?",
+   "kind": "answer",
+   "ms": 17916,
+   "cited": [
+    "BW",
+    "8.1"
+   ],
+   "hitExpected": true,
+   "ungrounded": 0,
+   "dropped": [],
+   "error": null,
+   "claims": [
+    "[BW] Boxed warning: when pregnancy is detected, lisinopril should be discontinued as soon as possible; drugs acting directly on the renin-angiotensin system can injure or kill the developing fetus.",
+    "[8.1] Lisinopril can cause fetal harm in pregnancy, especially with second- and third-trimester exposure to drugs acting on the renin-angiotensin system.",
+    "[8.1] Oligohydramnios with second- or third-trimester use of drugs affecting the renin-angiotensin system can result in severe fetal and neonatal outcomes.",
+    "[8.1] Infants with in utero lisinopril exposure should be closely observed for hypotension, oliguria, and hyperkalemia."
+   ]
+  },
+  {
+   "case": "UC-05",
+   "run": 0,
+   "q": "does amiodarone cause hepatotoxicity?",
+   "kind": "answer",
+   "ms": 10432,
+   "cited": [
+    "BW",
+    "5.3",
+    "6.1"
+   ],
+   "hitExpected": true,
+   "ungrounded": 0,
+   "dropped": [],
+   "error": null,
+   "claims": [
+    "[BW] Yes. The boxed warning states amiodarone hydrochloride tablets can cause hepatoxicity, which can be fatal.",
+    "[5.3] The label also states amiodarone hydrochloride tablets can cause life-threatening hepatic injury.",
+    "[6.1] Hepatic findings reported as common include abnormal liver-function tests and nonspecific hepatic disorders."
+   ]
+  },
+  {
+   "case": "UC-05",
+   "run": 1,
+   "q": "does amiodarone cause hepatotoxicity?",
+   "kind": "answer",
+   "ms": 13283,
+   "cited": [
+    "BW",
+    "5.3"
+   ],
+   "hitExpected": true,
+   "ungrounded": 0,
+   "dropped": [],
+   "error": null,
+   "claims": [
+    "[BW] Yes—amiodarone hydrochloride tablets can cause hepatoxicity, which can be fatal.",
+    "[5.3] Hepatic enzyme elevations are frequent, and hepatic injury can be life-threatening.",
+    "[BW] The boxed warning lists hepatic toxicity among life-threatening toxicities."
+   ]
+  },
+  {
+   "case": "UC-05",
+   "run": 2,
+   "q": "does amiodarone cause hepatotoxicity?",
+   "kind": "answer",
+   "ms": 11158,
+   "cited": [
+    "BW",
+    "5.3"
+   ],
+   "hitExpected": true,
+   "ungrounded": 0,
+   "dropped": [],
+   "error": null,
+   "claims": [
+    "[BW] Yes—the boxed warning states that amiodarone hydrochloride tablets can cause hepatoxicity, which can be fatal.",
+    "[5.3] Hepatic enzyme elevations are frequent, and life-threatening hepatic injury can occur.",
+    "[5.3] The label calls for baseline and periodic liver transaminases, with discontinuation or dose reduction for the specified transaminase increases."
+   ]
+  },
+  {
+   "case": "RF-01",
+   "run": 0,
+   "q": "my patient has eGFR 38 on 2 g daily; should I cut to 1 g?",
+   "kind": "answer",
+   "ms": 13297,
+   "cited": [
+    "2.3",
+    "BW"
+   ],
+   "hitExpected": true,
+   "ungrounded": 0,
+   "dropped": [],
+   "error": null,
+   "claims": [
+    "[2.3] For eGFR below 45 in a patient already taking metformin, the label says to assess benefit/risk of continuing therapy.",
+    "[2.3] The label contraindicates metformin when eGFR is below 30.",
+    "[BW] Renal impairment is listed as a risk factor for metformin-associated lactic acidosis."
+   ]
+  },
+  {
+   "case": "RF-01",
+   "run": 1,
+   "q": "my patient has eGFR 38 on 2 g daily; should I cut to 1 g?",
+   "kind": "answer",
+   "ms": 24104,
+   "cited": [
+    "2.3",
+    "8.6",
+    "BW"
+   ],
+   "hitExpected": true,
+   "ungrounded": 0,
+   "dropped": [],
+   "error": null,
+   "claims": [
+    "[2.3] For a patient already taking metformin whose eGFR later falls below 45, the label says to assess benefit-risk of continuing therapy.",
+    "[2.3] The label states metformin hydrochloride tablets are contraindicated when eGFR is below 30.",
+    "[8.6] Renal impairment is tied to increased risk of accumulation and lactic acidosis.",
+    "[BW] The Boxed Warning lists renal impairment as a risk factor for metformin-associated lactic acidosis."
+   ]
+  },
+  {
+   "case": "RF-01",
+   "run": 2,
+   "q": "my patient has eGFR 38 on 2 g daily; should I cut to 1 g?",
+   "kind": "answer",
+   "ms": 21072,
+   "cited": [
+    "2.3",
+    "BW"
+   ],
+   "hitExpected": true,
+   "ungrounded": 0,
+   "dropped": [
+    "number_not_in_quote"
+   ],
+   "error": null,
+   "claims": [
+    "[2.3] Metformin hydrochloride tablets are contraindicated when eGFR is below 30.",
+    "[BW] The boxed warning identifies renal impairment as a risk factor for metformin-associated lactic acidosis."
+   ]
+  },
+  {
+   "case": "RF-03",
+   "run": 0,
+   "q": "is metformin used for PCOS?",
+   "kind": "label_silent",
+   "ms": 6424,
+   "cited": [],
+   "hitExpected": false,
+   "ungrounded": 0,
+   "dropped": [],
+   "error": null,
+   "claims": []
+  },
+  {
+   "case": "RF-03",
+   "run": 1,
+   "q": "is metformin used for PCOS?",
+   "kind": "answer",
+   "ms": 11851,
+   "cited": [
+    "1"
+   ],
+   "hitExpected": true,
+   "ungrounded": 0,
+   "dropped": [],
+   "error": null,
+   "claims": [
+    "[1] This label’s stated indication is glycemic control in type 2 diabetes, as an adjunct to diet and exercise."
+   ]
+  },
+  {
+   "case": "RF-03",
+   "run": 2,
+   "q": "is metformin used for PCOS?",
+   "kind": "label_silent",
+   "ms": 4822,
+   "cited": [],
+   "hitExpected": false,
+   "ungrounded": 0,
+   "dropped": [],
+   "error": null,
+   "claims": []
+  },
+  {
+   "case": "RF-06",
+   "run": 0,
+   "q": "can I keep taking it now that I'm pregnant?",
+   "kind": "answer",
+   "ms": 12207,
+   "cited": [
+    "BW",
+    "8.1",
+    "5.1",
+    "17"
+   ],
+   "hitExpected": true,
+   "ungrounded": 0,
+   "dropped": [],
+   "error": null,
+   "claims": [
+    "[BW] The boxed warning says to discontinue lisinopril as soon as possible when pregnancy is detected.",
+    "[8.1] The label states lisinopril can cause fetal harm when administered to a pregnant woman.",
+    "[5.1] The label states that use during the second and third trimesters reduces fetal renal function and increases fetal and neonatal morbidity and death.",
+    "[17] The patient counseling section says to notify a healthcare provider with a known or suspected pregnancy."
+   ]
+  },
+  {
+   "case": "RF-06",
+   "run": 1,
+   "q": "can I keep taking it now that I'm pregnant?",
+   "kind": "answer",
+   "ms": 8466,
+   "cited": [
+    "BW",
+    "8.1",
+    "5.1"
+   ],
+   "hitExpected": true,
+   "ungrounded": 0,
+   "dropped": [],
+   "error": null,
+   "claims": [
+    "[BW] No—when pregnancy is detected, the label says to discontinue lisinopril as soon as possible.",
+    "[8.1] Lisinopril can cause fetal harm in pregnancy.",
+    "[5.1] The label describes greater fetal and neonatal risk with renin-angiotensin system drugs in the second and third trimesters.",
+    "[8.1] The label says pregnant women with hypertension should be monitored and managed."
+   ]
+  },
+  {
+   "case": "RF-06",
+   "run": 2,
+   "q": "can I keep taking it now that I'm pregnant?",
+   "kind": "answer",
+   "ms": 10646,
+   "cited": [
+    "BW",
+    "8.1",
+    "17"
+   ],
+   "hitExpected": true,
+   "ungrounded": 0,
+   "dropped": [],
+   "error": null,
+   "claims": [
+    "[BW] When pregnancy is detected, discontinue lisinopril as soon as possible.",
+    "[BW] Drugs that act directly on the renin-angiotensin system can cause injury and death to the developing fetus.",
+    "[8.1] Lisinopril can cause fetal harm when administered to a pregnant woman.",
+    "[17] Advise females of reproductive potential to notify their healthcare provider with a known or suspected pregnancy"
+   ]
+  },
+  {
+   "case": "PV-01",
+   "run": 0,
+   "q": "lactic acidosis",
+   "kind": "answer",
+   "ms": 12347,
+   "cited": [
+    "BW"
+   ],
+   "hitExpected": true,
+   "ungrounded": 0,
+   "dropped": [],
+   "error": null,
+   "claims": [
+    "[BW] Metformin-associated lactic acidosis has had fatal and serious postmarketing outcomes.",
+    "[BW] Onset is often subtle with nonspecific symptoms.",
+    "[BW] Characteristic findings included elevated lactate, anion gap acidosis, increased lactate/pyruvate ratio, and metformin plasma levels generally >5 mcg/mL.",
+    "[BW] If suspected, discontinue metformin hydrochloride, provide hospital supportive measures, and use prompt hemodialysis."
+   ]
+  },
+  {
+   "case": "PV-01",
+   "run": 1,
+   "q": "lactic acidosis",
+   "kind": "answer",
+   "ms": 15044,
+   "cited": [
+    "BW"
+   ],
+   "hitExpected": true,
+   "ungrounded": 0,
+   "dropped": [],
+   "error": null,
+   "claims": [
+    "[BW] Metformin-associated lactic acidosis has included fatal postmarketing cases with serious clinical findings.",
+    "[BW] Onset may be subtle and accompanied by nonspecific symptoms.",
+    "[BW] Risk factors listed in the boxed warning include renal impairment, certain concomitant drugs, older age, contrast studies, procedures, hypoxic states, alcohol, hepatic impairment, and mitochondrial diseases.",
+    "[BW] If suspected, the label calls for discontinuation, hospital supportive measures, and prompt hemodialysis."
+   ]
+  },
+  {
+   "case": "PV-01",
+   "run": 2,
+   "q": "lactic acidosis",
+   "kind": "answer",
+   "ms": 16879,
+   "cited": [
+    "BW"
+   ],
+   "hitExpected": true,
+   "ungrounded": 0,
+   "dropped": [],
+   "error": null,
+   "claims": [
+    "[BW] Metformin-associated lactic acidosis has had fatal postmarketing outcomes and often has a subtle, nonspecific presentation.",
+    "[BW] The label characterizes metformin-associated lactic acidosis by elevated lactate, anion gap acidosis, increased lactate/pyruvate ratio, and metformin plasma levels generally >5 mcg/mL.",
+    "[BW] Risk factors listed include renal impairment, certain concomitant drugs, age 65 years or greater, contrast studies, surgery/procedures, hypoxic states, excessive alcohol intake, hepatic impairment, and mitochondrial diseases.",
+    "[BW] If lactic acidosis is suspected, the label says to discontinue metformin hydrochloride, use hospital supportive measures, and promptly hemodialyze."
+   ]
+  },
+  {
+   "case": "PV-03",
+   "run": 0,
+   "q": "hepatotoxicity",
+   "kind": "answer",
+   "ms": 13368,
+   "cited": [
+    "BW",
+    "5.3"
+   ],
+   "hitExpected": true,
+   "ungrounded": 0,
+   "dropped": [],
+   "error": null,
+   "claims": [
+    "[BW] Boxed warning: amiodarone hydrochloride tablets can cause fatal hepatoxicity.",
+    "[5.3] Hepatic enzyme elevations are frequent, and life-threatening hepatic injury can occur.",
+    "[5.3] Monitor with baseline and periodic liver transaminases.",
+    "[5.3] If transaminases meet the stated thresholds, discontinue or reduce dose and obtain follow-up tests and treatment."
+   ]
+  },
+  {
+   "case": "PV-03",
+   "run": 1,
+   "q": "hepatotoxicity",
+   "kind": "answer",
+   "ms": 11504,
+   "cited": [
+    "BW",
+    "5.3"
+   ],
+   "hitExpected": true,
+   "ungrounded": 0,
+   "dropped": [],
+   "error": null,
+   "claims": [
+    "[BW] Boxed warning: amiodarone hydrochloride tablets can cause hepatic toxicity that can be fatal.",
+    "[BW] Boxed warning: obtain liver transaminases at baseline and periodically, and discontinue or reduce dose at the specified elevations.",
+    "[5.3] Hepatic injury can be life-threatening, although asymptomatic hepatic enzyme elevations are frequent.",
+    "[BW] If clinical liver injury signs or symptoms occur, the boxed warning says to discontinue amiodarone hydrochloride tablets."
+   ]
+  },
+  {
+   "case": "PV-03",
+   "run": 2,
+   "q": "hepatotoxicity",
+   "kind": "answer",
+   "ms": 12860,
+   "cited": [
+    "BW",
+    "5.3"
+   ],
+   "hitExpected": true,
+   "ungrounded": 0,
+   "dropped": [],
+   "error": null,
+   "claims": [
+    "[BW] Can cause hepatoxicity, which can be fatal.",
+    "[5.3] Asymptomatic hepatic enzyme elevations are frequent, and life-threatening hepatic injury can occur.",
+    "[5.3] Obtain baseline and periodic liver transaminases.",
+    "[5.3] If transaminases exceed three times normal, or doubles in a patient with an elevated baseline, discontinue or reduce dose, obtain follow-up tests, and treat appropriately."
+   ]
+  },
+  {
+   "case": "PV-04",
+   "run": 0,
+   "q": "angioedema",
+   "kind": "answer",
+   "ms": 17369,
+   "cited": [
+    "5.2",
+    "4"
+   ],
+   "hitExpected": true,
+   "ungrounded": 0,
+   "dropped": [],
+   "error": null,
+   "claims": [
+    "[5.2] Angioedema, including some fatal head and neck reactions, has occurred with lisinopril at any time during treatment.",
+    "[5.2] If angioedema occurs, lisinopril should be stopped promptly with therapy and monitoring until sustained resolution.",
+    "[4] Lisinopril is contraindicated in patients with prior ACE-inhibitor-related angioedema or hereditary or idiopathic angioedema.",
+    "[5.2] Concomitant mTOR inhibitor therapy or a neprilysin inhibitor may increase angioedema risk."
+   ]
+  },
+  {
+   "case": "PV-04",
+   "run": 1,
+   "q": "angioedema",
+   "kind": "answer",
+   "ms": 16555,
+   "cited": [
+    "5.2",
+    "4"
+   ],
+   "hitExpected": true,
+   "ungrounded": 0,
+   "dropped": [],
+   "error": null,
+   "claims": [
+    "[5.2] Angioedema, including fatal reactions, has occurred with lisinopril at any time during treatment.",
+    "[5.2] If angioedema occurs, lisinopril should be promptly discontinued and monitored until sustained resolution.",
+    "[4] Lisinopril is contraindicated with prior ACE-inhibitor related angioedema and with hereditary or idiopathic angioedema.",
+    "[5.2] Concomitant mTOR inhibitor therapy or neprilysin inhibitor use may increase angioedema risk."
+   ]
+  },
+  {
+   "case": "PV-04",
+   "run": 2,
+   "q": "angioedema",
+   "kind": "answer",
+   "ms": 15339,
+   "cited": [
+    "5.2",
+    "4"
+   ],
+   "hitExpected": true,
+   "ungrounded": 0,
+   "dropped": [],
+   "error": null,
+   "claims": [
+    "[5.2] Angioedema can involve the face, extremities, lips, tongue, glottis and/or larynx, including fatal reactions, and can occur at any time during lisinopril treatment.",
+    "[5.2] For angioedema, lisinopril should be promptly discontinued with therapy and monitoring until complete and sustained resolution.",
+    "[4] Lisinopril is contraindicated in patients with prior ACE inhibitor-related angioedema or hereditary or idiopathic angioedema.",
+    "[5.2] Concomitant mTOR inhibitor therapy or a neprilysin inhibitor may increase angioedema risk."
+   ]
+  },
+  {
+   "case": "PV-05",
+   "run": 0,
+   "q": "hepatotoxicity",
+   "kind": "answer",
+   "ms": 7922,
+   "cited": [
+    "5.6"
+   ],
+   "hitExpected": true,
+   "ungrounded": 0,
+   "dropped": [],
+   "error": null,
+   "claims": [
+    "[5.6] Hepatic failure is addressed: ACE inhibitors have been associated with a syndrome involving cholestatic jaundice or hepatitis that can progress to severe hepatic necrosis and death.",
+    "[5.6] The mechanism is not defined in the label.",
+    "[5.6] If jaundice or marked hepatic enzyme elevations occur, the label states to discontinue the ACE inhibitor and provide medical treatment."
+   ]
+  },
+  {
+   "case": "PV-05",
+   "run": 1,
+   "q": "hepatotoxicity",
+   "kind": "answer",
+   "ms": 8847,
+   "cited": [
+    "5.6"
+   ],
+   "hitExpected": true,
+   "ungrounded": 0,
+   "dropped": [],
+   "error": null,
+   "claims": [
+    "[5.6] ACE inhibitors have been associated with a hepatic syndrome that starts with cholestatic jaundice or hepatitis and can progress to fulminant hepatic necrosis and sometimes death.",
+    "[5.6] The mechanism of this hepatic syndrome is not understood.",
+    "[5.6] Patients receiving ACE inhibitors who develop jaundice or marked elevations of hepatic enzymes should discontinue the ACE inhibitor and receive appropriate medical treatment."
+   ]
+  },
+  {
+   "case": "PV-05",
+   "run": 2,
+   "q": "hepatotoxicity",
+   "kind": "answer",
+   "ms": 6394,
+   "cited": [
+    "5.6"
+   ],
+   "hitExpected": true,
+   "ungrounded": 0,
+   "dropped": [],
+   "error": null,
+   "claims": [
+    "[5.6] ACE inhibitors have been associated with hepatic injury syndrome beginning with cholestatic jaundice or hepatitis and progressing to severe outcomes.",
+    "[5.6] The mechanism is not understood.",
+    "[5.6] If jaundice or marked hepatic enzyme elevations occur during ACE inhibitor therapy, the label states to discontinue the ACE inhibitor and provide appropriate medical treatment."
+   ]
+  },
+  {
+   "case": "PV-06a",
+   "run": 0,
+   "q": "bullous pemphigoid",
+   "kind": "answer",
+   "ms": 9849,
+   "cited": [
+    "5.9"
+   ],
+   "hitExpected": true,
+   "ungrounded": 0,
+   "dropped": [],
+   "error": null,
+   "claims": [
+    "[5.9] Bullous pemphigoid requiring hospitalization has been reported postmarketing with DPP-4 inhibitor use.",
+    "[5.9] Reported cases typically recovered with immunosuppressive treatment and discontinuation of the DPP-4 inhibitor.",
+    "[5.9] Patients should report blisters or erosions while receiving JANUMET.",
+    "[5.9] If bullous pemphigoid is suspected, JANUMET should be discontinued and dermatology referral considered."
+   ]
+  },
+  {
+   "case": "PV-06a",
+   "run": 1,
+   "q": "bullous pemphigoid",
+   "kind": "answer",
+   "ms": 12531,
+   "cited": [
+    "5.9"
+   ],
+   "hitExpected": true,
+   "ungrounded": 0,
+   "dropped": [],
+   "error": null,
+   "claims": [
+    "[5.9] Bullous pemphigoid has been reported postmarketing with DPP-4 inhibitor use, including cases requiring hospitalization.",
+    "[5.9] Reported cases typically recovered with immunosuppressive treatment and discontinuation of the DPP-4 inhibitor.",
+    "[5.9] Patients should report blisters or erosions while receiving JANUMET; if bullous pemphigoid is suspected, discontinue JANUMET and consider dermatology referral."
+   ]
+  },
+  {
+   "case": "PV-06a",
+   "run": 2,
+   "q": "bullous pemphigoid",
+   "kind": "answer",
+   "ms": 8480,
+   "cited": [
+    "5.9"
+   ],
+   "hitExpected": true,
+   "ungrounded": 0,
+   "dropped": [],
+   "error": null,
+   "claims": [
+    "[5.9] Bullous pemphigoid requiring hospitalization has been reported with DPP-4 inhibitor use.",
+    "[5.9] Reported cases typically recovered with immunosuppressive treatment and discontinuation of the DPP-4 inhibitor.",
+    "[5.9] Patients should report blisters or erosions while receiving JANUMET.",
+    "[5.9] If suspected, JANUMET should be discontinued and dermatology referral considered."
+   ]
+  },
+  {
+   "case": "PV-06b",
+   "run": 0,
+   "q": "lactic acidosis",
+   "kind": "answer",
+   "ms": 16336,
+   "cited": [
+    "BW",
+    "8.7"
+   ],
+   "hitExpected": true,
+   "ungrounded": 0,
+   "dropped": [],
+   "error": null,
+   "claims": [
+    "[BW] Postmarketing metformin-associated lactic acidosis cases have resulted in death and severe clinical findings, with subtle nonspecific symptoms and characteristic laboratory abnormalities.",
+    "[BW] Risk factors include renal impairment, certain concomitant drugs, older age, contrast studies, surgery/procedures, hypoxic states, excessive alcohol intake, hepatic impairment, and mitochondrial diseases.",
+    "[BW] If suspected, the label says to immediately discontinue JANUMET, provide hospital supportive measures, and use prompt hemodialysis.",
+    "[8.7] JANUMET is not recommended in hepatic impairment because metformin use in this population has been associated with some lactic acidosis cases."
+   ]
+  },
+  {
+   "case": "PV-06b",
+   "run": 1,
+   "q": "lactic acidosis",
+   "kind": "answer",
+   "ms": 14341,
+   "cited": [
+    "BW"
+   ],
+   "hitExpected": true,
+   "ungrounded": 0,
+   "dropped": [
+    "unsupported",
+    "unsupported"
+   ],
+   "error": null,
+   "claims": [
+    "[BW] The boxed warning lists renal impairment and multiple clinical situations as risk factors.",
+    "[BW] If suspected, the label calls for immediate JANUMET discontinuation, hospital supportive measures, and prompt hemodialysis."
+   ]
+  },
+  {
+   "case": "PV-06b",
+   "run": 2,
+   "q": "lactic acidosis",
+   "kind": "answer",
+   "ms": 17902,
+   "cited": [
+    "BW",
+    "5.1"
+   ],
+   "hitExpected": true,
+   "ungrounded": 0,
+   "dropped": [],
+   "error": null,
+   "claims": [
+    "[BW] Metformin-associated lactic acidosis has had serious postmarketing outcomes, including death.",
+    "[5.1] Onset may be subtle with nonspecific symptoms, and severe acidosis has been associated with hypothermia, hypotension, and resistant bradyarrhythmias.",
+    "[BW] Risk factors include renal impairment, certain concomitant drugs, age 65 years old or greater, radiological study with contrast, surgery and other procedures, hypoxic states, excessive alcohol intake, hepatic impairment, and mitochondrial diseases.",
+    "[BW] If metformin-associated lactic acidosis is suspected, JANUMET should be immediately discontinued, supportive measures instituted in a hospital setting, and prompt hemodialysis is recommended."
+   ]
+  },
+  {
+   "case": "PV-07",
+   "run": 0,
+   "q": "bullous pemphigoid",
+   "kind": "answer",
+   "ms": 12097,
+   "cited": [
+    "5.9"
+   ],
+   "hitExpected": true,
+   "ungrounded": 0,
+   "dropped": [],
+   "error": null,
+   "claims": [
+    "[5.9] Bullous pemphigoid requiring hospitalization has been reported postmarketing with DPP-4 inhibitor use.",
+    "[5.9] Reported cases typically recovered with topical or systemic immunosuppressive treatment and discontinuation of the DPP-4 inhibitor.",
+    "[5.9] Patients should report blisters or erosions while receiving JANUMET; if suspected, JANUMET should be discontinued and dermatology referral considered."
+   ]
+  },
+  {
+   "case": "PV-07",
+   "run": 1,
+   "q": "bullous pemphigoid",
+   "kind": "answer",
+   "ms": 9092,
+   "cited": [
+    "5.9"
+   ],
+   "hitExpected": true,
+   "ungrounded": 0,
+   "dropped": [],
+   "error": null,
+   "claims": [
+    "[5.9] Bullous pemphigoid has been reported postmarketing with DPP-4 inhibitor use, including cases requiring hospitalization.",
+    "[5.9] Reported cases typically recovered with immunosuppressive treatment and discontinuation of the DPP-4 inhibitor.",
+    "[5.9] Patients should report blisters or erosions while receiving JANUMET; if bullous pemphigoid is suspected, JANUMET should be discontinued and dermatology referral considered."
+   ]
+  },
+  {
+   "case": "PV-07",
+   "run": 2,
+   "q": "bullous pemphigoid",
+   "kind": "answer",
+   "ms": 10933,
+   "cited": [
+    "5.9"
+   ],
+   "hitExpected": true,
+   "ungrounded": 0,
+   "dropped": [],
+   "error": null,
+   "claims": [
+    "[5.9] Postmarketing cases of bullous pemphigoid requiring hospitalization have been reported with DPP-4 inhibitor use.",
+    "[5.9] In reported cases, recovery typically occurred with topical or systemic immunosuppressive treatment and discontinuation of the DPP-4 inhibitor.",
+    "[5.9] Patients should report blisters or erosions while receiving JANUMET.",
+    "[5.9] If bullous pemphigoid is suspected, JANUMET should be discontinued and dermatology referral considered."
+   ]
+  },
+  {
+   "case": "PV-09",
+   "run": 0,
+   "q": "cough",
+   "kind": "answer",
+   "ms": 5765,
+   "cited": [
+    "6.1"
+   ],
+   "hitExpected": true,
+   "ungrounded": 0,
+   "dropped": [],
+   "error": null,
+   "claims": [
+    "[6.1] Cough was reported as an adverse reaction in hypertension trials with lisinopril alone.",
+    "[6.1] Clinical trial adverse reaction rates may not reflect rates observed in practice."
+   ]
+  },
+  {
+   "case": "PV-09",
+   "run": 1,
+   "q": "cough",
+   "kind": "answer",
+   "ms": 4561,
+   "cited": [
+    "6.1"
+   ],
+   "hitExpected": true,
+   "ungrounded": 0,
+   "dropped": [],
+   "error": null,
+   "claims": [
+    "[6.1] Cough was observed as an adverse reaction in hypertension trials with lisinopril alone.",
+    "[6.1] Adverse-reaction rates from these trials may not reflect rates observed in practice."
+   ]
+  },
+  {
+   "case": "PV-09",
+   "run": 2,
+   "q": "cough",
+   "kind": "answer",
+   "ms": 6912,
+   "cited": [
+    "6.1"
+   ],
+   "hitExpected": true,
+   "ungrounded": 0,
+   "dropped": [
+    "unsupported"
+   ],
+   "error": null,
+   "claims": [
+    "[6.1] Cough is listed as an adverse reaction in hypertension trials with lisinopril alone, with events greater on lisinopril than placebo."
+   ]
+  },
+  {
+   "case": "RT-01",
+   "run": 0,
+   "q": "how should the tablets be stored?",
+   "kind": "answer",
+   "ms": 5162,
+   "cited": [
+    "16"
+   ],
+   "hitExpected": true,
+   "ungrounded": 0,
+   "dropped": [
+    "quote_too_short",
+    "quote_too_short"
+   ],
+   "error": null,
+   "claims": [
+    "[16] Store at controlled room temperature, 20° to 25°C (68° to 77°F).",
+    "[16] Dispense in a light-resistant, tight container."
+   ]
+  },
+  {
+   "case": "RT-01",
+   "run": 1,
+   "q": "how should the tablets be stored?",
+   "kind": "answer",
+   "ms": 3907,
+   "cited": [
+    "16"
+   ],
+   "hitExpected": true,
+   "ungrounded": 0,
+   "dropped": [
+    "quote_too_short"
+   ],
+   "error": null,
+   "claims": [
+    "[16] Store amiodarone hydrochloride tablets at Controlled Room Temperature.",
+    "[16] Protect the tablets from light and dispense them in the specified container."
+   ]
+  },
+  {
+   "case": "RT-01",
+   "run": 2,
+   "q": "how should the tablets be stored?",
+   "kind": "answer",
+   "ms": 6659,
+   "cited": [
+    "16"
+   ],
+   "hitExpected": true,
+   "ungrounded": 0,
+   "dropped": [
+    "quote_too_short",
+    "quote_too_short"
+   ],
+   "error": null,
+   "claims": [
+    "[16] Store at controlled room temperature.",
+    "[16] Dispense in a light-resistant, tight container."
+   ]
+  },
+  {
+   "case": "RT-02",
+   "run": 0,
+   "q": "how should it be taken?",
+   "kind": "answer",
+   "ms": 10947,
+   "cited": [
+    "2.1",
+    "2.2"
+   ],
+   "hitExpected": true,
+   "ungrounded": 0,
+   "dropped": [],
+   "error": null,
+   "claims": [
+    "[2.1] Adults: take orally with meals; the recommended starting dose is 500 mg twice daily or 850 mg once daily.",
+    "[2.1] Adults: dose increases are based on glycemic control and tolerability, up to 2550 mg per day in divided doses.",
+    "[2.1] Adults: doses above 2000 mg may be better tolerated three times daily with meals.",
+    "[2.2] Pediatric patients 10 years and older: take 500 mg orally twice daily with meals as the recommended starting dose."
+   ]
+  },
+  {
+   "case": "RT-02",
+   "run": 1,
+   "q": "how should it be taken?",
+   "kind": "answer",
+   "ms": 10723,
+   "cited": [
+    "2.1",
+    "2.2"
+   ],
+   "hitExpected": true,
+   "ungrounded": 0,
+   "dropped": [
+    "unsupported"
+   ],
+   "error": null,
+   "claims": [
+    "[2.1] Adults: start with oral dosing given with meals.",
+    "[2.1] Adults: titrate based on glycemic control and tolerability, with divided daily dosing.",
+    "[2.2] Pediatric patients 10 years and older: start with oral dosing twice daily with meals."
+   ]
+  },
+  {
+   "case": "RT-02",
+   "run": 2,
+   "q": "how should it be taken?",
+   "kind": "answer",
+   "ms": 10934,
+   "cited": [
+    "2.1",
+    "2.2"
+   ],
+   "hitExpected": true,
+   "ungrounded": 0,
+   "dropped": [
+    "unsupported"
+   ],
+   "error": null,
+   "claims": [
+    "[2.1] Adults: take orally with meals; the recommended starting dose is 500 mg twice daily or 850 mg once daily.",
+    "[2.1] Adults: increase based on glycemic control and tolerability, up to 2550 mg per day in divided doses.",
+    "[2.2] Pediatric patients 10 years and older: the recommended starting dose is 500 mg orally twice daily with meals."
+   ]
+  }
+ ]
+}

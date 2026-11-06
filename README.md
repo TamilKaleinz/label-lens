@@ -15,7 +15,7 @@ Label Lens answers questions about an FDA drug label, adjusted to the role of th
 | Milestone | Target | Status |
 |---|---|---|
 | M1 Discovery complete | 2026-11-19 | Done: [data check](docs/data-check-2026-11-05.md), [demo set](docs/demo-drug-set.md), [architecture](docs/architecture.md) |
-| M2 Core answering | 2026-12-10 | In progress: full pipeline built and passing on a mock model; first live run waits for an OpenAI key |
+| M2 Core answering | 2026-12-10 | Live on OpenAI: 99% of answerable questions answered with a cited expected section, 0 ungrounded claims shown ([first live run](docs/live-eval-2026-11-06.md)) |
 | M3 Roles and refusals | 2026-12-31 | Not started |
 | M4 First full eval run | 2027-01-10 | Not started |
 | M5 v1 public launch | 2027-01-15 | Not started |
@@ -32,6 +32,7 @@ Label Lens answers questions about an FDA drug label, adjusted to the role of th
 - [Product Requirements Document](docs/PRD.md): intended use, roles, feature specs with requirement-to-test traceability, metrics, release plan and decision log
 - [Solution architecture](docs/architecture.md): how the requirements led to the design, plus the high-level design, low-level design and deployment
 - [Data check, 2026-11-05](docs/data-check-2026-11-05.md): what the openFDA data actually looks like, and the scoping decisions it forced
+- [First live run: what the real model did](docs/live-eval-2026-11-06.md): the guardrail held from the first call; three fixes took answers from 92% to 99%
 - [What the real labels taught the parser](docs/ingestion-findings-2026-11-05.md): six bugs the excerpts hid, and how golden files now catch them
 - [Demo drug set](docs/demo-drug-set.md): 19 labels chosen for their edge cases, each pinned by NDC, SPL ID and date, with 48 eval cases
 
@@ -53,6 +54,8 @@ npm run eval:resolver  #   label resolution and the provisional rule (GM-07, GM-
 npm run eval:retrieval #   the right sections rank in the top 5, on full labels
 npm run eval:claims    #   the quote check keeps faithful claims and drops the rest (GM-01)
 npm run eval:pipeline  #   end to end on a mock model, with injected bad claims that must be dropped
+npm run eval:live      # against the real OpenAI models (needs OPENAI_API_KEY in .env; costs money)
+npm run check:openai   # confirm the key works and list available models
 npm run ingest:fetch   # re-download the pinned labels from openFDA; exits 2 on label drift
 npm run golden:update  # regenerate golden snapshots after a reviewed label change
 ```

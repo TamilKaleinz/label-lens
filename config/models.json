@@ -1,5 +1,5 @@
 {
   "provider": "openai",
-  "generate": { "model": null, "temperature": 0, "note": "A larger GPT model. Set the exact model ID before the first live run (AD-04); null blocks live calls." },
-  "gate": { "model": null, "temperature": 0, "note": "A small, fast GPT model for the support check and, in M3, the safety classifier." }
+  "generate": { "model": "gpt-5.5-2026-04-23", "temperature": null, "note": "Writes claims with quotes. A dated snapshot, so the model can't change under the evals. Accepts only its default temperature, so run-to-run variation is measured by the live eval (AD-04)." },
+  "gate": { "model": "gpt-5.4-mini-2026-03-17", "temperature": 0, "note": "Small, fast model for the support check and, in M3, the safety classifier. Dated snapshot." }
 }

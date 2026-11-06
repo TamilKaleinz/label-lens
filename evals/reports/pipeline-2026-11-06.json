@@ -1,0 +1,1017 @@
+{
+ "date": "2026-11-06",
+ "configHash": "9127b48a899b",
+ "model": "mock:extractive",
+ "passed": 112,
+ "total": 112,
+ "rows": [
+  {
+   "case": "LS-02",
+   "run": "clean",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "",
+   "note": ""
+  },
+  {
+   "case": "LS-02",
+   "run": "fabricated quote",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "quote_not_found",
+   "note": ""
+  },
+  {
+   "case": "LS-02",
+   "run": "wrong section",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "wrong_section",
+   "note": ""
+  },
+  {
+   "case": "LS-02",
+   "run": "invented number",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "number_not_in_quote",
+   "note": ""
+  },
+  {
+   "case": "LS-03",
+   "run": "clean",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "",
+   "note": ""
+  },
+  {
+   "case": "LS-03",
+   "run": "fabricated quote",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "quote_not_found",
+   "note": ""
+  },
+  {
+   "case": "LS-03",
+   "run": "wrong section",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "wrong_section",
+   "note": ""
+  },
+  {
+   "case": "LS-03",
+   "run": "invented number",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "number_not_in_quote",
+   "note": ""
+  },
+  {
+   "case": "LS-07",
+   "run": "clean",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "",
+   "note": ""
+  },
+  {
+   "case": "LS-07",
+   "run": "fabricated quote",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "quote_not_found",
+   "note": ""
+  },
+  {
+   "case": "LS-07",
+   "run": "wrong section",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "wrong_section",
+   "note": ""
+  },
+  {
+   "case": "LS-07",
+   "run": "invented number",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "number_not_in_quote",
+   "note": ""
+  },
+  {
+   "case": "LS-08",
+   "run": "clean",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "",
+   "note": ""
+  },
+  {
+   "case": "LS-08",
+   "run": "fabricated quote",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "quote_not_found",
+   "note": ""
+  },
+  {
+   "case": "LS-08",
+   "run": "wrong section",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "wrong_section",
+   "note": ""
+  },
+  {
+   "case": "LS-08",
+   "run": "invented number",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "number_not_in_quote",
+   "note": ""
+  },
+  {
+   "case": "LS-11",
+   "run": "clean",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "",
+   "note": ""
+  },
+  {
+   "case": "LS-11",
+   "run": "fabricated quote",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "quote_not_found",
+   "note": ""
+  },
+  {
+   "case": "LS-11",
+   "run": "wrong section",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "wrong_section",
+   "note": ""
+  },
+  {
+   "case": "LS-11",
+   "run": "invented number",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "number_not_in_quote",
+   "note": ""
+  },
+  {
+   "case": "LS-18",
+   "run": "clean",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "",
+   "note": ""
+  },
+  {
+   "case": "LS-18",
+   "run": "fabricated quote",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "quote_not_found",
+   "note": ""
+  },
+  {
+   "case": "LS-18",
+   "run": "wrong section",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "wrong_section",
+   "note": ""
+  },
+  {
+   "case": "LS-18",
+   "run": "invented number",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "number_not_in_quote",
+   "note": ""
+  },
+  {
+   "case": "GA-01",
+   "run": "clean",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "",
+   "note": ""
+  },
+  {
+   "case": "GA-01",
+   "run": "fabricated quote",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "quote_not_found",
+   "note": ""
+  },
+  {
+   "case": "GA-01",
+   "run": "wrong section",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "wrong_section",
+   "note": ""
+  },
+  {
+   "case": "GA-01",
+   "run": "invented number",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "number_not_in_quote",
+   "note": ""
+  },
+  {
+   "case": "GA-02",
+   "run": "clean",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "",
+   "note": ""
+  },
+  {
+   "case": "GA-02",
+   "run": "fabricated quote",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "quote_not_found",
+   "note": ""
+  },
+  {
+   "case": "GA-02",
+   "run": "wrong section",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "wrong_section",
+   "note": ""
+  },
+  {
+   "case": "GA-02",
+   "run": "invented number",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "number_not_in_quote",
+   "note": ""
+  },
+  {
+   "case": "GA-03",
+   "run": "clean",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "",
+   "note": ""
+  },
+  {
+   "case": "GA-03",
+   "run": "fabricated quote",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "quote_not_found",
+   "note": ""
+  },
+  {
+   "case": "GA-03",
+   "run": "wrong section",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "wrong_section",
+   "note": ""
+  },
+  {
+   "case": "GA-03",
+   "run": "invented number",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "number_not_in_quote",
+   "note": ""
+  },
+  {
+   "case": "GA-04",
+   "run": "clean",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "",
+   "note": ""
+  },
+  {
+   "case": "GA-04",
+   "run": "fabricated quote",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "quote_not_found",
+   "note": ""
+  },
+  {
+   "case": "GA-04",
+   "run": "wrong section",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "wrong_section",
+   "note": ""
+  },
+  {
+   "case": "GA-04",
+   "run": "invented number",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "number_not_in_quote",
+   "note": ""
+  },
+  {
+   "case": "GA-05",
+   "run": "clean",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "",
+   "note": ""
+  },
+  {
+   "case": "GA-05",
+   "run": "fabricated quote",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "quote_not_found",
+   "note": ""
+  },
+  {
+   "case": "GA-05",
+   "run": "wrong section",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "wrong_section",
+   "note": ""
+  },
+  {
+   "case": "GA-05",
+   "run": "invented number",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "number_not_in_quote",
+   "note": ""
+  },
+  {
+   "case": "GA-06",
+   "run": "clean",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "",
+   "note": ""
+  },
+  {
+   "case": "GA-06",
+   "run": "fabricated quote",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "quote_not_found",
+   "note": ""
+  },
+  {
+   "case": "GA-06",
+   "run": "wrong section",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "wrong_section",
+   "note": ""
+  },
+  {
+   "case": "GA-06",
+   "run": "invented number",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "number_not_in_quote",
+   "note": ""
+  },
+  {
+   "case": "GA-07",
+   "run": "clean",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "",
+   "note": ""
+  },
+  {
+   "case": "GA-07",
+   "run": "fabricated quote",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "quote_not_found",
+   "note": ""
+  },
+  {
+   "case": "GA-07",
+   "run": "wrong section",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "wrong_section",
+   "note": ""
+  },
+  {
+   "case": "GA-07",
+   "run": "invented number",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "number_not_in_quote",
+   "note": ""
+  },
+  {
+   "case": "GA-08",
+   "run": "clean",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "",
+   "note": ""
+  },
+  {
+   "case": "GA-08",
+   "run": "fabricated quote",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "quote_not_found",
+   "note": ""
+  },
+  {
+   "case": "GA-08",
+   "run": "wrong section",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "wrong_section",
+   "note": ""
+  },
+  {
+   "case": "GA-08",
+   "run": "invented number",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "number_not_in_quote",
+   "note": ""
+  },
+  {
+   "case": "UC-05",
+   "run": "clean",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "",
+   "note": ""
+  },
+  {
+   "case": "UC-05",
+   "run": "fabricated quote",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "quote_not_found",
+   "note": ""
+  },
+  {
+   "case": "UC-05",
+   "run": "wrong section",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "wrong_section",
+   "note": ""
+  },
+  {
+   "case": "UC-05",
+   "run": "invented number",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "number_not_in_quote",
+   "note": ""
+  },
+  {
+   "case": "RF-01",
+   "run": "clean",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "",
+   "note": ""
+  },
+  {
+   "case": "RF-01",
+   "run": "fabricated quote",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "quote_not_found",
+   "note": ""
+  },
+  {
+   "case": "RF-01",
+   "run": "wrong section",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "wrong_section",
+   "note": ""
+  },
+  {
+   "case": "RF-01",
+   "run": "invented number",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "number_not_in_quote",
+   "note": ""
+  },
+  {
+   "case": "RF-03",
+   "run": "clean",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "",
+   "note": ""
+  },
+  {
+   "case": "RF-03",
+   "run": "fabricated quote",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "quote_not_found",
+   "note": ""
+  },
+  {
+   "case": "RF-03",
+   "run": "wrong section",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "wrong_section",
+   "note": ""
+  },
+  {
+   "case": "RF-03",
+   "run": "invented number",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "number_not_in_quote",
+   "note": ""
+  },
+  {
+   "case": "RF-06",
+   "run": "clean",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "",
+   "note": ""
+  },
+  {
+   "case": "RF-06",
+   "run": "fabricated quote",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "quote_not_found",
+   "note": ""
+  },
+  {
+   "case": "RF-06",
+   "run": "wrong section",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "wrong_section",
+   "note": ""
+  },
+  {
+   "case": "RF-06",
+   "run": "invented number",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "number_not_in_quote",
+   "note": ""
+  },
+  {
+   "case": "PV-01",
+   "run": "clean",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "",
+   "note": ""
+  },
+  {
+   "case": "PV-01",
+   "run": "fabricated quote",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "quote_not_found",
+   "note": ""
+  },
+  {
+   "case": "PV-01",
+   "run": "wrong section",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "wrong_section",
+   "note": ""
+  },
+  {
+   "case": "PV-01",
+   "run": "invented number",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "number_not_in_quote",
+   "note": ""
+  },
+  {
+   "case": "PV-03",
+   "run": "clean",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "",
+   "note": ""
+  },
+  {
+   "case": "PV-03",
+   "run": "fabricated quote",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "quote_not_found",
+   "note": ""
+  },
+  {
+   "case": "PV-03",
+   "run": "wrong section",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "wrong_section",
+   "note": ""
+  },
+  {
+   "case": "PV-03",
+   "run": "invented number",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "number_not_in_quote",
+   "note": ""
+  },
+  {
+   "case": "PV-04",
+   "run": "clean",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "",
+   "note": ""
+  },
+  {
+   "case": "PV-04",
+   "run": "fabricated quote",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "quote_not_found",
+   "note": ""
+  },
+  {
+   "case": "PV-04",
+   "run": "wrong section",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "wrong_section",
+   "note": ""
+  },
+  {
+   "case": "PV-04",
+   "run": "invented number",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "number_not_in_quote",
+   "note": ""
+  },
+  {
+   "case": "PV-05",
+   "run": "clean",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "",
+   "note": ""
+  },
+  {
+   "case": "PV-05",
+   "run": "fabricated quote",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "quote_not_found",
+   "note": ""
+  },
+  {
+   "case": "PV-05",
+   "run": "wrong section",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "wrong_section",
+   "note": ""
+  },
+  {
+   "case": "PV-05",
+   "run": "invented number",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "number_not_in_quote",
+   "note": ""
+  },
+  {
+   "case": "PV-06a",
+   "run": "clean",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "",
+   "note": ""
+  },
+  {
+   "case": "PV-06a",
+   "run": "fabricated quote",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "quote_not_found",
+   "note": ""
+  },
+  {
+   "case": "PV-06a",
+   "run": "wrong section",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "wrong_section",
+   "note": ""
+  },
+  {
+   "case": "PV-06a",
+   "run": "invented number",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "number_not_in_quote",
+   "note": ""
+  },
+  {
+   "case": "PV-06b",
+   "run": "clean",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "",
+   "note": ""
+  },
+  {
+   "case": "PV-06b",
+   "run": "fabricated quote",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "quote_not_found",
+   "note": ""
+  },
+  {
+   "case": "PV-06b",
+   "run": "wrong section",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "wrong_section",
+   "note": ""
+  },
+  {
+   "case": "PV-06b",
+   "run": "invented number",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "number_not_in_quote",
+   "note": ""
+  },
+  {
+   "case": "PV-07",
+   "run": "clean",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "",
+   "note": ""
+  },
+  {
+   "case": "PV-07",
+   "run": "fabricated quote",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "quote_not_found",
+   "note": ""
+  },
+  {
+   "case": "PV-07",
+   "run": "wrong section",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "wrong_section",
+   "note": ""
+  },
+  {
+   "case": "PV-07",
+   "run": "invented number",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "number_not_in_quote",
+   "note": ""
+  },
+  {
+   "case": "PV-09",
+   "run": "clean",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "",
+   "note": ""
+  },
+  {
+   "case": "PV-09",
+   "run": "fabricated quote",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "quote_not_found",
+   "note": ""
+  },
+  {
+   "case": "PV-09",
+   "run": "wrong section",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "wrong_section",
+   "note": ""
+  },
+  {
+   "case": "PV-09",
+   "run": "invented number",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "number_not_in_quote",
+   "note": ""
+  },
+  {
+   "case": "RT-01",
+   "run": "clean",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "",
+   "note": ""
+  },
+  {
+   "case": "RT-01",
+   "run": "fabricated quote",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "quote_not_found",
+   "note": ""
+  },
+  {
+   "case": "RT-01",
+   "run": "wrong section",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "wrong_section",
+   "note": ""
+  },
+  {
+   "case": "RT-01",
+   "run": "invented number",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "number_not_in_quote",
+   "note": ""
+  },
+  {
+   "case": "RT-02",
+   "run": "clean",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "",
+   "note": ""
+  },
+  {
+   "case": "RT-02",
+   "run": "fabricated quote",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "quote_not_found",
+   "note": ""
+  },
+  {
+   "case": "RT-02",
+   "run": "wrong section",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "wrong_section",
+   "note": ""
+  },
+  {
+   "case": "RT-02",
+   "run": "invented number",
+   "pass": true,
+   "kind": "answer",
+   "shown": 2,
+   "dropped": "number_not_in_quote",
+   "note": ""
+  }
+ ]
+}

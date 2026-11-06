@@ -7,7 +7,8 @@ import { loadEnv } from "./env.js";
 export interface ModelRequest {
   purpose: "generate" | "support";
   model: string | null;
-  temperature: number;
+  /** null = leave it to the model's default. */
+  temperature: number | null;
   system: string;
   user: string;
   /** JSON Schema the reply must match (OpenAI structured outputs, strict mode). */
@@ -27,7 +28,15 @@ export class ModelError extends Error {}
  * or from the repo's .env file locally. Needs a model ID set in config/models.json; with the key or
  * the model missing it refuses to call, rather than falling back silently.
  */
+export interface Usage { calls: number; inputTokens: number; outputTokens: number; ms: number }
+
 export class OpenAIClient implements ModelClient {
+  /** Running totals per purpose, for eval reports and cost estimates. */
+  readonly usage: Record<ModelRequest["purpose"], Usage> = {
+    generate: { calls: 0, inputTokens: 0, outputTokens: 0, ms: 0 },
+    support: { calls: 0, inputTokens: 0, outputTokens: 0, ms: 0 },
+  };
+
   constructor(
     private readonly apiKey = (loadEnv(), process.env["OPENAI_API_KEY"]),
     private readonly baseUrl = "https://api.openai.com/v1",
@@ -37,13 +46,14 @@ export class OpenAIClient implements ModelClient {
   async complete(req: ModelRequest): Promise<string> {
     if (!this.apiKey) throw new ModelError("OPENAI_API_KEY is not set");
     if (!req.model) throw new ModelError(`No ${req.purpose} model set in config/models.json`);
+    const t0 = Date.now();
     const res = await fetch(`${this.baseUrl}/chat/completions`, {
       method: "POST",
       headers: { "content-type": "application/json", authorization: `Bearer ${this.apiKey}` },
       signal: AbortSignal.timeout(this.timeoutMs),
       body: JSON.stringify({
         model: req.model,
-        temperature: req.temperature,
+        ...(req.temperature === null ? {} : { temperature: req.temperature }),
         messages: [
           { role: "system", content: req.system },
           { role: "user", content: req.user },
@@ -52,7 +62,15 @@ export class OpenAIClient implements ModelClient {
       }),
     });
     if (!res.ok) throw new ModelError(`OpenAI ${res.status}: ${(await res.text()).slice(0, 300)}`);
-    const body = (await res.json()) as { choices?: { message?: { content?: string; refusal?: string } }[] };
+    const body = (await res.json()) as {
+      choices?: { message?: { content?: string; refusal?: string } }[];
+      usage?: { prompt_tokens?: number; completion_tokens?: number };
+    };
+    const u = this.usage[req.purpose];
+    u.calls++;
+    u.inputTokens += body.usage?.prompt_tokens ?? 0;
+    u.outputTokens += body.usage?.completion_tokens ?? 0;
+    u.ms += Date.now() - t0;
     const msg = body.choices?.[0]?.message;
     if (msg?.refusal) throw new ModelError(`Model refused: ${msg.refusal}`);
     if (typeof msg?.content !== "string") throw new ModelError("OpenAI reply had no content");

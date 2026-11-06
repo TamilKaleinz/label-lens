@@ -38,7 +38,7 @@ export interface Verdict {
 export type SupportCheck = (claim: Claim) => Promise<boolean>;
 
 const MIN_QUOTE_CHARS = 20;
-const MIN_QUOTE_WORDS = 4;
+const MIN_QUOTE_WORDS = 3;
 
 /**
  * Canonical form for matching: lowercase, typographic quotes and dashes made plain, and all

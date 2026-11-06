@@ -8,7 +8,8 @@ import { readdirSync, readFileSync, statSync } from "node:fs";
 import { join, relative } from "node:path";
 import type { Role } from "./types.js";
 
-export interface ModelSetting { model: string | null; temperature: number }
+/** temperature null = the model's default (some models, like gpt-5.5, accept no other value). */
+export interface ModelSetting { model: string | null; temperature: number | null }
 export interface Config {
   hash: string;
   models: { provider: "openai"; generate: ModelSetting; gate: ModelSetting };

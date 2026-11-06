@@ -11,23 +11,34 @@ import type { Chunk, Retrieval } from "./retrieve.js";
 import type { LabelMeta, Role } from "./types.js";
 import type { Claim } from "./verify.js";
 
-export const GENERATE_SCHEMA = {
-  type: "object",
-  additionalProperties: false,
-  required: ["label_silent", "claims"],
-  properties: {
-    label_silent: { type: "boolean" },
-    claims: {
-      type: "array",
-      items: {
-        type: "object",
-        additionalProperties: false,
-        required: ["text", "section_code", "quote"],
-        properties: { text: { type: "string" }, section_code: { type: "string" }, quote: { type: "string" } },
+/**
+ * The reply schema. section_code is an enum of the excerpts' own codes, so strict structured output
+ * can't return "8.1 Pregnancy Risk Summary" or a section the model wasn't shown. (Found in the first
+ * live eval: the model sometimes copied the whole heading, and every claim was dropped.)
+ */
+export function generateSchema(codes: string[]) {
+  return {
+    type: "object",
+    additionalProperties: false,
+    required: ["label_silent", "claims"],
+    properties: {
+      label_silent: { type: "boolean" },
+      claims: {
+        type: "array",
+        items: {
+          type: "object",
+          additionalProperties: false,
+          required: ["text", "section_code", "quote"],
+          properties: {
+            text: { type: "string" },
+            section_code: { type: "string", enum: [...new Set(codes)] },
+            quote: { type: "string" },
+          },
+        },
       },
     },
-  },
-} as const;
+  };
+}
 
 /** The excerpts the generator is shown: the retrieved chunks, plus the Boxed Warning if it isn't among them. */
 export function excerptsFor(r: Retrieval): Chunk[] {
@@ -39,7 +50,7 @@ export function excerptsFor(r: Retrieval): Chunk[] {
 export function buildGeneratePrompt(config: Config, role: Role, question: string, label: LabelMeta, excerpts: Chunk[]) {
   const system = config.prompts.generate.replace("{{role_style}}", config.prompts.roles[role]);
   const header = `Label: ${label.brandNames[0] ?? label.genericNames[0] ?? "unknown"} (${label.manufacturer}), version ${label.version}, effective ${label.effectiveDate}`;
-  const body = excerpts.map((c, i) => `[E${i + 1}] section ${c.sectionCode} ${c.sectionTitle}\n${c.text}`).join("\n\n");
+  const body = excerpts.map((c, i) => `[E${i + 1}] section_code: ${c.sectionCode} | title: ${c.sectionTitle}\n${c.text}`).join("\n\n");
   const user = `${header}\n\nQuestion: ${question}\n\nExcerpts:\n\n${body}`;
   return { system, user };
 }
@@ -80,7 +91,7 @@ export async function generate(model: ModelClient, config: Config, role: Role, q
       system,
       user,
       schemaName: "label_answer",
-      schema: GENERATE_SCHEMA as unknown as Record<string, unknown>,
+      schema: generateSchema(excerpts.map((c) => c.sectionCode)),
     });
     return parseGeneration(raw);
   } catch (e) {

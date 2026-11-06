@@ -79,6 +79,9 @@ describe("answer pipeline (mock model)", () => {
     expect(ex.map((e) => e.code)).toContain("BW");
     expect(gen.user).toContain(fullLabel("DS-13").version);
     expect(gen.user.toLowerCase()).not.toContain("metformin");
+    // The reply can only cite sections the model was shown.
+    const codes = (gen.schema as any).properties.claims.items.properties.section_code.enum;
+    expect([...codes].sort()).toEqual([...new Set(ex.map((e) => e.code))].sort());
   });
 
   it("puts the role's style in the prompt; the role changes nothing else", async () => {
@@ -109,7 +112,9 @@ describe("answer pipeline (mock model)", () => {
 
   it("refuses live calls until a model is configured", async () => {
     const { OpenAIClient } = await import("../src/model.js");
-    const r = await engine(new OpenAIClient("test-key")).answer({ role: "pharmacist", ref: metformin, question: "what about lactic acidosis?" });
+    const unset = { ...config, models: { ...config.models, generate: { model: null, temperature: null } } };
+    const e = new Engine({ store: fullStore, sectionsFor, model: new OpenAIClient("test-key"), config: unset });
+    const r = await e.answer({ role: "pharmacist", ref: metformin, question: "what about lactic acidosis?" });
     expect(r).toMatchObject({ kind: "label_silent", error: expect.stringContaining("No generate model set") });
   });
 });
